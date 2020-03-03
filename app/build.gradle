@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        joke {
+            storePassword '123456'
+            keyAlias = 'pipijoke'
+            keyPassword '123456'
+            storeFile file('../key')
+        }
+    }
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.mooc.ppjoke"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+        defaultConfig {
+            ndk {
+                // 设置支持的SO库架构
+                abiFilters 'armeabi-v7a'//, 'x86_64', 'arm64-v8a'
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.joke
+        }
+        debug {
+            signingConfig signingConfigs.joke
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility "1.8"
+        targetCompatibility "1.8"
+    }
+
+    dataBinding{
+        enabled=true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':libnavannotation')
+    //如果你使用kotlin,这里需要使用 kapt project
+    annotationProcessor project(":libnavcompiler")
+    implementation project(':libnetwork')
+    implementation project(':libcommon')
+
+    //QQ快捷登录
+    implementation files('libs/open_sdk_r6140_lite.jar')
+
+    //错误收集
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    implementation 'com.facebook.stetho:stetho:1.4.2'
+
+
+//    implementation "androidx.databinding:databinding-common:${rootProject.ext.databindingVersion}"
+//    implementation ("androidx.databinding:databinding-runtime:${rootProject.ext.databindingVersion}",
+//            {
+//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata'
+//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata-core'
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+//            })
+//    implementation "androidx.databinding:databinding-adapters:${rootProject.ext.databindingVersion}"
+//    implementation ("androidx.databinding:databinding-compiler-common:${rootProject.ext.databindingVersion}",
+//            {
+//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata'
+//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata-core'
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+//            })
+//    implementation ("androidx.databinding:databinding-compiler:${rootProject.ext.databindingVersion}",
+//            {
+//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata'
+//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata-core'
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+//            })
+
+}
+

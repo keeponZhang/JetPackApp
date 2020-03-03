@@ -1,0 +1,2 @@
+include ':app', ':libnavannotation', ':libnavcompiler', ':libnetwork', ':libcommon', ':androidx-lifecycle-common', ':androidx-lifecycle-livedata', ':androidx-lifecycle-livedata-core', ':androidx-lifecycle-viewmodel'
+rootProject.name = 'ppjoke'
