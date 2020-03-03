@@ -32,17 +32,27 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.squareup.okhttp3:okhttp:4.2.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
-    implementation project(":libcommon")
-
-    api ('android.arch.persistence.room:runtime:1.1.1',
+    implementation ('com.squareup.okhttp3:okhttp:4.2.0',
             {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
             })
-    api ("android.arch.lifecycle:extensions:1.1.1",
+    implementation ('com.squareup.okhttp3:logging-interceptor:3.5.0',
+            {
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+            })
+    implementation project(":libcommon")
+
+    implementation ('android.arch.persistence.room:runtime:1.1.1',
+            {
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+            })
+    implementation ("android.arch.lifecycle:extensions:1.1.1",
             {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'

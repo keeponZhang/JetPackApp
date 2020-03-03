@@ -60,7 +60,12 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 }
-
+configurations.all {
+    exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
+    exclude group: 'androidx.lifecycle', module: 'lifecycle-extentions'
+    exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
+    exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
