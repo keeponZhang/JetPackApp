@@ -16,6 +16,8 @@
 
 package androidx.lifecycle;
 
+import android.util.Log;
+
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
@@ -67,6 +69,7 @@ public abstract class ComputableLiveData<T> {
         mLiveData = new LiveData<T>() {
             @Override
             protected void onActive() {
+                Log.e("TAG", "ComputableLiveData 构造器 onActive !!!!!!!!!!!!!!!:" );
                 mExecutor.execute(mRefreshRunnable);
             }
         };
@@ -98,6 +101,7 @@ public abstract class ComputableLiveData<T> {
                         T value = null;
                         while (mInvalid.compareAndSet(true, false)) {
                             computed = true;
+                            Log.e("TAG", "ComputableLiveData run ---------------:" );
                             value = compute();
                         }
                         if (computed) {
@@ -126,8 +130,10 @@ public abstract class ComputableLiveData<T> {
         @Override
         public void run() {
             boolean isActive = mLiveData.hasActiveObservers();
+            Log.e("TAG", "######### invalidate 调用 ComputableLiveData run:" );
             if (mInvalid.compareAndSet(false, true)) {
                 if (isActive) {
+                    Log.e("TAG", "~~~~~~~~ComputableLiveData run:" );
                     mExecutor.execute(mRefreshRunnable);
                 }
             }
