@@ -40,6 +40,7 @@ public class MutableLiveData<T> extends LiveData<T> {
         super();
     }
 
+    //只是改变了方法的访问限定符
     @Override
     public void postValue(T value) {
         super.postValue(value);

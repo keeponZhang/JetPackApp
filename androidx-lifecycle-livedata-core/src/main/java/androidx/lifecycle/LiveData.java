@@ -128,6 +128,7 @@ public abstract class LiveData<T> {
         }
         observer.mLastVersion = mVersion;
         //noinspection unchecked
+        //这里就回调到宿主那个真正observer的onChanged方法
         observer.mObserver.onChanged((T) mData);
     }
 
@@ -140,10 +141,12 @@ public abstract class LiveData<T> {
         mDispatchingValue = true;
         do {
             mDispatchInvalidated = false;
+            //传进来的参数不为空，调用considerNotify方法
             if (initiator != null) {
                 considerNotify(initiator);
                 initiator = null;
             } else {
+                //setValue调用会传空
                 for (Iterator<Map.Entry<Observer<? super T>, ObserverWrapper>> iterator =
                         mObservers.iteratorWithAdditions(); iterator.hasNext(); ) {
                     considerNotify(iterator.next().getValue());
@@ -184,6 +187,7 @@ public abstract class LiveData<T> {
      * @param owner    The LifecycleOwner which controls the observer
      * @param observer The observer that will receive the events
      */
+    //   LifecycleOwner是一个接口，只有一个  getLifecycle方法
     @MainThread
     public void observe(@NonNull LifecycleOwner owner, @NonNull Observer<? super T> observer) {
         assertMainThread("observe");
@@ -192,6 +196,7 @@ public abstract class LiveData<T> {
             return;
         }
         LifecycleBoundObserver wrapper = new LifecycleBoundObserver(owner, observer);
+        //setValue分发数据的时候会用到这个map
         ObserverWrapper existing = mObservers.putIfAbsent(observer, wrapper);
         if (existing != null && !existing.isAttachedTo(owner)) {
             throw new IllegalArgumentException("Cannot add the same observer"
@@ -200,6 +205,9 @@ public abstract class LiveData<T> {
         if (existing != null) {
             return;
         }
+        //LifecycleRegistry
+        //然后从LifecycleRegistry.ObserverWithState.dispatchEvent
+        //到wrapper.onStateChanged方法
         owner.getLifecycle().addObserver(wrapper);
     }
 
@@ -371,6 +379,7 @@ public abstract class LiveData<T> {
         return mActiveCount > 0;
     }
 
+    //LifecycleEventObserver的onStateChanged方法
     class LifecycleBoundObserver extends ObserverWrapper implements LifecycleEventObserver {
         @NonNull
         final LifecycleOwner mOwner;
@@ -385,6 +394,7 @@ public abstract class LiveData<T> {
             return mOwner.getLifecycle().getCurrentState().isAtLeast(STARTED);
         }
 
+        //宿主的生命周期改变
         @Override
         public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
             if (mOwner.getLifecycle().getCurrentState() == DESTROYED) {
@@ -433,9 +443,11 @@ public abstract class LiveData<T> {
             boolean wasInactive = LiveData.this.mActiveCount == 0;
             LiveData.this.mActiveCount += mActive ? 1 : -1;
             if (wasInactive && mActive) {
+                //可以重写，做些初始化的操作
                 onActive();
             }
             if (LiveData.this.mActiveCount == 0 && !mActive) {
+                //可以重写，做些清理的操作
                 onInactive();
             }
             if (mActive) {

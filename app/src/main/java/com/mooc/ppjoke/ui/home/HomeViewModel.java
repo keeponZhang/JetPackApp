@@ -106,6 +106,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                     //这样有可能缓存覆盖了网络数据
                     SystemClock.sleep(4000);
 
+                    //转换pagelist不是直接new出来pagelist
                     Log.w("TAG", "loadData 获取缓存 onCacheSuccess: "+response);
                     MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<Feed>();
                     dataSource.data.addAll(response.body);
