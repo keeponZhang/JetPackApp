@@ -1,5 +1,6 @@
 package com.mooc.ppjoke.ui.home;
 
+import android.os.SystemClock;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+//https://www.jianshu.com/p/14af4b8c29e3
+// 通过LiveData作为中介者，实现了UI组件和数据组件的隔离，对于UI组件来说，它只负责 发起请求操作 和 在数据变化的时候更新界面，而对于数据组件来说，它负责 接受请求和 改变LiveData,数据组件也可以在viewModel实现
 public class HomeViewModel extends AbsViewModel<Feed> {
 
     private volatile boolean witchCache = true;
@@ -46,11 +49,16 @@ public class HomeViewModel extends AbsViewModel<Feed> {
         mFeedType = feedType;
     }
 
+    //数据源，也是放在viewmodel处理（或者单独用数据处理类）
+    //ItemKeyedDataSource：适用于目标数据的加载依赖特定item的信息，比较常用
+    //PageKeyedDataSource:适用于目标数据根据页信息请求数据
+    //PositionalDataSource：适用于目标数据总数固定，通过特定的位置加载数据
+
     class FeedDataSource extends ItemKeyedDataSource<Integer, Feed> {
         @Override
         public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Feed> callback) {
             //加载初始化数据的
-            Log.w("TAG", "homeviewmodel loadInitial 初始化数据啦: ");
+            Log.w("TAG", "homeviewmodel loadInitial 初始化数据啦 params.requestedLoadSize: "+params.requestedLoadSize);
             loadData(0, params.requestedLoadSize, callback);
             witchCache = false;
         }
@@ -71,6 +79,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
         @NonNull
         @Override
         public Integer getKey(@NonNull Feed item) {
+            Log.w("TAG", "FeedDataSource getKey 获取key咯:" );
             return item.id;
         }
     }
@@ -89,10 +98,14 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                 }.getType());
         // witchCache = false;
         if (witchCache) {
+
             request.cacheStrategy(Request.CACHE_ONLY);
             request.execute(new JsonCallback<List<Feed>>() {
                 @Override
                 public void onCacheSuccess(ApiResponse<List<Feed>> response) {
+                    //这样有可能缓存覆盖了网络数据
+                    SystemClock.sleep(4000);
+
                     Log.w("TAG", "loadData 获取缓存 onCacheSuccess: "+response);
                     MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<Feed>();
                     dataSource.data.addAll(response.body);
@@ -117,7 +130,8 @@ public class HomeViewModel extends AbsViewModel<Feed> {
             //首页的数据才缓存
             ApiResponse<List<Feed>> response = netRequest.execute();
             List<Feed> data = response.body == null ? Collections.emptyList() : response.body;
-            Log.e("TAG", "HomeViewModel loadData 同步获取数据成功 data:"+data.size()+"  key="+key );
+            Log.e("TAG",
+                    "HomeViewModel loadData 同步获取数据成功"+"  key="+key + " data.size:"+data.size());
             callback.onResult(data);
 
             if (key > 0) {

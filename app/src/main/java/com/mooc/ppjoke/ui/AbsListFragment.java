@@ -78,6 +78,7 @@ public abstract class AbsListFragment<T, M extends AbsViewModel<T>> extends Frag
             mViewModel = (M) ViewModelProviders.of(this).get(modelClaz);
 
             //触发页面初始化数据加载的逻辑
+            //触发是放在fragment（这种是主动触发，因为pageData是通过builder创建出来的）
             mViewModel.getPageData().observe(this, pagedList -> submitList(pagedList));
 
             //监听分页时有无更多数据,以决定是否关闭上拉加载的动画

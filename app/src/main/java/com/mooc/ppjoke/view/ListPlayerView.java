@@ -93,7 +93,7 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
 
         //如果该视频的宽度小于高度,则高斯模糊背景图显示出来
         if (widthPx < heightPx) {
-            Log.e("TAG", "ListPlayerView bindData coverUrl:"+coverUrl );
+            // Log.e("TAG", "ListPlayerView bindData coverUrl:"+coverUrl );
             PPImageView.setBlurImageUrl(blur, coverUrl, 10);
             blur.setVisibility(VISIBLE);
         } else {

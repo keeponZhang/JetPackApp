@@ -22,12 +22,13 @@ public abstract class AbsViewModel<T> extends ViewModel {
 
         config = new PagedList.Config.Builder()
                 .setPageSize(10)
-                .setInitialLoadSizeHint(12)
+                .setInitialLoadSizeHint(10)
                 // .setMaxSize(100)；
                 // .setEnablePlaceholders(false)
-                // .setPrefetchDistance()
+                .setPrefetchDistance(0)
                 .build();
 
+        //只需要调用observe方法就可以出发加载数据
         pageData = new LivePagedListBuilder(factory, config)
                 .setInitialLoadKey(0)
                 //.setFetchExecutor()
