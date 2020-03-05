@@ -32,6 +32,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
     private volatile boolean witchCache = true;
     private MutableLiveData<PagedList<Feed>> cacheLiveData = new MutableLiveData<>();
 
+    //同步位标记，防止框架已经帮我们做了加载更多了，系统调用时调用dataSource的loadAfter
     private AtomicBoolean loadAfter = new AtomicBoolean(false);
     private String mFeedType;
 
@@ -109,8 +110,10 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                     //转换pagelist不是直接new出来pagelist
                     Log.w("TAG", "loadData 获取缓存 onCacheSuccess: "+response);
                     MutablePageKeyedDataSource dataSource = new MutablePageKeyedDataSource<Feed>();
+                    //这样缓存数据与dataSource关联起来
                     dataSource.data.addAll(response.body);
 
+                    //这里也是用PagedList.Builder通过dataSource和config来创建pageList
                     PagedList pagedList = dataSource.buildNewPagedList(config);
                     cacheLiveData.postValue(pagedList);
                     // pagedList.add(pagedList.get(pagedList.size()-1));

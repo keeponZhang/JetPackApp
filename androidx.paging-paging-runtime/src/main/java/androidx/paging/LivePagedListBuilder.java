@@ -205,6 +205,7 @@ public final class LivePagedListBuilder<Key, Value> {
                     mDataSource.addInvalidatedCallback(mCallback);
 
                     //这里通过PageList.Builder创建PageList,需要dataSource
+                    //PagedList.Builder的泛型参数<Key, Value>就是dataSource的泛型参数
                     mList = new PagedList.Builder<>(mDataSource, config)
                             .setNotifyExecutor(notifyExecutor)
                             .setFetchExecutor(fetchExecutor)
