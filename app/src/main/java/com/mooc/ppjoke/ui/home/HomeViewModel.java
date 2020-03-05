@@ -98,7 +98,6 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                 }.getType());
         // witchCache = false;
         if (witchCache) {
-
             request.cacheStrategy(Request.CACHE_ONLY);
             request.execute(new JsonCallback<List<Feed>>() {
                 @Override

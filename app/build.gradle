@@ -76,8 +76,7 @@ dependencies {
     implementation project(path: ':androidx.arch.core-core-common')
     implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
 
-    implementation project(path: ':androidx.paging-paging-common')
-    implementation project(path: ':androidx.paging-paging-runtime')
+
 
     implementation project(path: ':androidx.sqlite-sqlite-framework')
     implementation project(path: ':androidx.sqlite-sqlite')
