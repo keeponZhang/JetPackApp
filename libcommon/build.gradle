@@ -36,6 +36,8 @@ dependencies {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.arch.core', module: 'core-common'
+                exclude group: 'androidx.arch.core', module: 'core-runtime'
             })
 
     //material组件
@@ -76,10 +78,10 @@ dependencies {
     //或者指明使用livedata
     //api 'androidx.lifecycle:lifecycle-livedata:2.1.0'
     //api 'androidx.lifecycle:lifecycle-livedata-core:2.1.0'
-    implementation project(path: ':androidx-lifecycle-viewmodel')
-    implementation project(path: ':androidx-lifecycle-common')
-    implementation project(path: ':androidx-lifecycle-livedata')
-    implementation project(path: ':androidx-lifecycle-livedata-core')
+    implementation project(path: ':androidx.lifecycle-lifecycle-viewmodel')
+    implementation project(path: ':androidx.lifecycle-lifecycle-common')
+    implementation project(path: ':androidx.lifecycle-lifecycle-livedata')
+    implementation project(path: ':androidx.lifecycle-lifecycle-livedata-core')
     //注解使用生命周期编译器
     annotationProcessor ("androidx.lifecycle:lifecycle-compiler:2.1.0",
             {
@@ -94,6 +96,8 @@ dependencies {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.arch.core', module: 'core-common'
+                exclude group: 'androidx.arch.core', module: 'core-runtime'
             })
 
     //页面刷新组件
@@ -135,13 +139,18 @@ dependencies {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.arch.core', module: 'core-common'
+                exclude group: 'androidx.arch.core', module: 'core-runtime'
             })
-    implementation ("android.arch.lifecycle:extensions:1.1.1",
-            {
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-            })
+    implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
+
+//    implementation ("android.arch.lifecycle:extensions:1.1.1",
+//            {
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+//
+//            })
     annotationProcessor ('android.arch.persistence.room:compiler:1.1.1',
             {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'

@@ -1,7 +1,7 @@
 ,
         {
-        exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata'
-        exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata-core'
+        exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata'
+        exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata-core'
         exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
         }
 
@@ -21,7 +21,7 @@
 
         implementation project(path: ':navigation-ui')
         implementation project(path: ':navigation-fragment')
-        implementation project(path: ':androidx-lifecycle-common')
-        implementation project(path: ':androidx-lifecycle-livedata')
-        implementation project(path: ':androidx-lifecycle-livedata-core')
+        implementation project(path: ':androidx.lifecycle-lifecycle-common')
+        implementation project(path: ':androidx.lifecycle-lifecycle-livedata')
+        implementation project(path: ':androidx.lifecycle-lifecycle-livedata-core')
         implementation project(path: ':androidx-annotation')

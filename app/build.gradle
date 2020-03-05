@@ -48,7 +48,7 @@ android {
         enabled=true
     }
 }
-
+//gradlew :app:dependencies >dependencies.java打印依赖树
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':libnavannotation')
@@ -66,35 +66,51 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.4.2'
 
 
-    implementation project(path: ':androidx-lifecycle-common')
-    implementation project(path: ':androidx-lifecycle-livedata')
-    implementation project(path: ':androidx-lifecycle-livedata-core')
-    implementation project(path: ':androidx-lifecycle-viewmodel')
-    implementation ("androidx.lifecycle:lifecycle-extensions:${rootProject.ext.androidxLifeCycle}",
-            {
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-            })
+    implementation project(path: ':androidx.lifecycle-lifecycle-common')
+    implementation project(path: ':androidx.lifecycle-lifecycle-livedata')
+    implementation project(path: ':androidx.lifecycle-lifecycle-livedata-core')
+    implementation project(path: ':androidx.lifecycle-lifecycle-viewmodel')
+    implementation project(path: ':androidx.lifecycle-lifecycle-runtime')
+
+    implementation project(path: ':androidx.arch.core-core-runtime')
+    implementation project(path: ':androidx.arch.core-core-common')
+    implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
+
+    implementation project(path: ':androidx.paging-paging-common')
+    implementation project(path: ':androidx.paging-paging-runtime')
+
+    implementation project(path: ':androidx.sqlite-sqlite-framework')
+    implementation project(path: ':androidx.sqlite-sqlite')
+
+    implementation project(path: ':androidx.room-room-runtime')
+    implementation project(path: ':androidx.room-room-common')
+    implementation project(path: ':androidx.work-work-runtime')
+
+//    implementation ("androidx.lifecycle:lifecycle-extensions:${rootProject.ext.androidxLifeCycle}",
+//            {
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
+//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+//            })
 
 //    implementation "androidx.databinding:databinding-common:${rootProject.ext.databindingVersion}"
 //    implementation ("androidx.databinding:databinding-runtime:${rootProject.ext.databindingVersion}",
 //            {
-//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata'
-//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata-core'
+//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata'
+//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata-core'
 //                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
 //            })
 //    implementation "androidx.databinding:databinding-adapters:${rootProject.ext.databindingVersion}"
 //    implementation ("androidx.databinding:databinding-compiler-common:${rootProject.ext.databindingVersion}",
 //            {
-//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata'
-//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata-core'
+//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata'
+//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata-core'
 //                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
 //            })
 //    implementation ("androidx.databinding:databinding-compiler:${rootProject.ext.databindingVersion}",
 //            {
-//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata'
-//                exclude group: 'androidx.lifecycle', module: 'androidx-lifecycle-livedata-core'
+//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata'
+//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata-core'
 //                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
 //            })
 
