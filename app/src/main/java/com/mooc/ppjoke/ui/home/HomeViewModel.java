@@ -55,6 +55,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
     //PositionalDataSource：适用于目标数据总数固定，通过特定的位置加载数据
 
     class FeedDataSource extends ItemKeyedDataSource<Integer, Feed> {
+        //这里是创建dataSource,然后回到到loadInitial，发起数据请求
         @Override
         public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Feed> callback) {
             //加载初始化数据的
@@ -96,7 +97,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                 .addParam("pageCount", count)
                 .responseType(new TypeReference<ArrayList<Feed>>() {
                 }.getType());
-        // witchCache = false;
+        witchCache = false;
         if (witchCache) {
             request.cacheStrategy(Request.CACHE_ONLY);
             request.execute(new JsonCallback<List<Feed>>() {
@@ -132,6 +133,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
             List<Feed> data = response.body == null ? Collections.emptyList() : response.body;
             Log.e("TAG",
                     "HomeViewModel loadData 同步获取数据成功"+"  key="+key + " data.size:"+data.size());
+            //call返回的是普通List
             callback.onResult(data);
 
             if (key > 0) {

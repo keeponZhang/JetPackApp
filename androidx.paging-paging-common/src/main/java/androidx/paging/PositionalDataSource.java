@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
@@ -510,7 +512,7 @@ public abstract class PositionalDataSource<T> extends DataSource<Integer, T> {
                 boolean enablePlaceholders, @NonNull Executor mainThreadExecutor,
                 @NonNull PageResult.Receiver<Value> receiver) {
             final int convertPosition = position == null ? 0 : position;
-
+            Log.e("TAG", "ContiguousWithoutPlaceholdersWrapper dispatchLoadInitial:" );
             // Note enablePlaceholders will be false here, but we don't have a way to communicate
             // this to PositionalDataSource. This is fine, because only the list and its position
             // offset will be consumed by the LoadInitialCallback.

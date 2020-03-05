@@ -25,6 +25,22 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.annotation:annotation:${rootProject.ext.annotationVersion}"
     implementation project(path: ':androidx.lifecycle-lifecycle-viewmodel')
-    implementation 'androidx.fragment:fragment:1.1.0'
-    implementation 'androidx.activity:activity:1.0.0'
+    implementation project(path: ':androidx.lifecycle-lifecycle-common')
+    implementation ("androidx.fragment:fragment:${rootProject.ext.androidxFragmentVersion}",
+            {
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.arch.core', module: 'core-common'
+                exclude group: 'androidx.arch.core', module: 'core-runtime'
+                exclude group: 'androidx.loader', module: 'loader'
+            })
+    implementation ("androidx.activity:activity:${rootProject.ext.androidxActivity}",
+            {
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
+                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.arch.core', module: 'core-common'
+                exclude group: 'androidx.arch.core', module: 'core-runtime'
+            })
 }

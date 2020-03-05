@@ -80,10 +80,11 @@ public abstract class AbsListFragment<T, M extends AbsViewModel<T>> extends Frag
 
             //触发页面初始化数据加载的逻辑
             //触发是放在fragment（这种是主动触发，因为pageData是通过builder创建出来的）
-            // mViewModel.getPageData().observe(this, pagedList -> submitList(pagedList));
-            mViewModel.getPageData().observe(this, new Observer<PagedList<T>>() {
+            // mViewModel.getLiveDataPageList().observe(this, pagedList -> submitList(pagedList));
+            mViewModel.getLiveDataPageList().observe(this, new Observer<PagedList<T>>() {
                 @Override
                 public void onChanged(PagedList<T> pagedList) {
+                    Log.e("TAG", "AbsListFragment onChanged 收到数据 pagedList:"+pagedList );
                     submitList(pagedList);
                 }
             });

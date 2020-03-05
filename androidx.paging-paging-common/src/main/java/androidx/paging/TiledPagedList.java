@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +39,7 @@ class TiledPagedList<T> extends PagedList<T>
         @Override
         public void onPageResult(@PageResult.ResultType int type,
                 @NonNull PageResult<T> pageResult) {
+            Log.e("TAG", "TiledPagedList onPageResult pageResult:" +pageResult);
             if (pageResult.isInvalid()) {
                 detach();
                 return;

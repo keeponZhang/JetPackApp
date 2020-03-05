@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.arch.core.util.Function;
 
@@ -74,6 +76,7 @@ class WrapperItemKeyedDataSource<K, A, B> extends ItemKeyedDataSource<K, B> {
         mSource.loadInitial(params, new LoadInitialCallback<A>() {
             @Override
             public void onResult(@NonNull List<A> data, int position, int totalCount) {
+                Log.e("TAG", "WrapperItemKeyedDataSource onResult:" );
                 callback.onResult(convertWithStashedKeys(data), position, totalCount);
             }
 

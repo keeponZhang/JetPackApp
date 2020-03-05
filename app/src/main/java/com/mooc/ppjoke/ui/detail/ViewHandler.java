@@ -5,12 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.paging.ItemKeyedDataSource;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +19,6 @@ import com.mooc.ppjoke.R;
 import com.mooc.ppjoke.databinding.LayoutFeedDetailBottomInateractionBinding;
 import com.mooc.ppjoke.model.Comment;
 import com.mooc.ppjoke.model.Feed;
-import com.mooc.ppjoke.ui.MutableItemKeyedDataSource;
 
 public abstract class ViewHandler {
     private final FeedDetailViewModel viewModel;
@@ -55,7 +52,7 @@ public abstract class ViewHandler {
         mRecyclerView.setAdapter(listAdapter);
 
         viewModel.setItemId(mFeed.itemId);
-        viewModel.getPageData().observe(mActivity, new Observer<PagedList<Comment>>() {
+        viewModel.getLiveDataPageList().observe(mActivity, new Observer<PagedList<Comment>>() {
             @Override
             public void onChanged(PagedList<Comment> comments) {
                 listAdapter.submitList(comments);

@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.arch.core.util.Function;
@@ -192,12 +194,14 @@ public abstract class ItemKeyedDataSource<Key, Value> extends ContiguousDataSour
                 @NonNull PageResult.Receiver<Value> receiver) {
             mCallbackHelper = new LoadCallbackHelper<>(dataSource, PageResult.INIT, null, receiver);
             mCountingEnabled = countingEnabled;
+            Log.e("TAG", "LoadInitialCallbackImpl 创建LoadInitialCallbackImpl:" );
         }
 
         @Override
         public void onResult(@NonNull List<Value> data, int position, int totalCount) {
             if (!mCallbackHelper.dispatchInvalidResultIfInvalid()) {
                 LoadCallbackHelper.validateInitialLoadParams(data, position, totalCount);
+                Log.e("TAG", "LoadInitialCallbackImpl onResult 三个参数:" );
 
                 int trailingUnloadedCount = totalCount - position - data.size();
                 if (mCountingEnabled) {
@@ -212,6 +216,7 @@ public abstract class ItemKeyedDataSource<Key, Value> extends ContiguousDataSour
         @Override
         public void onResult(@NonNull List<Value> data) {
             if (!mCallbackHelper.dispatchInvalidResultIfInvalid()) {
+                Log.e("TAG", "LoadInitialCallbackImpl onResult data:" +data);
                 mCallbackHelper.dispatchResultToReceiver(new PageResult<>(data, 0, 0, 0));
             }
         }
@@ -230,6 +235,8 @@ public abstract class ItemKeyedDataSource<Key, Value> extends ContiguousDataSour
         @Override
         public void onResult(@NonNull List<Value> data) {
             if (!mCallbackHelper.dispatchInvalidResultIfInvalid()) {
+                Log.w("TAG", "LoadCallbackImpl onResult 调用mCallbackHelper" +
+                        ".dispatchResultToReceiver:" );
                 mCallbackHelper.dispatchResultToReceiver(new PageResult<>(data, 0, 0, 0));
             }
         }
@@ -251,12 +258,15 @@ public abstract class ItemKeyedDataSource<Key, Value> extends ContiguousDataSour
             @NonNull PageResult.Receiver<Value> receiver) {
         LoadInitialCallbackImpl<Value> callback =
                 new LoadInitialCallbackImpl<>(this, enablePlaceholders, receiver);
+        Log.e("TAG", "ItemKeyedDataSource dispatchLoadInitial 调用 loadInitial 前:" );
         loadInitial(new LoadInitialParams<>(key, initialLoadSize, enablePlaceholders), callback);
-
+        Log.w("TAG", "ItemKeyedDataSource dispatchLoadInitial调用 loadInitial 后:" );
         // If initialLoad's callback is not called within the body, we force any following calls
         // to post to the UI thread. This constructor may be run on a background thread, but
         // after constructor, mutation must happen on UI thread.
         callback.mCallbackHelper.setPostExecutor(mainThreadExecutor);
+        Log.e("TAG", "ItemKeyedDataSource dispatchLoadInitial  callback.mCallbackHelper" +
+                ".setPostExecutor后:" );
     }
 
     @Override

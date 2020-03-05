@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import androidx.annotation.AnyThread;
@@ -76,8 +78,12 @@ class ContiguousPagedList<K, V> extends PagedList<V> implements PagedStorage.Cal
                 return;
             }
 
+
             List<V> page = pageResult.page;
+            Log.w("TAG",
+                    "ContiguousPagedList onPageResult 拿到真正的数据 page:" +page+" page.size="+page.size());
             if (resultType == PageResult.INIT) {
+                Log.e("TAG", "ContiguousPagedList onPageResult resultType == PageResult.INIT:" );
                 mStorage.init(pageResult.leadingNulls, page, pageResult.trailingNulls,
                         pageResult.positionOffset, ContiguousPagedList.this);
                 if (mLastLoad == LAST_LOAD_UNSPECIFIED) {
@@ -168,10 +174,12 @@ class ContiguousPagedList<K, V> extends PagedList<V> implements PagedStorage.Cal
                 boundaryCallback, config);
         mDataSource = dataSource;
         mLastLoad = lastLoad;
-
-        if (mDataSource.isInvalid()) {
+        boolean invalid = mDataSource.isInvalid();
+        Log.e("TAG", "ContiguousPagedList ContiguousPagedList mDataSource.isInvalid():"+invalid );
+        if (invalid) {
             detach();
         } else {
+            Log.e("TAG", "ContiguousPagedList ContiguousPagedList mDataSource.dispatchLoadInitial:" );
             mDataSource.dispatchLoadInitial(key,
                     mConfig.initialLoadSizeHint,
                     mConfig.pageSize,

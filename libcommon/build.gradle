@@ -31,13 +31,14 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //兼容包
-    api ('androidx.appcompat:appcompat:1.1.0',
+    api  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
             {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
                 exclude group: 'androidx.arch.core', module: 'core-common'
                 exclude group: 'androidx.arch.core', module: 'core-runtime'
+                exclude group: 'androidx.loader', module: 'loader'
             })
 
     //material组件
@@ -46,6 +47,7 @@ dependencies {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.loader', module: 'loader'
             })
 
     //约束布局
@@ -165,6 +167,7 @@ dependencies {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.loader', module: 'loader'
             })
     api ('jp.wasabeef:glide-transformations:4.0.0',
             {

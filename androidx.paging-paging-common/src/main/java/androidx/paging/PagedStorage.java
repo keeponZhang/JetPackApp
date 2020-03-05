@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -293,6 +295,7 @@ final class PagedStorage<T> extends AbstractList<T> {
 
     boolean trimFromFront(boolean insertNulls, int maxSize, int requiredRemaining,
             @NonNull Callback callback) {
+        Log.e("TAG", "PagedStorage trimFromFront:" );
         int totalRemoved = 0;
         while (needsTrimFromFront(maxSize, requiredRemaining)) {
             List page = mPages.remove(0);

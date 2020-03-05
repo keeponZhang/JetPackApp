@@ -16,6 +16,8 @@
 
 package androidx.lifecycle;
 
+import android.util.Log;
+
 import static androidx.lifecycle.Lifecycle.State.DESTROYED;
 import static androidx.lifecycle.Lifecycle.State.STARTED;
 
@@ -288,6 +290,7 @@ public abstract class LiveData<T> {
      * @param value The new value
      */
     protected void postValue(T value) {
+        Log.e("TAG", "LiveData postValue value:"+value );
         boolean postTask;
         synchronized (mDataLock) {
             postTask = mPendingData == NOT_SET;

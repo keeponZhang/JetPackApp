@@ -17,6 +17,7 @@
 package androidx.paging;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 
 import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
@@ -168,6 +169,7 @@ public final class LivePagedListBuilder<Key, Value> {
             @NonNull final DataSource.Factory<Key, Value> dataSourceFactory,
             @NonNull final Executor notifyExecutor,
             @NonNull final Executor fetchExecutor) {
+        //创建LiveData，并且里面的数据是PageList
         return new ComputableLiveData<PagedList<Value>>(fetchExecutor) {
             @Nullable
             private PagedList<Value> mList;
@@ -178,6 +180,7 @@ public final class LivePagedListBuilder<Key, Value> {
                     new DataSource.InvalidatedCallback() {
                         @Override
                         public void onInvalidated() {
+                            Log.e("TAG", "LivePagedListBuilder onInvalidated------------------:" );
                             invalidate();
                         }
                     };
@@ -194,16 +197,22 @@ public final class LivePagedListBuilder<Key, Value> {
                     if (mDataSource != null) {
                         mDataSource.removeInvalidatedCallback(mCallback);
                     }
-
+                    Log.w("TAG", "LivePagedListBuilder compute 创建mDataSource啦啦啦:" );
                     mDataSource = dataSourceFactory.create();
+                    //这里吧刷新callBack加入mOnInvalidatedCallbacks，调用mDataSource
+                    // .invalidate会回调到mCallback.onInvalidated,调到LiveData的invalidate,
+                    // 最终会重新创建dataSource,重新初始化数据
                     mDataSource.addInvalidatedCallback(mCallback);
 
+                    //这里通过PageList.Builder创建PageList,需要dataSource
                     mList = new PagedList.Builder<>(mDataSource, config)
                             .setNotifyExecutor(notifyExecutor)
                             .setFetchExecutor(fetchExecutor)
                             .setBoundaryCallback(boundaryCallback)
                             .setInitialKey(initializeKey)
                             .build();
+                    Log.e("TAG",
+                            "LivePagedListBuilder compute 通过PagedList.Builder<> 创建了mPageList:"+mList );
                 } while (mList.isDetached());
                 return mList;
             }

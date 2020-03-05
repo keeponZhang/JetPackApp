@@ -1,9 +1,10 @@
 package com.mooc.ppjoke.ui;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
@@ -14,7 +15,7 @@ public abstract class AbsViewModel<T> extends ViewModel {
 
     protected PagedList.Config config;
     private DataSource dataSource;
-    private LiveData<PagedList<T>> pageData;
+    private LiveData<PagedList<T>> liveDataPageList;
 
     private MutableLiveData<Boolean> boundaryPageData = new MutableLiveData<>();
 
@@ -29,16 +30,17 @@ public abstract class AbsViewModel<T> extends ViewModel {
                 .build();
 
         //只需要调用observe方法就可以出发加载数据
-        pageData = new LivePagedListBuilder(factory, config)
+        liveDataPageList = new LivePagedListBuilder(factory, config)
                 .setInitialLoadKey(0)
                 //.setFetchExecutor()
                 .setBoundaryCallback(callback)
                 .build();
+        Log.e("TAG", "AbsViewModel AbsViewModel liveDataPageList build成功:" );
     }
 
 
-    public LiveData<PagedList<T>> getPageData() {
-        return pageData;
+    public LiveData<PagedList<T>> getLiveDataPageList() {
+        return liveDataPageList;
     }
 
     public DataSource getDataSource() {

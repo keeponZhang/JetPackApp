@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -13,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.paging.PagedList;
 import androidx.paging.PagedListAdapter;
@@ -87,7 +85,7 @@ public class TagFeedListActivity extends AppCompatActivity implements View.OnCli
 
         tagFeedListViewModel = ViewModelProviders.of(this).get(TagFeedListViewModel.class);
         tagFeedListViewModel.setFeedType(tagList.title);
-        tagFeedListViewModel.getPageData().observe(this, feeds -> submitList(feeds));
+        tagFeedListViewModel.getLiveDataPageList().observe(this, feeds -> submitList(feeds));
         tagFeedListViewModel.getBoundaryPageData().observe(this, hasData -> finishRefresh(hasData));
 
         playDetector = new PageListPlayDetector(this, recyclerView);

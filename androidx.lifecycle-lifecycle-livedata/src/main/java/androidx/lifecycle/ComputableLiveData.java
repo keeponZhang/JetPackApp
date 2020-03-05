@@ -66,6 +66,7 @@ public abstract class ComputableLiveData<T> {
     @SuppressWarnings("WeakerAccess")
     public ComputableLiveData(@NonNull Executor executor) {
         mExecutor = executor;
+        //ComputableLiveData并不是LiveData,这里才是真正创建了LiveData,ComputableLiveData的泛型与LiveData的泛型一致
         mLiveData = new LiveData<T>() {
             @Override
             protected void onActive() {
@@ -101,10 +102,13 @@ public abstract class ComputableLiveData<T> {
                         T value = null;
                         while (mInvalid.compareAndSet(true, false)) {
                             computed = true;
-                            Log.e("TAG", "ComputableLiveData run ---------------:" );
+
                             value = compute();
+                            Log.e("TAG", "ComputableLiveData mRefreshRunnable run 执行compute后返回 " +
+                                    "---------------value:" +value);
                         }
                         if (computed) {
+                            Log.e("TAG", "ComputableLiveData run 准备发送数据了value:" +value);
                             mLiveData.postValue(value);
                         }
                     } finally {

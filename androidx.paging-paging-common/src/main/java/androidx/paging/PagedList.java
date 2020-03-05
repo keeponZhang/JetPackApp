@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import androidx.annotation.AnyThread;
 import androidx.annotation.IntRange;
 import androidx.annotation.MainThread;
@@ -212,7 +214,9 @@ public abstract class PagedList<T> extends AbstractList<T> {
                     lastLoad = (Integer) key;
                 }
             }
+
             ContiguousDataSource<K, T> contigDataSource = (ContiguousDataSource<K, T>) dataSource;
+            Log.e("TAG", "PagedList create  创建ContiguousDataSource:" );
             return new ContiguousPagedList<>(contigDataSource,
                     notifyExecutor,
                     fetchExecutor,
@@ -221,6 +225,7 @@ public abstract class PagedList<T> extends AbstractList<T> {
                     key,
                     lastLoad);
         } else {
+            Log.e("TAG", "PagedList create  TiledPagedList:" );
             return new TiledPagedList<>((PositionalDataSource<T>) dataSource,
                     notifyExecutor,
                     fetchExecutor,
@@ -446,6 +451,7 @@ public abstract class PagedList<T> extends AbstractList<T> {
     @AnyThread
     void deferBoundaryCallbacks(final boolean deferEmpty,
             final boolean deferBegin, final boolean deferEnd) {
+        Log.e("TAG", "PagedList deferBoundaryCallbacks:" );
         if (mBoundaryCallback == null) {
             throw new IllegalStateException("Can't defer BoundaryCallback, no instance");
         }

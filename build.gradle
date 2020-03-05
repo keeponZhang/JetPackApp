@@ -20,7 +20,7 @@ buildscript {
         LIFECYCLE_RUNTIME_VERSION = '1.0.0'
 
 
-        androidxFragmentVersion="1.2.0"
+        androidxFragmentVersion="1.1.0"
         androidxCoreVersion="1.0.1"
         androidxActivity="1.0.0"
         androidxLifeCycle="2.1.0"
