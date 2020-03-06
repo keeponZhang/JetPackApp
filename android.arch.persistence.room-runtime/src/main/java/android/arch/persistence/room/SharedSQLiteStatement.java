@@ -15,10 +15,11 @@
  */
 package android.arch.persistence.room;
 
-import android.arch.persistence.db.SupportSQLiteStatement;
-import android.support.annotation.RestrictTo;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import androidx.annotation.RestrictTo;
+import androidx.sqlite.db.SupportSQLiteStatement;
 
 /**
  * Represents a prepared SQLite state that can be re-used multiple times.

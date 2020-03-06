@@ -18,5 +18,6 @@ include ':androidx.sqlite-sqlite'
 include ':androidx.room-room-runtime'
 include ':androidx.room-room-common'
 include ':androidx.work-work-runtime'
+//include ':androidx.fragment-fragment'
 
 rootProject.name = 'JetPackApp'

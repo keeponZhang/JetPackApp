@@ -16,8 +16,8 @@
 
 package android.arch.persistence.room;
 
-import android.arch.persistence.db.SupportSQLiteStatement;
-import android.support.annotation.RestrictTo;
+import androidx.annotation.RestrictTo;
+import androidx.sqlite.db.SupportSQLiteStatement;
 
 /**
  * Implementations of this class knows how to delete or update a particular entity.
