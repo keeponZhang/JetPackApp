@@ -51,7 +51,7 @@ android {
 configurations.all {
     exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
     exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-    exclude group: 'androidx.loader', module: 'loader'
+//    exclude group: 'androidx.loader', module: 'loader'
 //    exclude group: 'androidx.fragment', module: 'fragment'
 }
 

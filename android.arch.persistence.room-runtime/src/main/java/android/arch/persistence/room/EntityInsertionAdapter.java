@@ -16,12 +16,14 @@
 
 package android.arch.persistence.room;
 
-import android.arch.persistence.db.SupportSQLiteStatement;
-import android.support.annotation.RestrictTo;
+
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import androidx.annotation.RestrictTo;
+import androidx.sqlite.db.SupportSQLiteStatement;
 
 /**
  * Implementations of this class knows how to insert a particular entity.

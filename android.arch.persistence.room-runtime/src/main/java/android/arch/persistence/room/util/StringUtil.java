@@ -16,13 +16,15 @@
 
 package android.arch.persistence.room.util;
 
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
+
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 
 /**
  * @hide
