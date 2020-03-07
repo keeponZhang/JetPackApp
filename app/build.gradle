@@ -51,7 +51,7 @@ android {
 configurations.all {
     exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
     exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-//    exclude group: 'androidx.loader', module: 'loader'
+    exclude group: 'androidx.core', module: 'core'
 //    exclude group: 'androidx.fragment', module: 'fragment'
 }
 
@@ -93,6 +93,10 @@ dependencies {
     implementation project(path: ':androidx.room-room-common')
     implementation project(path: ':androidx.work-work-runtime')
 
+    implementation project(path: ':androidx.loader-loader')
+    implementation project(path: ':androidx.core-core')
+    implementation project(path: ':androidx.fragment-fragment')
+    implementation project(path: ':androidx.activity-activity')
 //    implementation ("androidx.lifecycle:lifecycle-extensions:${rootProject.ext.androidxLifeCycle}",
 //            {
 //                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'

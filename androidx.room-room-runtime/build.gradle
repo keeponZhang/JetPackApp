@@ -31,7 +31,6 @@ dependencies {
     implementation project(path: ':androidx.paging-paging-common')
     implementation project(path: ':androidx.lifecycle-lifecycle-livedata-core')
     implementation project(path: ':androidx-collection')
-    implementation ("androidx.core:core:${rootProject.ext.androidxCoreVersion}",{
-        exclude group: 'androidx.collection', module: 'collection'
-    })
+    implementation project(path: ':androidx.core-core')
+    implementation project(path: ':androidx.arch.core-core-common')
 }

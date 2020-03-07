@@ -8,6 +8,7 @@ import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.DataSource;
 import androidx.paging.ItemKeyedDataSource;
+import androidx.paging.PageKeyedDataSource;
 import androidx.paging.PagedList;
 
 import com.alibaba.fastjson.TypeReference;
@@ -58,12 +59,14 @@ public class HomeViewModel extends AbsViewModel<Feed> {
     class FeedDataSource extends ItemKeyedDataSource<Integer, Feed> {
         //这里是创建dataSource,然后回到到loadInitial，发起数据请求
         @Override
-        public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Feed> callback) {
+        public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull
+               LoadInitialCallback<Feed> callback) {
             //加载初始化数据的
             Log.w("TAG", "homeviewmodel loadInitial 初始化数据啦 params.requestedLoadSize: "+params.requestedLoadSize);
             loadData(0, params.requestedLoadSize, callback);
             witchCache = false;
         }
+
 
         @Override
         public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Feed> callback) {
@@ -98,7 +101,6 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                 .addParam("pageCount", count)
                 .responseType(new TypeReference<ArrayList<Feed>>() {
                 }.getType());
-        witchCache = false;
         if (witchCache) {
             request.cacheStrategy(Request.CACHE_ONLY);
             request.execute(new JsonCallback<List<Feed>>() {
@@ -119,6 +121,10 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                     // pagedList.add(pagedList.get(pagedList.size()-1));
                     cacheLiveData.postValue(pagedList);
 
+                    //不能直接new，一般是调用create方法创建
+                    // new PagedList<Feed>()
+
+
                     //下面的不可取，否则会报
                     // java.lang.IllegalStateException: callback.onResult already called, cannot call again.
                     //if (response.body != null) {
@@ -126,6 +132,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                     // }
                 }
             });
+            return;
         }
 
         try {

@@ -24,4 +24,15 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.annotation:annotation:${rootProject.ext.annotationVersion}"
+    implementation project(path: ':androidx-collection')
+    implementation project(path: ':androidx.lifecycle-lifecycle-common')
+    implementation project(path: ':androidx.lifecycle-lifecycle-viewmodel')
+    implementation project(path: ':androidx.lifecycle-lifecycle-runtime')
+    implementation project(path: ':androidx.lifecycle-lifecycle-livedata')
+    implementation project(path: ':androidx.lifecycle-lifecycle-livedata-core')
+    implementation project(path: ':androidx.core-core')
+    implementation project(path: ':androidx.activity-activity')
+    implementation project(path: ':androidx.loader-loader')
+    implementation project(path: ':androidx.savedstate-savedstate')
+    implementation project(path: ':androidx.viewpager-viewpager')
 }

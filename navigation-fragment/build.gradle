@@ -28,19 +28,9 @@ dependencies {
     implementation project(path: ':androidx.lifecycle-lifecycle-common')
     implementation project(path: ':androidx.lifecycle-lifecycle-livedata-core')
     implementation "androidx.annotation:annotation:${rootProject.ext.annotationVersion}"
-    implementation ("androidx.core:core:${rootProject.ext.androidxCoreVersion}",{
-        exclude group: 'androidx.collection', module: 'collection'
-    })
-    implementation ("androidx.lifecycle:lifecycle-viewmodel:${rootProject.ext.androidxLifeCycle}",{
-        exclude group: 'androidx.collection', module: 'collection'
-    })
-    implementation ("androidx.fragment:fragment:${rootProject.ext.androidxFragmentVersion}",{
-        exclude group: 'androidx.collection', module: 'collection'
-        exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-        exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-        exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-        exclude group: 'androidx.arch.core', module: 'core-common'
-        exclude group: 'androidx.arch.core', module: 'core-runtime'
-        exclude group: 'androidx.loader', module: 'loader'
-    })
+    implementation project(path: ':androidx.core-core')
+    implementation project(path: ':androidx.lifecycle-lifecycle-viewmodel')
+    implementation project(path: ':androidx.fragment-fragment')
+    implementation project(path: ':androidx.savedstate-savedstate')
+    implementation project(path: ':androidx.activity-activity')
 }

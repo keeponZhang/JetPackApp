@@ -23,7 +23,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation ("androidx.core:core:${rootProject.ext.androidxCoreVersion}",{
-        exclude group: 'androidx.collection', module: 'collection'
-    })
+    implementation project(path: ':androidx.core-core')
 }
