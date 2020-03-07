@@ -23,5 +23,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.annotation:annotation:${rootProject.ext.annotationVersion}"
     implementation project(path: ':androidx.core-core')
 }

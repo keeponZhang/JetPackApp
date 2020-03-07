@@ -52,7 +52,7 @@ configurations.all {
     exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
     exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
     exclude group: 'androidx.core', module: 'core'
-//    exclude group: 'androidx.fragment', module: 'fragment'
+    exclude group: 'androidx.fragment', module: 'fragment'
 }
 
 //gradlew :app:dependencies >dependencies.java打印依赖树

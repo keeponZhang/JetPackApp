@@ -1,4 +1,4 @@
-include ':app', ':libnavannotation', ':libnavcompiler', ':libnetwork', ':libcommon', ':androidx-collection', ':navigation-common', ':navigation-fragment', ':navigation-runtime', ':navigation-ui'
+include ':app', ':libnavannotation', ':libnavcompiler', ':libnetwork', ':libcommon', ':androidx-collection', ':navigation-common', ':navigation-fragment', ':navigation-runtime', ':navigation-ui', ':navigationSample'
 include ':androidx.lifecycle-lifecycle-common'
 include ':androidx.lifecycle-lifecycle-livedata'
 include ':androidx.lifecycle-lifecycle-livedata-core'

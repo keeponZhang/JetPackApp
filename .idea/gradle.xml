@@ -3,11 +3,51 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/android.arch.persistence.room-common" />
+            <option value="$PROJECT_DIR$/android.arch.persistence.room-runtime" />
+            <option value="$PROJECT_DIR$/androidx-collection" />
+            <option value="$PROJECT_DIR$/androidx.activity-activity" />
+            <option value="$PROJECT_DIR$/androidx.arch.core-core-common" />
+            <option value="$PROJECT_DIR$/androidx.arch.core-core-runtime" />
+            <option value="$PROJECT_DIR$/androidx.core-core" />
+            <option value="$PROJECT_DIR$/androidx.customview-customview" />
+            <option value="$PROJECT_DIR$/androidx.fragment-fragment" />
+            <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-common" />
+            <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-extensions" />
+            <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-livedata" />
+            <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-livedata-core" />
+            <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-process" />
+            <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-runtime" />
+            <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-service" />
+            <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-viewmodel" />
+            <option value="$PROJECT_DIR$/androidx.loader-loader" />
+            <option value="$PROJECT_DIR$/androidx.paging-paging-common" />
+            <option value="$PROJECT_DIR$/androidx.paging-paging-runtime" />
+            <option value="$PROJECT_DIR$/androidx.room-room-common" />
+            <option value="$PROJECT_DIR$/androidx.room-room-runtime" />
+            <option value="$PROJECT_DIR$/androidx.savedstate-savedstate" />
+            <option value="$PROJECT_DIR$/androidx.sqlite-sqlite" />
+            <option value="$PROJECT_DIR$/androidx.sqlite-sqlite-framework" />
+            <option value="$PROJECT_DIR$/androidx.versionedparcelable-versionedparcelable" />
+            <option value="$PROJECT_DIR$/androidx.viewpager-viewpager" />
+            <option value="$PROJECT_DIR$/androidx.work-work-runtime" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/libcommon" />
+            <option value="$PROJECT_DIR$/libnavannotation" />
+            <option value="$PROJECT_DIR$/libnavcompiler" />
+            <option value="$PROJECT_DIR$/libnetwork" />
+            <option value="$PROJECT_DIR$/navigation-common" />
+            <option value="$PROJECT_DIR$/navigation-fragment" />
+            <option value="$PROJECT_DIR$/navigation-runtime" />
+            <option value="$PROJECT_DIR$/navigation-ui" />
+            <option value="$PROJECT_DIR$/navigationSample" />
+          </set>
+        </option>
         <option name="resolveModulePerSourceSet" value="false" />
         <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
