@@ -77,7 +77,7 @@ public abstract class AbsListFragment<T, M extends AbsViewModel<T>> extends Frag
             Class modelClaz = ((Class) argument).asSubclass(AbsViewModel.class);
             //保证一个实例用同一个viewmodel
             mViewModel = (M) ViewModelProviders.of(this).get(modelClaz);
-
+            Log.e("TAG", "AbsListFragment genericViewModel mViewModel:" +mViewModel);
             //触发页面初始化数据加载的逻辑
             //触发是放在fragment（这种是主动触发，因为pageData是通过builder创建出来的）
             // mViewModel.getLiveDataPageList().observe(this, pagedList -> submitList(pagedList));

@@ -52,7 +52,8 @@ configurations.all {
     exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
     exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
     exclude group: 'androidx.core', module: 'core'
-    exclude group: 'androidx.fragment', module: 'fragment'
+//    exclude group: 'androidx.fragment', module: 'fragment'
+    exclude group: 'androidx.lifecycle', module: 'lifecycle-service'
 }
 
 //gradlew :app:dependencies >dependencies.java打印依赖树
@@ -79,10 +80,13 @@ dependencies {
     implementation project(path: ':androidx.lifecycle-lifecycle-livedata-core')
     implementation project(path: ':androidx.lifecycle-lifecycle-viewmodel')
     implementation project(path: ':androidx.lifecycle-lifecycle-runtime')
+    implementation project(path: ':androidx.lifecycle-lifecycle-service')
+    implementation project(path: ':androidx.lifecycle-lifecycle-process')
+    implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
 
     implementation project(path: ':androidx.arch.core-core-runtime')
     implementation project(path: ':androidx.arch.core-core-common')
-    implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
+
 
 
 
@@ -97,6 +101,8 @@ dependencies {
     implementation project(path: ':androidx.core-core')
     implementation project(path: ':androidx.fragment-fragment')
     implementation project(path: ':androidx.activity-activity')
+    implementation project(path: ':androidx.savedstate-savedstate')
+
 //    implementation ("androidx.lifecycle:lifecycle-extensions:${rootProject.ext.androidxLifeCycle}",
 //            {
 //                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'

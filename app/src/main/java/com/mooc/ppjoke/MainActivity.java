@@ -2,6 +2,7 @@ package com.mooc.ppjoke;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     }
 
+    //选中下面的tab时回调
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         HashMap<String, Destination> destConfig = AppConfig.getDestConfig();
@@ -73,11 +75,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         //遍历 target destination 是否需要登录拦截
         while (iterator.hasNext()) {
             Map.Entry<String, Destination> entry = iterator.next();
+            String key = entry.getKey();
+            Log.d("TAG", "MainActivity onNavigationItemSelected key:"+key );
             Destination value = entry.getValue();
             if (value != null && !UserManager.get().isLogin() && value.needLogin && value.id == menuItem.getItemId()) {
+                Log.e("TAG", "MainActivity onNavigationItemSelected:" +key);
+                //跳转到登录页
                 UserManager.get().login(this).observe(this, new Observer<User>() {
                     @Override
                     public void onChanged(User user) {
+                        Log.e("TAG", "MainActivity 数据改变 onChanged user:"+user );
+                        //登录之后才打开配置页
                         navView.setSelectedItemId(menuItem.getItemId());
                     }
                 });

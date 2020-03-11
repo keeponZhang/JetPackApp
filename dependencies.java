@@ -1,4 +1,3 @@
-Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details
 
 > Task :app:dependencies
 
@@ -97,12 +96,33 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -111,8 +131,7 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -123,12 +142,8 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -138,6 +153,7 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -158,6 +174,7 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    +--- androidx.camera:camera-view:1.0.0-alpha01
@@ -173,20 +190,18 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -198,7 +213,7 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    \--- androidx.databinding:databinding-adapters:3.5.3
@@ -222,9 +237,11 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 +--- project :androidx.lifecycle-lifecycle-livedata-core
 +--- project :androidx.lifecycle-lifecycle-viewmodel
 +--- project :androidx.lifecycle-lifecycle-runtime
++--- project :androidx.lifecycle-lifecycle-service
++--- project :androidx.lifecycle-lifecycle-process
++--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.arch.core-core-runtime
 +--- project :androidx.arch.core-core-common
-+--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.sqlite-sqlite-framework
 +--- project :androidx.sqlite-sqlite
 +--- project :androidx.room-room-runtime
@@ -234,6 +251,7 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 +--- project :androidx.core-core
 +--- project :androidx.fragment-fragment
 +--- project :androidx.activity-activity
++--- project :androidx.savedstate-savedstate
 +--- com.tencent.bugly:crashreport:{strictly 3.1.9} -> 3.1.9 (c)
 +--- com.tencent.bugly:nativecrashreport:{strictly 3.7.1} -> 3.7.1 (c)
 +--- com.facebook.stetho:stetho:{strictly 1.4.2} -> 1.4.2 (c)
@@ -253,10 +271,11 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 +--- com.aliyun.dpa:oss-android-sdk:{strictly 2.9.3} -> 2.9.3 (c)
 +--- com.alibaba:fastjson:{strictly 1.2.59} -> 1.2.59 (c)
 +--- androidx.collection:collection:{strictly 1.1.0} -> 1.1.0 (c)
-+--- androidx.lifecycle:lifecycle-runtime:{strictly 2.0.0} -> 2.0.0 (c)
++--- androidx.lifecycle:lifecycle-runtime:{strictly 2.1.0} -> 2.1.0 (c)
 +--- commons-cli:commons-cli:{strictly 1.2} -> 1.2 (c)
 +--- com.google.code.findbugs:jsr305:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.annotation:annotation:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.fragment:fragment:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.vectordrawable:vectordrawable:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.cardview:cardview:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.coordinatorlayout:coordinatorlayout:{strictly 1.1.0-beta01} -> 1.1.0-beta01 (c)
@@ -271,11 +290,13 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 +--- androidx.camera:camera-core:{strictly 1.0.0-alpha04} -> 1.0.0-alpha04 (c)
 +--- com.google.guava:listenablefuture:{strictly 1.0} -> 1.0 (c)
 +--- androidx.room:room-runtime:{strictly 2.1.0} -> 2.1.0 (c)
-+--- androidx.lifecycle:lifecycle-service:{strictly 2.0.0} -> 2.0.0 (c)
 +--- com.squareup.okhttp3:okhttp:{strictly 4.2.0} -> 4.2.0 (c)
 +--- com.squareup.okio:okio:{strictly 2.2.2} -> 2.2.2 (c)
-+--- androidx.lifecycle:lifecycle-common:{strictly 2.0.0} -> 2.0.0 (c)
-+--- androidx.arch.core:core-common:{strictly 2.0.1} -> 2.0.1 (c)
++--- androidx.lifecycle:lifecycle-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.arch.core:core-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.viewpager:viewpager:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-viewmodel:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.activity:activity:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.cursoradapter:cursoradapter:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.appcompat:appcompat-resources:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.drawerlayout:drawerlayout:{strictly 1.0.0} -> 1.0.0 (c)
@@ -289,6 +310,7 @@ debugAndroidTestCompileClasspath - Resolved configuration for compilation for va
 +--- androidx.sqlite:sqlite:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.arch.core:core-runtime:{strictly 2.0.1} -> 2.0.1 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib:{strictly 1.3.50} -> 1.3.50 (c)
++--- androidx.savedstate:savedstate:{strictly 1.0.0} -> 1.0.0 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib-common:{strictly 1.3.50} -> 1.3.50 (c)
 \--- org.jetbrains:annotations:{strictly 13.0} -> 13.0 (c)
 
@@ -298,12 +320,37 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.loader:loader:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0
+|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0 (*)
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         +--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    |         \--- androidx.lifecycle:lifecycle-common:2.0.0 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -312,8 +359,7 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -324,12 +370,8 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -339,6 +381,7 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -461,6 +504,7 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    |    \--- com.github.bumptech.glide:glide:4.8.0 -> 4.9.0 (*)
@@ -477,20 +521,18 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -503,7 +545,7 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-adapters:3.5.3
@@ -558,9 +600,17 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 +--- project :androidx.lifecycle-lifecycle-livedata-core (*)
 +--- project :androidx.lifecycle-lifecycle-viewmodel (*)
 +--- project :androidx.lifecycle-lifecycle-runtime (*)
++--- project :androidx.lifecycle-lifecycle-service
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-process
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.arch.core-core-runtime (*)
 +--- project :androidx.arch.core-core-common (*)
-+--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.sqlite-sqlite-framework
 |    +--- androidx.annotation:annotation:1.1.0
 |    \--- project :androidx.sqlite-sqlite
@@ -585,6 +635,7 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 +--- project :androidx.core-core (*)
 +--- project :androidx.fragment-fragment (*)
 +--- project :androidx.activity-activity (*)
++--- project :androidx.savedstate-savedstate (*)
 +--- com.tencent.bugly:crashreport:{strictly 3.1.9} -> 3.1.9 (c)
 +--- com.tencent.bugly:nativecrashreport:{strictly 3.7.1} -> 3.7.1 (c)
 +--- com.facebook.stetho:stetho:{strictly 1.4.2} -> 1.4.2 (c)
@@ -609,19 +660,19 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 +--- androidx.camera:camera-camera2:{strictly 1.0.0-alpha04} -> 1.0.0-alpha04 (c)
 +--- androidx.camera:camera-extensions:{strictly 1.0.0-alpha01} -> 1.0.0-alpha01 (c)
 +--- androidx.collection:collection:{strictly 1.1.0} -> 1.1.0 (c)
-+--- androidx.lifecycle:lifecycle-runtime:{strictly 2.0.0} -> 2.0.0 (c)
++--- androidx.lifecycle:lifecycle-runtime:{strictly 2.1.0} -> 2.1.0 (c)
 +--- com.squareup.okhttp3:okhttp:{strictly 4.2.0} -> 4.2.0 (c)
 +--- com.squareup.okhttp3:logging-interceptor:{strictly 3.5.0} -> 3.5.0 (c)
 +--- commons-cli:commons-cli:{strictly 1.2} -> 1.2 (c)
 +--- com.google.code.findbugs:jsr305:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.annotation:annotation:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.fragment:fragment:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.vectordrawable:vectordrawable:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.recyclerview:recyclerview:{strictly 1.1.0-beta04} -> 1.1.0-beta04 (c)
 +--- androidx.transition:transition:{strictly 1.0.1} -> 1.0.1 (c)
 +--- androidx.constraintlayout:constraintlayout-solver:{strictly 1.1.3} -> 1.1.3 (c)
 +--- androidx.media:media:{strictly 1.0.1} -> 1.0.1 (c)
 +--- androidx.vectordrawable:vectordrawable-animated:{strictly 1.1.0} -> 1.1.0 (c)
-+--- androidx.lifecycle:lifecycle-service:{strictly 2.0.0} -> 2.0.0 (c)
 +--- com.squareup.okio:okio:{strictly 2.2.2} -> 2.2.2 (c)
 +--- com.google.auto.value:auto-value-annotations:{strictly 1.6.3} -> 1.6.3 (c)
 +--- androidx.exifinterface:exifinterface:{strictly 1.0.0} -> 1.0.0 (c)
@@ -630,12 +681,16 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 +--- androidx.sqlite:sqlite-framework:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.sqlite:sqlite:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.arch.core:core-runtime:{strictly 2.0.1} -> 2.0.1 (c)
-+--- androidx.lifecycle:lifecycle-common:{strictly 2.0.0} -> 2.0.0 (c)
-+--- androidx.arch.core:core-common:{strictly 2.0.1} -> 2.0.1 (c)
++--- androidx.lifecycle:lifecycle-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.arch.core:core-common:{strictly 2.1.0} -> 2.1.0 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib:{strictly 1.3.50} -> 1.3.50 (c)
 +--- androidx.customview:customview:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.cardview:cardview:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.coordinatorlayout:coordinatorlayout:{strictly 1.1.0-beta01} -> 1.1.0-beta01 (c)
++--- androidx.viewpager:viewpager:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.loader:loader:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-viewmodel:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.activity:activity:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.cursoradapter:cursoradapter:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.appcompat:appcompat-resources:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.drawerlayout:drawerlayout:{strictly 1.0.0} -> 1.0.0 (c)
@@ -645,7 +700,8 @@ debugAndroidTestRuntimeClasspath - Resolved configuration for runtime for varian
 +--- com.github.bumptech.glide:disklrucache:{strictly 4.9.0} -> 4.9.0 (c)
 +--- com.github.bumptech.glide:annotations:{strictly 4.9.0} -> 4.9.0 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib-common:{strictly 1.3.50} -> 1.3.50 (c)
-\--- org.jetbrains:annotations:{strictly 13.0} -> 13.0 (c)
++--- org.jetbrains:annotations:{strictly 13.0} -> 13.0 (c)
+\--- androidx.savedstate:savedstate:{strictly 1.0.0} -> 1.0.0 (c)
 
 debugAnnotationProcessor - Classpath for the annotation processor for 'debug'. (n)
 No dependencies
@@ -715,12 +771,33 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -729,8 +806,7 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -741,12 +817,8 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -756,6 +828,7 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -776,6 +849,7 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    +--- androidx.camera:camera-view:1.0.0-alpha01
@@ -791,20 +865,18 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -816,7 +888,7 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    \--- androidx.databinding:databinding-adapters:3.5.3
@@ -840,9 +912,11 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 +--- project :androidx.lifecycle-lifecycle-livedata-core
 +--- project :androidx.lifecycle-lifecycle-viewmodel
 +--- project :androidx.lifecycle-lifecycle-runtime
++--- project :androidx.lifecycle-lifecycle-service
++--- project :androidx.lifecycle-lifecycle-process
++--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.arch.core-core-runtime
 +--- project :androidx.arch.core-core-common
-+--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.sqlite-sqlite-framework
 +--- project :androidx.sqlite-sqlite
 +--- project :androidx.room-room-runtime
@@ -852,6 +926,7 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 +--- project :androidx.core-core
 +--- project :androidx.fragment-fragment
 +--- project :androidx.activity-activity
++--- project :androidx.savedstate-savedstate
 +--- com.tencent.bugly:crashreport:{strictly 3.1.9} -> 3.1.9 (c)
 +--- com.tencent.bugly:nativecrashreport:{strictly 3.7.1} -> 3.7.1 (c)
 +--- com.facebook.stetho:stetho:{strictly 1.4.2} -> 1.4.2 (c)
@@ -871,10 +946,11 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 +--- com.aliyun.dpa:oss-android-sdk:{strictly 2.9.3} -> 2.9.3 (c)
 +--- com.alibaba:fastjson:{strictly 1.2.59} -> 1.2.59 (c)
 +--- androidx.collection:collection:{strictly 1.1.0} -> 1.1.0 (c)
-+--- androidx.lifecycle:lifecycle-runtime:{strictly 2.0.0} -> 2.0.0 (c)
++--- androidx.lifecycle:lifecycle-runtime:{strictly 2.1.0} -> 2.1.0 (c)
 +--- commons-cli:commons-cli:{strictly 1.2} -> 1.2 (c)
 +--- com.google.code.findbugs:jsr305:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.annotation:annotation:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.fragment:fragment:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.vectordrawable:vectordrawable:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.cardview:cardview:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.coordinatorlayout:coordinatorlayout:{strictly 1.1.0-beta01} -> 1.1.0-beta01 (c)
@@ -889,11 +965,13 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 +--- androidx.camera:camera-core:{strictly 1.0.0-alpha04} -> 1.0.0-alpha04 (c)
 +--- com.google.guava:listenablefuture:{strictly 1.0} -> 1.0 (c)
 +--- androidx.room:room-runtime:{strictly 2.1.0} -> 2.1.0 (c)
-+--- androidx.lifecycle:lifecycle-service:{strictly 2.0.0} -> 2.0.0 (c)
 +--- com.squareup.okhttp3:okhttp:{strictly 4.2.0} -> 4.2.0 (c)
 +--- com.squareup.okio:okio:{strictly 2.2.2} -> 2.2.2 (c)
-+--- androidx.lifecycle:lifecycle-common:{strictly 2.0.0} -> 2.0.0 (c)
-+--- androidx.arch.core:core-common:{strictly 2.0.1} -> 2.0.1 (c)
++--- androidx.lifecycle:lifecycle-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.arch.core:core-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.viewpager:viewpager:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-viewmodel:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.activity:activity:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.cursoradapter:cursoradapter:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.appcompat:appcompat-resources:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.drawerlayout:drawerlayout:{strictly 1.0.0} -> 1.0.0 (c)
@@ -907,6 +985,7 @@ debugCompileClasspath - Resolved configuration for compilation for variant: debu
 +--- androidx.sqlite:sqlite:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.arch.core:core-runtime:{strictly 2.0.1} -> 2.0.1 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib:{strictly 1.3.50} -> 1.3.50 (c)
++--- androidx.savedstate:savedstate:{strictly 1.0.0} -> 1.0.0 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib-common:{strictly 1.3.50} -> 1.3.50 (c)
 \--- org.jetbrains:annotations:{strictly 13.0} -> 13.0 (c)
 
@@ -931,12 +1010,37 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.loader:loader:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0
+|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0 (*)
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         +--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    |         \--- androidx.lifecycle:lifecycle-common:2.0.0 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -945,8 +1049,7 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -957,12 +1060,8 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -972,6 +1071,7 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -1094,6 +1194,7 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    |    \--- com.github.bumptech.glide:glide:4.8.0 -> 4.9.0 (*)
@@ -1110,20 +1211,18 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -1136,7 +1235,7 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-adapters:3.5.3
@@ -1188,9 +1287,17 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 +--- project :androidx.lifecycle-lifecycle-livedata-core (*)
 +--- project :androidx.lifecycle-lifecycle-viewmodel (*)
 +--- project :androidx.lifecycle-lifecycle-runtime (*)
++--- project :androidx.lifecycle-lifecycle-service
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-process
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.arch.core-core-runtime (*)
 +--- project :androidx.arch.core-core-common (*)
-+--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.sqlite-sqlite-framework
 |    +--- androidx.annotation:annotation:1.1.0
 |    \--- project :androidx.sqlite-sqlite
@@ -1214,7 +1321,8 @@ debugRuntimeClasspath - Resolved configuration for runtime for variant: debug
 +--- project :androidx.loader-loader (*)
 +--- project :androidx.core-core (*)
 +--- project :androidx.fragment-fragment (*)
-\--- project :androidx.activity-activity (*)
++--- project :androidx.activity-activity (*)
+\--- project :androidx.savedstate-savedstate (*)
 
 debugRuntimeElements - Runtime elements for debug (n)
 No dependencies
@@ -1231,12 +1339,33 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -1245,8 +1374,7 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -1257,12 +1385,8 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -1272,6 +1396,7 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -1292,6 +1417,7 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    +--- androidx.camera:camera-view:1.0.0-alpha01
@@ -1307,20 +1433,18 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -1332,7 +1456,7 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    \--- androidx.databinding:databinding-adapters:3.5.3
@@ -1356,9 +1480,11 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 +--- project :androidx.lifecycle-lifecycle-livedata-core
 +--- project :androidx.lifecycle-lifecycle-viewmodel
 +--- project :androidx.lifecycle-lifecycle-runtime
++--- project :androidx.lifecycle-lifecycle-service
++--- project :androidx.lifecycle-lifecycle-process
++--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.arch.core-core-runtime
 +--- project :androidx.arch.core-core-common
-+--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.sqlite-sqlite-framework
 +--- project :androidx.sqlite-sqlite
 +--- project :androidx.room-room-runtime
@@ -1368,6 +1494,7 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 +--- project :androidx.core-core
 +--- project :androidx.fragment-fragment
 +--- project :androidx.activity-activity
++--- project :androidx.savedstate-savedstate
 +--- com.tencent.bugly:crashreport:{strictly 3.1.9} -> 3.1.9 (c)
 +--- com.tencent.bugly:nativecrashreport:{strictly 3.7.1} -> 3.7.1 (c)
 +--- com.facebook.stetho:stetho:{strictly 1.4.2} -> 1.4.2 (c)
@@ -1387,10 +1514,11 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 +--- com.aliyun.dpa:oss-android-sdk:{strictly 2.9.3} -> 2.9.3 (c)
 +--- com.alibaba:fastjson:{strictly 1.2.59} -> 1.2.59 (c)
 +--- androidx.collection:collection:{strictly 1.1.0} -> 1.1.0 (c)
-+--- androidx.lifecycle:lifecycle-runtime:{strictly 2.0.0} -> 2.0.0 (c)
++--- androidx.lifecycle:lifecycle-runtime:{strictly 2.1.0} -> 2.1.0 (c)
 +--- commons-cli:commons-cli:{strictly 1.2} -> 1.2 (c)
 +--- com.google.code.findbugs:jsr305:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.annotation:annotation:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.fragment:fragment:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.vectordrawable:vectordrawable:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.cardview:cardview:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.coordinatorlayout:coordinatorlayout:{strictly 1.1.0-beta01} -> 1.1.0-beta01 (c)
@@ -1405,11 +1533,13 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 +--- androidx.camera:camera-core:{strictly 1.0.0-alpha04} -> 1.0.0-alpha04 (c)
 +--- com.google.guava:listenablefuture:{strictly 1.0} -> 1.0 (c)
 +--- androidx.room:room-runtime:{strictly 2.1.0} -> 2.1.0 (c)
-+--- androidx.lifecycle:lifecycle-service:{strictly 2.0.0} -> 2.0.0 (c)
 +--- com.squareup.okhttp3:okhttp:{strictly 4.2.0} -> 4.2.0 (c)
 +--- com.squareup.okio:okio:{strictly 2.2.2} -> 2.2.2 (c)
-+--- androidx.lifecycle:lifecycle-common:{strictly 2.0.0} -> 2.0.0 (c)
-+--- androidx.arch.core:core-common:{strictly 2.0.1} -> 2.0.1 (c)
++--- androidx.lifecycle:lifecycle-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.arch.core:core-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.viewpager:viewpager:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-viewmodel:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.activity:activity:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.cursoradapter:cursoradapter:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.appcompat:appcompat-resources:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.drawerlayout:drawerlayout:{strictly 1.0.0} -> 1.0.0 (c)
@@ -1423,6 +1553,7 @@ debugUnitTestCompileClasspath - Resolved configuration for compilation for varia
 +--- androidx.sqlite:sqlite:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.arch.core:core-runtime:{strictly 2.0.1} -> 2.0.1 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib:{strictly 1.3.50} -> 1.3.50 (c)
++--- androidx.savedstate:savedstate:{strictly 1.0.0} -> 1.0.0 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib-common:{strictly 1.3.50} -> 1.3.50 (c)
 \--- org.jetbrains:annotations:{strictly 13.0} -> 13.0 (c)
 
@@ -1432,12 +1563,37 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.loader:loader:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0
+|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0 (*)
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         +--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    |         \--- androidx.lifecycle:lifecycle-common:2.0.0 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -1446,8 +1602,7 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -1458,12 +1613,8 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -1473,6 +1624,7 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -1595,6 +1747,7 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    |    \--- com.github.bumptech.glide:glide:4.8.0 -> 4.9.0 (*)
@@ -1611,20 +1764,18 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -1637,7 +1788,7 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-adapters:3.5.3
@@ -1689,9 +1840,17 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 +--- project :androidx.lifecycle-lifecycle-livedata-core (*)
 +--- project :androidx.lifecycle-lifecycle-viewmodel (*)
 +--- project :androidx.lifecycle-lifecycle-runtime (*)
++--- project :androidx.lifecycle-lifecycle-service
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-process
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.arch.core-core-runtime (*)
 +--- project :androidx.arch.core-core-common (*)
-+--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.sqlite-sqlite-framework
 |    +--- androidx.annotation:annotation:1.1.0
 |    \--- project :androidx.sqlite-sqlite
@@ -1715,7 +1874,8 @@ debugUnitTestRuntimeClasspath - Resolved configuration for runtime for variant: 
 +--- project :androidx.loader-loader (*)
 +--- project :androidx.core-core (*)
 +--- project :androidx.fragment-fragment (*)
-\--- project :androidx.activity-activity (*)
++--- project :androidx.activity-activity (*)
+\--- project :androidx.savedstate-savedstate (*)
 
 debugWearApp - Link to a wear app to embed for object 'debug'. (n)
 No dependencies
@@ -1739,9 +1899,11 @@ implementation - Implementation only dependencies for 'main' sources. (n)
 +--- project androidx.lifecycle-lifecycle-livedata-core (n)
 +--- project androidx.lifecycle-lifecycle-viewmodel (n)
 +--- project androidx.lifecycle-lifecycle-runtime (n)
++--- project androidx.lifecycle-lifecycle-service (n)
++--- project androidx.lifecycle-lifecycle-process (n)
++--- project androidx.lifecycle-lifecycle-extensions (n)
 +--- project androidx.arch.core-core-runtime (n)
 +--- project androidx.arch.core-core-common (n)
-+--- project androidx.lifecycle-lifecycle-extensions (n)
 +--- project androidx.sqlite-sqlite-framework (n)
 +--- project androidx.sqlite-sqlite (n)
 +--- project androidx.room-room-runtime (n)
@@ -1750,7 +1912,8 @@ implementation - Implementation only dependencies for 'main' sources. (n)
 +--- project androidx.loader-loader (n)
 +--- project androidx.core-core (n)
 +--- project androidx.fragment-fragment (n)
-\--- project androidx.activity-activity (n)
++--- project androidx.activity-activity (n)
+\--- project androidx.savedstate-savedstate (n)
 
 lintChecks - Configuration to apply external lint check jar
 No dependencies
@@ -1998,12 +2161,33 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -2012,8 +2196,7 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -2024,12 +2207,8 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -2039,6 +2218,7 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -2059,6 +2239,7 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    +--- androidx.camera:camera-view:1.0.0-alpha01
@@ -2074,20 +2255,18 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -2099,7 +2278,7 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    \--- androidx.databinding:databinding-adapters:3.5.3
@@ -2120,9 +2299,11 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 +--- project :androidx.lifecycle-lifecycle-livedata-core
 +--- project :androidx.lifecycle-lifecycle-viewmodel
 +--- project :androidx.lifecycle-lifecycle-runtime
++--- project :androidx.lifecycle-lifecycle-service
++--- project :androidx.lifecycle-lifecycle-process
++--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.arch.core-core-runtime
 +--- project :androidx.arch.core-core-common
-+--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.sqlite-sqlite-framework
 +--- project :androidx.sqlite-sqlite
 +--- project :androidx.room-room-runtime
@@ -2132,6 +2313,7 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 +--- project :androidx.core-core
 +--- project :androidx.fragment-fragment
 +--- project :androidx.activity-activity
++--- project :androidx.savedstate-savedstate
 +--- androidx.databinding:databinding-common:{strictly 3.5.3} -> 3.5.3 (c)
 +--- androidx.databinding:databinding-runtime:{strictly 3.5.3} -> 3.5.3 (c)
 +--- androidx.databinding:databinding-adapters:{strictly 3.5.3} -> 3.5.3 (c)
@@ -2154,10 +2336,11 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 +--- com.aliyun.dpa:oss-android-sdk:{strictly 2.9.3} -> 2.9.3 (c)
 +--- com.alibaba:fastjson:{strictly 1.2.59} -> 1.2.59 (c)
 +--- androidx.collection:collection:{strictly 1.1.0} -> 1.1.0 (c)
-+--- androidx.lifecycle:lifecycle-runtime:{strictly 2.0.0} -> 2.0.0 (c)
++--- androidx.lifecycle:lifecycle-runtime:{strictly 2.1.0} -> 2.1.0 (c)
 +--- commons-cli:commons-cli:{strictly 1.2} -> 1.2 (c)
 +--- com.google.code.findbugs:jsr305:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.annotation:annotation:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.fragment:fragment:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.vectordrawable:vectordrawable:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.cardview:cardview:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.coordinatorlayout:coordinatorlayout:{strictly 1.1.0-beta01} -> 1.1.0-beta01 (c)
@@ -2172,11 +2355,13 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 +--- androidx.camera:camera-core:{strictly 1.0.0-alpha04} -> 1.0.0-alpha04 (c)
 +--- com.google.guava:listenablefuture:{strictly 1.0} -> 1.0 (c)
 +--- androidx.room:room-runtime:{strictly 2.1.0} -> 2.1.0 (c)
-+--- androidx.lifecycle:lifecycle-service:{strictly 2.0.0} -> 2.0.0 (c)
 +--- com.squareup.okhttp3:okhttp:{strictly 4.2.0} -> 4.2.0 (c)
 +--- com.squareup.okio:okio:{strictly 2.2.2} -> 2.2.2 (c)
-+--- androidx.lifecycle:lifecycle-common:{strictly 2.0.0} -> 2.0.0 (c)
-+--- androidx.arch.core:core-common:{strictly 2.0.1} -> 2.0.1 (c)
++--- androidx.lifecycle:lifecycle-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.arch.core:core-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.viewpager:viewpager:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-viewmodel:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.activity:activity:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.cursoradapter:cursoradapter:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.appcompat:appcompat-resources:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.drawerlayout:drawerlayout:{strictly 1.0.0} -> 1.0.0 (c)
@@ -2190,6 +2375,7 @@ releaseCompileClasspath - Resolved configuration for compilation for variant: re
 +--- androidx.sqlite:sqlite:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.arch.core:core-runtime:{strictly 2.0.1} -> 2.0.1 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib:{strictly 1.3.50} -> 1.3.50 (c)
++--- androidx.savedstate:savedstate:{strictly 1.0.0} -> 1.0.0 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib-common:{strictly 1.3.50} -> 1.3.50 (c)
 \--- org.jetbrains:annotations:{strictly 13.0} -> 13.0 (c)
 
@@ -2214,12 +2400,37 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.loader:loader:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0
+|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0 (*)
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         +--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    |         \--- androidx.lifecycle:lifecycle-common:2.0.0 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -2228,8 +2439,7 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -2240,12 +2450,8 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -2255,6 +2461,7 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -2377,6 +2584,7 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    |    \--- com.github.bumptech.glide:glide:4.8.0 -> 4.9.0 (*)
@@ -2393,20 +2601,18 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -2419,7 +2625,7 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-adapters:3.5.3
@@ -2471,9 +2677,17 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 +--- project :androidx.lifecycle-lifecycle-livedata-core (*)
 +--- project :androidx.lifecycle-lifecycle-viewmodel (*)
 +--- project :androidx.lifecycle-lifecycle-runtime (*)
++--- project :androidx.lifecycle-lifecycle-service
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-process
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.arch.core-core-runtime (*)
 +--- project :androidx.arch.core-core-common (*)
-+--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.sqlite-sqlite-framework
 |    +--- androidx.annotation:annotation:1.1.0
 |    \--- project :androidx.sqlite-sqlite
@@ -2497,7 +2711,8 @@ releaseRuntimeClasspath - Resolved configuration for runtime for variant: releas
 +--- project :androidx.loader-loader (*)
 +--- project :androidx.core-core (*)
 +--- project :androidx.fragment-fragment (*)
-\--- project :androidx.activity-activity (*)
++--- project :androidx.activity-activity (*)
+\--- project :androidx.savedstate-savedstate (*)
 
 releaseRuntimeElements - Runtime elements for release (n)
 No dependencies
@@ -2514,12 +2729,33 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -2528,8 +2764,7 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -2540,12 +2775,8 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -2555,6 +2786,7 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -2575,6 +2807,7 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    +--- androidx.camera:camera-view:1.0.0-alpha01
@@ -2590,20 +2823,18 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -2615,7 +2846,7 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    \--- androidx.databinding:databinding-adapters:3.5.3
@@ -2636,9 +2867,11 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 +--- project :androidx.lifecycle-lifecycle-livedata-core
 +--- project :androidx.lifecycle-lifecycle-viewmodel
 +--- project :androidx.lifecycle-lifecycle-runtime
++--- project :androidx.lifecycle-lifecycle-service
++--- project :androidx.lifecycle-lifecycle-process
++--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.arch.core-core-runtime
 +--- project :androidx.arch.core-core-common
-+--- project :androidx.lifecycle-lifecycle-extensions
 +--- project :androidx.sqlite-sqlite-framework
 +--- project :androidx.sqlite-sqlite
 +--- project :androidx.room-room-runtime
@@ -2648,6 +2881,7 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 +--- project :androidx.core-core
 +--- project :androidx.fragment-fragment
 +--- project :androidx.activity-activity
++--- project :androidx.savedstate-savedstate
 +--- androidx.databinding:databinding-common:{strictly 3.5.3} -> 3.5.3 (c)
 +--- androidx.databinding:databinding-runtime:{strictly 3.5.3} -> 3.5.3 (c)
 +--- androidx.databinding:databinding-adapters:{strictly 3.5.3} -> 3.5.3 (c)
@@ -2670,10 +2904,11 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 +--- com.aliyun.dpa:oss-android-sdk:{strictly 2.9.3} -> 2.9.3 (c)
 +--- com.alibaba:fastjson:{strictly 1.2.59} -> 1.2.59 (c)
 +--- androidx.collection:collection:{strictly 1.1.0} -> 1.1.0 (c)
-+--- androidx.lifecycle:lifecycle-runtime:{strictly 2.0.0} -> 2.0.0 (c)
++--- androidx.lifecycle:lifecycle-runtime:{strictly 2.1.0} -> 2.1.0 (c)
 +--- commons-cli:commons-cli:{strictly 1.2} -> 1.2 (c)
 +--- com.google.code.findbugs:jsr305:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.annotation:annotation:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.fragment:fragment:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.vectordrawable:vectordrawable:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.cardview:cardview:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.coordinatorlayout:coordinatorlayout:{strictly 1.1.0-beta01} -> 1.1.0-beta01 (c)
@@ -2688,11 +2923,13 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 +--- androidx.camera:camera-core:{strictly 1.0.0-alpha04} -> 1.0.0-alpha04 (c)
 +--- com.google.guava:listenablefuture:{strictly 1.0} -> 1.0 (c)
 +--- androidx.room:room-runtime:{strictly 2.1.0} -> 2.1.0 (c)
-+--- androidx.lifecycle:lifecycle-service:{strictly 2.0.0} -> 2.0.0 (c)
 +--- com.squareup.okhttp3:okhttp:{strictly 4.2.0} -> 4.2.0 (c)
 +--- com.squareup.okio:okio:{strictly 2.2.2} -> 2.2.2 (c)
-+--- androidx.lifecycle:lifecycle-common:{strictly 2.0.0} -> 2.0.0 (c)
-+--- androidx.arch.core:core-common:{strictly 2.0.1} -> 2.0.1 (c)
++--- androidx.lifecycle:lifecycle-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.arch.core:core-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.viewpager:viewpager:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-viewmodel:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.activity:activity:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.cursoradapter:cursoradapter:{strictly 1.0.0} -> 1.0.0 (c)
 +--- androidx.appcompat:appcompat-resources:{strictly 1.1.0} -> 1.1.0 (c)
 +--- androidx.drawerlayout:drawerlayout:{strictly 1.0.0} -> 1.0.0 (c)
@@ -2706,6 +2943,7 @@ releaseUnitTestCompileClasspath - Resolved configuration for compilation for var
 +--- androidx.sqlite:sqlite:{strictly 2.0.1} -> 2.0.1 (c)
 +--- androidx.arch.core:core-runtime:{strictly 2.0.1} -> 2.0.1 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib:{strictly 1.3.50} -> 1.3.50 (c)
++--- androidx.savedstate:savedstate:{strictly 1.0.0} -> 1.0.0 (c)
 +--- org.jetbrains.kotlin:kotlin-stdlib-common:{strictly 1.3.50} -> 1.3.50 (c)
 \--- org.jetbrains:annotations:{strictly 13.0} -> 13.0 (c)
 
@@ -2715,12 +2953,37 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    +--- androidx.cursoradapter:cursoradapter:1.0.0
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.collection:collection:1.1.0
+|    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.loader:loader:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0
+|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.activity:activity:1.0.0
+|    |    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.1.0
+|    |    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    |    \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0 (*)
+|    |    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |    |         +--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |    |         \--- androidx.lifecycle:lifecycle-common:2.0.0 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.appcompat:appcompat-resources:1.1.0
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
 |    |    |    |    +--- androidx.annotation:annotation:1.1.0
-|    |    |    |    \--- androidx.collection:collection:1.1.0
-|    |    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    |    |    \--- androidx.collection:collection:1.1.0 (*)
 |    |    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
 |    |    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
 |    |    |    |    +--- androidx.interpolator:interpolator:1.0.0
@@ -2729,8 +2992,7 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    +--- androidx.drawerlayout:drawerlayout:1.0.0
 |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    \--- androidx.customview:customview:1.0.0
-|    |    |         \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.customview:customview:1.0.0 (*)
 |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.google.android.material:material:1.1.0-alpha10
 |    |    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
@@ -2741,12 +3003,8 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 |    |    |    +--- androidx.annotation:annotation:1.1.0-rc01 -> 1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
 |    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0
-|    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0
-|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
-|    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.0.1
-|    |    |    |    \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0-beta04
 |    |    |    +--- androidx.annotation:annotation:1.1.0
 |    |    |    +--- androidx.customview:customview:1.0.0 (*)
@@ -2756,6 +3014,7 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0-rc01 -> 1.1.0 (*)
 |    |    \--- androidx.viewpager2:viewpager2:1.0.0-beta03 -> 1.0.0-beta04
 |    |         +--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.fragment:fragment:1.1.0-rc01 -> 1.1.0 (*)
 |    |         +--- androidx.recyclerview:recyclerview:1.1.0-beta04 (*)
 |    |         \--- androidx.collection:collection:1.1.0 (*)
 |    +--- androidx.constraintlayout:constraintlayout:1.1.3
@@ -2878,6 +3137,7 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    |    +--- com.github.bumptech.glide:disklrucache:4.9.0
 |    |    +--- com.github.bumptech.glide:annotations:4.9.0
+|    |    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.vectordrawable:vectordrawable-animated:1.0.0 -> 1.1.0 (*)
 |    +--- jp.wasabeef:glide-transformations:4.0.0
 |    |    \--- com.github.bumptech.glide:glide:4.8.0 -> 4.9.0 (*)
@@ -2894,20 +3154,18 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
 |    +--- androidx.work:work-runtime:2.2.0
 |    |    +--- com.google.guava:listenablefuture:1.0
-|    |    +--- androidx.room:room-runtime:2.1.0
-|    |    |    +--- androidx.room:room-common:2.1.0
-|    |    |    |    \--- androidx.annotation:annotation:1.1.0
-|    |    |    +--- androidx.sqlite:sqlite-framework:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.sqlite:sqlite:2.0.1
-|    |    |    |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    +--- androidx.sqlite:sqlite:2.0.1 (*)
-|    |    |    +--- androidx.arch.core:core-runtime:2.0.1
-|    |    |    |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
-|    |    |    |    \--- androidx.arch.core:core-common:2.0.1 (*)
-|    |    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
-|    |    \--- androidx.lifecycle:lifecycle-service:2.0.0
-|    |         \--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    \--- androidx.room:room-runtime:2.1.0
+|    |         +--- androidx.room:room-common:2.1.0
+|    |         |    \--- androidx.annotation:annotation:1.1.0
+|    |         +--- androidx.sqlite:sqlite-framework:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.sqlite:sqlite:2.0.1
+|    |         |         \--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         +--- androidx.sqlite:sqlite:2.0.1 (*)
+|    |         +--- androidx.arch.core:core-runtime:2.0.1
+|    |         |    +--- androidx.annotation:annotation:1.0.2 -> 1.1.0
+|    |         |    \--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |         \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    +--- com.github.chrisbanes:PhotoView:2.3.0
 |    +--- com.aliyun.dpa:oss-android-sdk:+ -> 2.9.3
 |    |    +--- com.squareup.okhttp3:okhttp:3.11.0 -> 4.2.0
@@ -2920,7 +3178,7 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 |    +--- com.alibaba:fastjson:1.2.59
 |    +--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-runtime:3.5.3
-|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 (*)
+|    |    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
 |    |    +--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
 |    |    \--- androidx.databinding:databinding-common:3.5.3
 |    +--- androidx.databinding:databinding-adapters:3.5.3
@@ -2972,9 +3230,17 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 +--- project :androidx.lifecycle-lifecycle-livedata-core (*)
 +--- project :androidx.lifecycle-lifecycle-viewmodel (*)
 +--- project :androidx.lifecycle-lifecycle-runtime (*)
++--- project :androidx.lifecycle-lifecycle-service
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-process
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- project :androidx.lifecycle-lifecycle-runtime (*)
+|    \--- project :androidx.lifecycle-lifecycle-common (*)
++--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.arch.core-core-runtime (*)
 +--- project :androidx.arch.core-core-common (*)
-+--- project :androidx.lifecycle-lifecycle-extensions (*)
 +--- project :androidx.sqlite-sqlite-framework
 |    +--- androidx.annotation:annotation:1.1.0
 |    \--- project :androidx.sqlite-sqlite
@@ -2998,7 +3264,8 @@ releaseUnitTestRuntimeClasspath - Resolved configuration for runtime for variant
 +--- project :androidx.loader-loader (*)
 +--- project :androidx.core-core (*)
 +--- project :androidx.fragment-fragment (*)
-\--- project :androidx.activity-activity (*)
++--- project :androidx.activity-activity (*)
+\--- project :androidx.savedstate-savedstate (*)
 
 releaseWearApp - Link to a wear app to embed for object 'release'. (n)
 No dependencies
@@ -3100,5 +3367,5 @@ No dependencies
 
 A web-based, searchable dependency report is available by adding the --scan option.
 
-BUILD SUCCESSFUL in 19s
+BUILD SUCCESSFUL in 4s
 1 actionable task: 1 executed

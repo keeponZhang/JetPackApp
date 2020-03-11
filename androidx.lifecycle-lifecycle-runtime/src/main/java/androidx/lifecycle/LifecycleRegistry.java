@@ -253,6 +253,8 @@ public class LifecycleRegistry extends Lifecycle {
                 return DESTROYED;
             case ON_ANY:
                 break;
+            default:
+                break;
         }
         throw new IllegalArgumentException("Unexpected event value " + event);
     }

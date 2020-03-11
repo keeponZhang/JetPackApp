@@ -3,6 +3,7 @@ package com.mooc.ppjoke.ui.my;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class MyFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         User user = UserManager.get().getUser();
         mBinding.setUser(user);
-
+        Log.e("TAG", "MyFragment onViewCreated:" );
         UserManager.get().refresh().observe(this, newUser -> {
             if (newUser != null) {
                 mBinding.setUser(newUser);
@@ -68,9 +69,17 @@ public class MyFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
+        Log.e("TAG", "MyFragment onHiddenChanged:" );
         StatusBar.lightStatusBar(getActivity(), hidden);
+    }
+
+    @Override
+    public void onDestroyView() {
+        Log.e("TAG", "MyFragment onDestroyView:" );
+        super.onDestroyView();
     }
 }

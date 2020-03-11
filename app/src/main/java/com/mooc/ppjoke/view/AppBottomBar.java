@@ -49,7 +49,7 @@ public class AppBottomBar extends BottomNavigationView {
         //LABEL_VISIBILITY_AUTO:当按钮个数小于三个时一直显示，或者当按钮个数大于3个且小于5个时，被选中的那个按钮文本才会显示
         //LABEL_VISIBILITY_SELECTED：只有被选中的那个按钮的文本才会显示
         //LABEL_VISIBILITY_UNLABELED:所有的按钮文本都不显示
-        setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_SELECTED);
+        setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         List<BottomBar.Tab> tabs = config.tabs;
         for (BottomBar.Tab tab : tabs) {
             if (!tab.enable) {

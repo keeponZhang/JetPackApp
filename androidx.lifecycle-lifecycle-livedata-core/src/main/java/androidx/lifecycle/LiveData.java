@@ -290,7 +290,7 @@ public abstract class LiveData<T> {
      * @param value The new value
      */
     protected void postValue(T value) {
-        Log.e("TAG", "LiveData postValue value:"+value );
+        Log.w("TAG", "源码里面LiveData postValue value:"+value );
         boolean postTask;
         synchronized (mDataLock) {
             postTask = mPendingData == NOT_SET;
@@ -397,9 +397,10 @@ public abstract class LiveData<T> {
             return mOwner.getLifecycle().getCurrentState().isAtLeast(STARTED);
         }
 
-        //宿主的生命周期改变
+        //宿主的生命周期改变 (这里可知destory才移除)
         @Override
         public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
+            Log.w("TAG", "LiveData LifecycleBoundObserver onStateChanged event:" +event);
             if (mOwner.getLifecycle().getCurrentState() == DESTROYED) {
                 removeObserver(mObserver);
                 return;

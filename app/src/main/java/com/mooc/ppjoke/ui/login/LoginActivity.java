@@ -2,6 +2,7 @@ package com.mooc.ppjoke.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -126,6 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onSuccess(ApiResponse<User> response) {
                         if (response.body != null) {
+                            Log.e("TAG", "LoginActivity UserManager onSuccess save :"+response.body );
                             UserManager.get().save(response.body);
                             finish();
                         } else {

@@ -48,6 +48,8 @@ dependencies {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
                 exclude group: 'androidx.loader', module: 'loader'
+                exclude group: 'androidx.fragment', module: 'fragment'
+                exclude group: 'androidx.collection', module: 'collection'
             })
 
     //约束布局

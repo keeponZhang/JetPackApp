@@ -2,6 +2,7 @@ package com.mooc.ppjoke.ui.login;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.arch.core.executor.ArchTaskExecutor;
@@ -36,6 +37,7 @@ public class UserManager {
         mUser = user;
         CacheManager.save(KEY_CACHE_USER, user);
         if (userLiveData.hasObservers()) {
+            Log.e("TAG", "UserManager save 更新数据啦 -------------------------- mUser:"+mUser );
             userLiveData.postValue(user);
         }
     }
@@ -70,8 +72,9 @@ public class UserManager {
                 .execute(new JsonCallback<User>() {
                     @Override
                     public void onSuccess(ApiResponse<User> response) {
+                        Log.w("TAG", "UserManager onSuccess 刷新数据 getUser():" +getUser());
                         save(response.body);
-                        liveData.postValue(getUser());
+                        // liveData.postValue(getUser());
                     }
 
                     @Override
@@ -82,7 +85,7 @@ public class UserManager {
                                 Toast.makeText(AppGlobals.getApplication(), response.message, Toast.LENGTH_SHORT).show();
                             }
                         });
-
+                        Log.e("TAG", "UserManager onError postValue null: " );
                         liveData.postValue(null);
                     }
                 });
