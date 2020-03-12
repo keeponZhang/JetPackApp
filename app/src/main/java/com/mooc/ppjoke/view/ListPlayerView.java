@@ -177,6 +177,7 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
             }
 
             ViewGroup.LayoutParams coverParams = cover.getLayoutParams();
+            //palyerview是真正能展示视频大小的，用-1暂定按钮会不见
             this.addView(playerView, 1, coverParams);
         }
 
@@ -193,8 +194,9 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
 
         //如果是同一个视频资源,则不需要从重新创建mediaSource。
         //但需要onPlayerStateChanged 否则不会触发onPlayerStateChanged()
+        //应用切换到后台的时候会调用inActive方法
         if (TextUtils.equals(pageListPlay.playUrl, mVideoUrl)) {
-            onPlayerStateChanged(true, Player.STATE_READY);
+            // onPlayerStateChanged(true, Player.STATE_READY);
         } else {
             MediaSource mediaSource = PageListPlayManager.createMediaSource(mVideoUrl);
             exoPlayer.prepare(mediaSource);
@@ -244,6 +246,7 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
         playBtn.setImageResource(isPlaying() ? R.drawable.icon_video_pause : R.drawable.icon_video_play);
     }
 
+    //onPlayerStateChanged 接口的方法
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
 
@@ -251,6 +254,7 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
         PageListPlay pageListPlay = PageListPlayManager.get(mCategory);
         SimpleExoPlayer exoPlayer = pageListPlay.exoPlayer;
         if (playbackState == Player.STATE_READY && exoPlayer.getBufferedPosition() != 0 && playWhenReady) {
+            //封面跟转圈
             cover.setVisibility(GONE);
             bufferView.setVisibility(GONE);
         } else if (playbackState == Player.STATE_BUFFERING) {

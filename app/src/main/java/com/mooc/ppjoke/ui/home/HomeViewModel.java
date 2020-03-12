@@ -107,7 +107,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                 @Override
                 public void onCacheSuccess(ApiResponse<List<Feed>> response) {
                     //这样有可能缓存覆盖了网络数据
-                    SystemClock.sleep(4000);
+                    // SystemClock.sleep(4000);
 
                     //转换pagelist不是直接new出来pagelist
                     Log.w("TAG", "loadData 获取缓存 onCacheSuccess: "+response);
@@ -119,7 +119,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                     PagedList pagedList = dataSource.buildNewPagedList(config);
                     cacheLiveData.postValue(pagedList);
                     // pagedList.add(pagedList.get(pagedList.size()-1));
-                    cacheLiveData.postValue(pagedList);
+                    // cacheLiveData.postValue(pagedList);
 
                     //不能直接new，一般是调用create方法创建
                     // new PagedList<Feed>()
@@ -132,7 +132,6 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                     // }
                 }
             });
-            return;
         }
 
         try {

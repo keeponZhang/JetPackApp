@@ -1,5 +1,6 @@
 package com.mooc.ppjoke.exoplayer;
 
+import android.util.Log;
 import android.util.Pair;
 import android.view.ViewGroup;
 
@@ -67,9 +68,10 @@ public class PageListPlayDetector {
                 //所以此时 recyclerView.getChildCount()还是等于0的。
                 //等childView 被布局到RecyclerView上之后，会执行onScrolled（）方法
                 //并且此时 dx,dy都等于0
-                postAutoPlay();
+                Log.e("TAG", "PageListPlayDetector onScrolled dx == 0 && dy == 0:" );
+                // postAutoPlay();
             } else {
-                //如果有正在播放的,且滑动时被划出了屏幕 则 停止他
+                //如果有正在播放的,且滑动时被划出了屏幕 则 停止他（所以一直滑动，手指不离开，滑出去再滑进来不会自动播放）
                 if (playingTarget != null && playingTarget.isPlaying() && !isTargetInBounds(playingTarget)) {
                     playingTarget.inActive();
                 }
@@ -77,6 +79,7 @@ public class PageListPlayDetector {
         }
     };
 
+    //主要是延迟检测
     private void postAutoPlay() {
         mRecyclerView.post(delayAutoPlay);
     }
@@ -88,9 +91,13 @@ public class PageListPlayDetector {
         }
     };
 
+    //当有数据被加到recyclerview的时候
     private final RecyclerView.AdapterDataObserver mDataObserver = new RecyclerView.AdapterDataObserver() {
         @Override
         public void onItemRangeInserted(int positionStart, int itemCount) {
+            Log.e("TAG",
+                    "PageListPlayDetector onItemRangeInserted mRecyclerView.getChildCount():"+mRecyclerView.getChildCount() );
+            //进入页面来可以自动播放
             postAutoPlay();
         }
     };
@@ -100,6 +107,7 @@ public class PageListPlayDetector {
             return;
         }
 
+        //如果有当前视频正在播放并且在在屏幕内，就不检测了
         if (playingTarget != null && playingTarget.isPlaying() && isTargetInBounds(playingTarget)) {
             return;
         }
@@ -116,6 +124,7 @@ public class PageListPlayDetector {
 
         if (activeTarget != null) {
             if (playingTarget != null) {
+                //上一个置为不活跃
                 playingTarget.inActive();
             }
             playingTarget = activeTarget;
