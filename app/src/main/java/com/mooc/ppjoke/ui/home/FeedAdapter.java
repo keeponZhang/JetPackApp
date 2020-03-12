@@ -129,7 +129,10 @@ public class FeedAdapter extends AbsPagedListAdapter<Feed, FeedAdapter.ViewHolde
             //而dataBinding的执行默认是延迟一帧的。
             //当列表上下滑动的时候 ，会明显的看到宽高尺寸不对称的问题
 
+            //这里是给布局文件传入对象
             mBinding.setVariable(com.mooc.ppjoke.BR.feed, item);
+            //下面这种方式调用也行
+            // mBinding.setLifecycleOwner((LifecycleOwner) mContext);
             mBinding.setVariable(BR.lifeCycleOwner, mContext);
             if (mBinding instanceof LayoutFeedTypeImageBinding) {
                 LayoutFeedTypeImageBinding imageBinding = (LayoutFeedTypeImageBinding) mBinding;

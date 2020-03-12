@@ -30,7 +30,7 @@
         android:paddingLeft="@dimen/dp_16"
         android:paddingRight="@dimen/dp_16">
 
-
+    <!--()->InteractionPresenter.toggleFeedLike(lifeCycleOwner,feed) 静态方法通过导入类可以调用-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/like"
             android:layout_width="0dp"

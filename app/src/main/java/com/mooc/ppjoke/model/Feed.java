@@ -47,7 +47,7 @@ public class Feed extends BaseObservable implements Serializable {
     public Comment topComment;
     public Ugc ugc;
 
-    @Bindable
+    @Bindable //需要加Bindable注解
     public Ugc getUgc() {
         if (ugc == null) {
             ugc = new Ugc();

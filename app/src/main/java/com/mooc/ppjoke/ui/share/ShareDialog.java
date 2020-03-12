@@ -51,7 +51,7 @@ public class ShareDialog extends AlertDialog {
 
         layout = new CornerFrameLayout(getContext());
         layout.setBackgroundColor(Color.WHITE);
-        layout.setViewOutline(PixUtils.dp2px(20), ViewHelper.RADIUS_TOP);
+        layout.setViewOutline(PixUtils.dp2px(20), ViewHelper.RADIUS_LEFT);
 
         RecyclerView gridView = new RecyclerView(getContext());
         gridView.setLayoutManager(new GridLayoutManager(getContext(), 4));

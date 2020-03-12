@@ -1,20 +1,10 @@
 package com.mooc.ppjoke.ui;
 
-import android.app.Application;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.arch.core.executor.ArchTaskExecutor;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
-
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mooc.libcommon.extention.LiveDataBus;
 import com.mooc.libcommon.global.AppGlobals;
@@ -30,7 +20,12 @@ import com.mooc.ppjoke.ui.share.ShareDialog;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Date;
+import androidx.appcompat.app.AlertDialog;
+import androidx.arch.core.executor.ArchTaskExecutor;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 public class InteractionPresenter {
 
@@ -66,6 +61,7 @@ public class InteractionPresenter {
                     public void onSuccess(ApiResponse<JSONObject> response) {
                         if (response.body != null) {
                             boolean hasLiked = response.body.getBoolean("hasLiked").booleanValue();
+                            //需要通过get方法
                             feed.getUgc().setHasLiked(hasLiked);
                             LiveDataBus.get().with(DATA_FROM_INTERACTION)
                                     .postValue(feed);
@@ -216,7 +212,6 @@ public class InteractionPresenter {
                 });
     }
 
-
     //关注/取消关注一个用户
     public static void toggleFollowUser(LifecycleOwner owner, Feed feed) {
         if (!isLogin(owner, new Observer<User>() {
@@ -258,7 +253,8 @@ public class InteractionPresenter {
                 .setNegativeButton("删除", (dialog, which) -> {
                     dialog.dismiss();
                     deleteFeedInternal(liveData, itemId);
-                }).setPositiveButton("取消", (dialog, which) -> dialog.dismiss()).setMessage("确定要删除这条评论吗？").create().show();
+                }).setPositiveButton("取消", (dialog, which) -> dialog.dismiss())
+                .setMessage("确定要删除这条评论吗？").create().show();
         return liveData;
     }
 
@@ -283,13 +279,15 @@ public class InteractionPresenter {
     }
 
     //删除某个帖子的一个评论
-    public static LiveData<Boolean> deleteFeedComment(Context context, long itemId, long commentId) {
+    public static LiveData<Boolean> deleteFeedComment(Context context, long itemId,
+                                                      long commentId) {
         MutableLiveData<Boolean> liveData = new MutableLiveData<>();
         new AlertDialog.Builder(context)
                 .setNegativeButton("删除", (dialog, which) -> {
                     dialog.dismiss();
                     deleteFeedCommentInternal(liveData, itemId, commentId);
-                }).setPositiveButton("取消", (dialog, which) -> dialog.dismiss()).setMessage("确定要删除这条评论吗？").create().show();
+                }).setPositiveButton("取消", (dialog, which) -> dialog.dismiss())
+                .setMessage("确定要删除这条评论吗？").create().show();
         return liveData;
     }
 
@@ -315,7 +313,6 @@ public class InteractionPresenter {
                 });
     }
 
-
     //关注/取消关注一个帖子标签
     public static void toggleTagLike(LifecycleOwner owner, TagList tagList) {
         if (!isLogin(owner, new Observer<User>() {
@@ -323,8 +320,9 @@ public class InteractionPresenter {
             public void onChanged(User user) {
                 toggleTagLikeInternal(tagList);
             }
-        })) ;
-        else {
+        })) {
+            ;
+        } else {
             toggleTagLikeInternal(tagList);
         }
     }

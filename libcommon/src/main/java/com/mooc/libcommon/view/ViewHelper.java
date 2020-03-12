@@ -39,6 +39,7 @@ public class ViewHelper {
 
                 if (radiusSide != RADIUS_ALL) {
                     int left = 0, top = 0, right = w, bottom = h;
+                    //一次控制两边的，这个是控制左上和左下
                     if (radiusSide == RADIUS_LEFT) {
                         right += radius;
                     } else if (radiusSide == RADIUS_TOP) {
