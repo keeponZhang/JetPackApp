@@ -19,6 +19,11 @@ import com.mooc.ppjoke.model.User;
 public class UserManager {
     private static final String KEY_CACHE_USER = "cache_user";
     private static UserManager mUserManager = new UserManager();
+
+    public MutableLiveData<User> getUserLiveData() {
+        return userLiveData;
+    }
+
     private MutableLiveData<User> userLiveData = new MutableLiveData<>();
     private User mUser;
 
@@ -37,7 +42,9 @@ public class UserManager {
         mUser = user;
         CacheManager.save(KEY_CACHE_USER, user);
         if (userLiveData.hasObservers()) {
-            Log.e("TAG", "UserManager save 更新数据啦 -------------------------- mUser:"+mUser );
+            Log.e("TAG",
+                    "UserManager save 更新数据啦 -------------------------- mUser:"+mUser+"  " +
+                            "userLiveData.getObserversSize()= "+userLiveData.getObserversSize() );
             userLiveData.postValue(user);
         }
     }
