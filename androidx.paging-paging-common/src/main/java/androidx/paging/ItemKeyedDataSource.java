@@ -201,7 +201,8 @@ public abstract class ItemKeyedDataSource<Key, Value> extends ContiguousDataSour
         public void onResult(@NonNull List<Value> data, int position, int totalCount) {
             if (!mCallbackHelper.dispatchInvalidResultIfInvalid()) {
                 LoadCallbackHelper.validateInitialLoadParams(data, position, totalCount);
-                Log.e("TAG", "LoadInitialCallbackImpl onResult 三个参数:" );
+                Log.e("TAG", "LoadInitialCallbackImpl onResult 三个参数 接着会回调到 mCallbackHelper" +
+                        "(LoadCallbackHelper是 DataSource的内部类):" );
 
                 int trailingUnloadedCount = totalCount - position - data.size();
                 if (mCountingEnabled) {
@@ -236,7 +237,7 @@ public abstract class ItemKeyedDataSource<Key, Value> extends ContiguousDataSour
         public void onResult(@NonNull List<Value> data) {
             if (!mCallbackHelper.dispatchInvalidResultIfInvalid()) {
                 Log.w("TAG", "LoadCallbackImpl onResult 调用mCallbackHelper" +
-                        ".dispatchResultToReceiver:" );
+                        ".dispatchResultToReceiver:"+data );
                 mCallbackHelper.dispatchResultToReceiver(new PageResult<>(data, 0, 0, 0));
             }
         }
@@ -259,12 +260,14 @@ public abstract class ItemKeyedDataSource<Key, Value> extends ContiguousDataSour
         LoadInitialCallbackImpl<Value> callback =
                 new LoadInitialCallbackImpl<>(this, enablePlaceholders, receiver);
         Log.e("TAG", "ItemKeyedDataSource dispatchLoadInitial 调用 loadInitial 前:" );
+        //这个方法会被覆写，传入的callback实际上是LoadInitialCallbackImpl
         loadInitial(new LoadInitialParams<>(key, initialLoadSize, enablePlaceholders), callback);
         Log.w("TAG", "ItemKeyedDataSource dispatchLoadInitial调用 loadInitial 后:" );
         // If initialLoad's callback is not called within the body, we force any following calls
         // to post to the UI thread. This constructor may be run on a background thread, but
         // after constructor, mutation must happen on UI thread.
-        callback.mCallbackHelper.setPostExecutor(mainThreadExecutor);
+        //LoadCallbackHelper是LoadInitialCallbackImpl通过ItemKeyedDataSource和PageResult.Receiver创建出来的
+        // callback.mCallbackHelper.setPostExecutor(mainThreadExecutor);
         Log.e("TAG", "ItemKeyedDataSource dispatchLoadInitial  callback.mCallbackHelper" +
                 ".setPostExecutor后:" );
     }

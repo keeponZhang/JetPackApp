@@ -110,6 +110,7 @@ public abstract class AbsPagedListAdapter<T, VH extends RecyclerView.ViewHolder>
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //mHeaderView不是表示最上面
         if (mHeaders.indexOfKey(viewType) >= 0) {
             View view = mHeaders.get(viewType);
             return (VH) new RecyclerView.ViewHolder(view) {

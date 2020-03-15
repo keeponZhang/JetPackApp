@@ -33,6 +33,7 @@
             app:lines="@{1000}"></include>
 
         <com.mooc.ppjoke.view.PPImageView
+            android:src="@mipmap/ic_launcher"
             android:id="@+id/header_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

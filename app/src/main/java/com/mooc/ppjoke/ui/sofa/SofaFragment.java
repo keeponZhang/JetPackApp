@@ -90,35 +90,43 @@ public class SofaFragment extends Fragment {
 
         //其中autoRefresh的意思是:如果viewPager2 中child的数量发生了变化，也即我们调用了adapter#notifyItemChanged()前后getItemCount不同。
         //要不要 重新刷野tabLayout的tab标签。视情况而定,像咱们sofaFragment的tab数量一旦固定了是不会变的，传true/false  都问题不大
-        mediator = new TabLayoutMediator(tabLayout, viewPager2, true, new TabLayoutMediator.TabConfigurationStrategy() {
+        mediator = new TabLayoutMediator(tabLayout, viewPager2, true,
+                new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 tab.setCustomView(makeTabView(position));
             }
         });
         mediator.attach();
+        SofaTab.Tabs newTab = new SofaTab.Tabs();
+        SofaTab.Tabs pictabs = this.tabs.get(0);
+        newTab.tag = pictabs.tag + "2";
+        newTab.title = pictabs.title + "2";
+        this.tabs.add(newTab);
 
         viewPager2.registerOnPageChangeCallback(mPageChangeCallback);
         //切换到默认选择项,那当然要等待初始化完成之后才有效
         viewPager2.post(() -> viewPager2.setCurrentItem(tabConfig.select, false));
+        viewPager2.getAdapter().notifyDataSetChanged();
     }
 
     ViewPager2.OnPageChangeCallback mPageChangeCallback = new ViewPager2.OnPageChangeCallback() {
         @Override
         public void onPageSelected(int position) {
-            int tabCount = tabLayout.getTabCount();
-            for (int i = 0; i < tabCount; i++) {
-                TabLayout.Tab tab = tabLayout.getTabAt(i);
-                TextView customView = (TextView) tab.getCustomView();
-                if (tab.getPosition() == position) {
-
-                    customView.setTextSize(tabConfig.activeSize);
-                    customView.setTypeface(Typeface.DEFAULT_BOLD);
-                } else {
-                    customView.setTextSize(tabConfig.normalSize);
-                    customView.setTypeface(Typeface.DEFAULT);
-                }
-            }
+            //这里只是放大选中字体，可以去掉
+            // int tabCount = tabLayout.getTabCount();
+            // for (int i = 0; i < tabCount; i++) {
+            //     TabLayout.Tab tab = tabLayout.getTabAt(i);
+            //     TextView customView = (TextView) tab.getCustomView();
+            //     if (tab.getPosition() == position) {
+            //
+            //         customView.setTextSize(tabConfig.activeSize);
+            //         customView.setTypeface(Typeface.DEFAULT_BOLD);
+            //     } else {
+            //         customView.setTextSize(tabConfig.normalSize);
+            //         customView.setTypeface(Typeface.DEFAULT);
+            //     }
+            // }
         }
     };
 
@@ -139,6 +147,14 @@ public class SofaFragment extends Fragment {
     public Fragment getTabFragment(int position) {
         return HomeFragment.newInstance(tabs.get(position).tag);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //为什么当前会调用呢
+        Log.e("TAG", "SofaFragment onResume:" );
+    }
+    
 
     public SofaTab getTabConfig() {
         return AppConfig.getSofaTabConfig();

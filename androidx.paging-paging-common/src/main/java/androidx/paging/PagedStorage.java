@@ -114,6 +114,7 @@ final class PagedStorage<T> extends AbstractList<T> {
         mLeadingNullCount = leadingNulls;
         mPages.clear();
         mPages.add(page);
+        Log.e("TAG", "PagedStorage init 放进 mPages:" +page);
         mTrailingNullCount = trailingNulls;
 
         mPositionOffset = positionOffset;

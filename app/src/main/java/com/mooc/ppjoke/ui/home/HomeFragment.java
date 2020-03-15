@@ -123,6 +123,7 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
         mViewModel.getDataSource().invalidate();
     }
 
+    //底部导航栏切换只会导致onHiddenChanged的调用
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -144,8 +145,10 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
         super.onPause();
     }
 
+    //因为是堆栈管理fragment的，所以后台切换到前台时不活跃的也会调用
     @Override
     public void onResume() {
+        Log.d("TAG", "HomeFragment onResume feedType:" +feedType);
         super.onResume();
         shouldPause = true;
         //由于沙发Tab的几个子页面 复用了HomeFragment。

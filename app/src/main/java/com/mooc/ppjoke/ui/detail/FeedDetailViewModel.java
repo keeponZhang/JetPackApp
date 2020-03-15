@@ -1,5 +1,7 @@
 package com.mooc.ppjoke.ui.detail;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.paging.DataSource;
 import androidx.paging.ItemKeyedDataSource;
@@ -28,7 +30,7 @@ public class FeedDetailViewModel extends AbsViewModel<Comment> {
     }
 
     class DataSource extends ItemKeyedDataSource<Integer, Comment> {
-
+        //基类AbsViewModel触发回调到这里
         @Override
         public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Comment> callback) {
             loadData(params.requestedInitialKey, params.requestedLoadSize, callback);
@@ -52,6 +54,7 @@ public class FeedDetailViewModel extends AbsViewModel<Comment> {
                     .execute();
 
             List<Comment> list = response.body == null ? Collections.emptyList() : response.body;
+            Log.e("TAG", "DataSource loadData 从网络获取到了评论数据:" );
             callback.onResult(list);
         }
 

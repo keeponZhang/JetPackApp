@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -307,6 +309,7 @@ public abstract class DataSource<Key, Value> {
         }
 
         void dispatchResultToReceiver(final @NonNull PageResult<T> result) {
+            Log.w("TAG", "LoadCallbackHelper dispatchResultToReceiver:result" +result);
             Executor executor;
             synchronized (mSignalLock) {
                 if (mHasSignalled) {

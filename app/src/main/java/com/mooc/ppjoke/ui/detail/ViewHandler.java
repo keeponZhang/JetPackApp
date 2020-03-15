@@ -1,6 +1,7 @@
 package com.mooc.ppjoke.ui.detail;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -46,6 +47,7 @@ public abstract class ViewHandler {
             @Override
             public void onCurrentListChanged(@Nullable PagedList<Comment> previousList, @Nullable PagedList<Comment> currentList) {
                 boolean empty = currentList.size() <= 0;
+                Log.e("TAG", "ViewHandler onCurrentListChanged empty:"+empty );
                 handleEmpty(!empty);
             }
         };
@@ -81,6 +83,7 @@ public abstract class ViewHandler {
     private EmptyView mEmptyView;
 
     public void handleEmpty(boolean hasData) {
+        Log.d("TAG", "ViewHandler handleEmpty hasData:"+hasData );
         if (hasData) {
             if (mEmptyView != null) {
                 listAdapter.removeHeaderView(mEmptyView);
@@ -94,6 +97,16 @@ public abstract class ViewHandler {
                 mEmptyView.setTitle(mActivity.getString(R.string.feed_comment_empty));
             }
             listAdapter.addHeaderView(mEmptyView);
+            //用mEmptyView postDelayed不行
+            // mRecyclerView.postDelayed(new Runnable() {
+            //     @Override
+            //     public void run() {
+            //         Log.e("TAG", "ViewHandler run postDelayed :" );
+            //         listAdapter.addHeaderView(mEmptyView);
+            //
+            //     }
+            // }, 2000);
+
         }
     }
 

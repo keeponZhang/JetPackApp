@@ -215,8 +215,9 @@ public final class LivePagedListBuilder<Key, Value> {
                     Log.e("TAG",
                             "LivePagedListBuilder compute 通过PagedList.Builder<> 创建了mPageList:"+mList );
                 } while (mList.isDetached());
+                Log.e("TAG", "LivePagedListBuilder compute 方法执行完毕:" );
                 return mList;
             }
-        }.getLiveData();
+        }.getLiveData(); //getLiveData重要
     }
 }

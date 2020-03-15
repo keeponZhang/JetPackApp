@@ -187,6 +187,7 @@ class ContiguousPagedList<K, V> extends PagedList<V> implements PagedStorage.Cal
                     mMainThreadExecutor,
                     mReceiver);
         }
+        Log.e("TAG", "ContiguousPagedList ContiguousPagedList 构造完毕:" );
         mShouldTrim = mDataSource.supportsPageDropping()
                 && mConfig.maxSize != Config.MAX_SIZE_UNBOUNDED;
     }
@@ -345,6 +346,7 @@ class ContiguousPagedList<K, V> extends PagedList<V> implements PagedStorage.Cal
     @Override
     public void onInitialized(int count) {
         notifyInserted(0, count);
+        Log.e("TAG", "ContiguousPagedList  PagedStorage.Callback 接口回调 onInitialized:" );
         // simple heuristic to decide if, when dropping pages, we should replace with placeholders
         mReplacePagesWithNulls =
                 mStorage.getLeadingNullCount() > 0 || mStorage.getTrailingNullCount() > 0;

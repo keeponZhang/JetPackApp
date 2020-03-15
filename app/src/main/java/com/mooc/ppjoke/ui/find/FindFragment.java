@@ -1,6 +1,7 @@
 package com.mooc.ppjoke.ui.find;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -32,6 +33,12 @@ public class FindFragment extends SofaFragment {
                     .getSwitchTabLiveData().observe(this,
                     object -> viewPager2.setCurrentItem(1));
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.w("TAG", "FindFragment onResume:" );
     }
 
     @Override
