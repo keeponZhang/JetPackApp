@@ -20,9 +20,21 @@ import com.mooc.ppjoke.utils.AppConfig;
 
 import java.util.List;
 
+import androidx.annotation.IdRes;
+
 public class AppBottomBar extends BottomNavigationView {
     private static int[] sIcons = new int[]{R.drawable.icon_tab_home, R.drawable.icon_tab_sofa, R.drawable.icon_tab_publish, R.drawable.icon_tab_find, R.drawable.icon_tab_mine};
     private BottomBar config;
+
+    public void setCurrentItemId(int currentItemId) {
+        mCurrentItemId = currentItemId;
+    }
+
+    public int getCurrentItemId() {
+        return mCurrentItemId;
+    }
+
+    private int mCurrentItemId;
 
     public AppBottomBar(Context context) {
         this(context, null);
@@ -109,6 +121,10 @@ public class AppBottomBar extends BottomNavigationView {
                 post(() -> setSelectedItemId(itemId));
             }
         }
+    }
+
+    public void setSelectedItemId(@IdRes int itemId) {
+        super.setSelectedItemId(itemId);
     }
 
     private int dp2Px(int dpValue) {

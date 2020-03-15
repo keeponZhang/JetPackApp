@@ -372,6 +372,10 @@ public abstract class LiveData<T> {
         return mObservers.size() > 0;
     }
 
+    public int getObserversSize(){
+        return mObservers != null ? mObservers.size() : 0;
+    }
+
     /**
      * Returns true if this LiveData has active observers.
      *

@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         HashMap<String, Destination> destConfig = AppConfig.getDestConfig();
         Iterator<Map.Entry<String, Destination>> iterator = destConfig.entrySet().iterator();
+        //防止循环调用
         //遍历 target destination 是否需要登录拦截
         while (iterator.hasNext()) {
             Map.Entry<String, Destination> entry = iterator.next();
@@ -81,18 +82,24 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             if (value != null && !UserManager.get().isLogin() && value.needLogin && value.id == menuItem.getItemId()) {
                 Log.e("TAG", "MainActivity onNavigationItemSelected:" +key);
                 //跳转到登录页
+                if (navView.getCurrentItemId() == menuItem.getItemId()) {
+                    return false;
+                }
                 UserManager.get().login(this).observe(this, new Observer<User>() {
                     @Override
                     public void onChanged(User user) {
-                        Log.e("TAG", "MainActivity 数据改变 onChanged user:"+user );
+                        Log.e("TAG", "MainActivity 数据改变 onChanged user:"+user +" UserManager.get" +
+                                "().getObserversSize()="+UserManager.get().getUserLiveData().getObserversSize());
                         //登录之后才打开配置页
+                        navView.setCurrentItemId(menuItem.getItemId());
                         navView.setSelectedItemId(menuItem.getItemId());
+                        UserManager.get().getUserLiveData().removeObserver(this);
                     }
                 });
                 return false;
             }
         }
-
+        navView.setCurrentItemId(menuItem.getItemId());
         navController.navigate(menuItem.getItemId());
         return !TextUtils.isEmpty(menuItem.getTitle());
     }

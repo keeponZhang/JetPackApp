@@ -185,6 +185,7 @@ public class LifecycleRegistry extends Lifecycle {
         while ((statefulObserver.mState.compareTo(targetState) < 0
                 && mObserverMap.contains(observer))) {
             pushParentState(statefulObserver.mState);
+            //其实是一个装饰者模式ObserverWithState
             statefulObserver.dispatchEvent(lifecycleOwner, upEvent(statefulObserver.mState));
             popParentState();
             // mState / subling may have been changed recalculate
