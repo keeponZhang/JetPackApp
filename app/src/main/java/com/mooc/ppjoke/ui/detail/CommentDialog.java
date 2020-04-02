@@ -184,7 +184,9 @@ public class CommentDialog extends AppCompatDialogFragment implements View.OnCli
                 public void run() {
                     int remain = count.decrementAndGet();
                     coverUrl = FileUploadManager.upload(coverPath);
+
                     if (remain <= 0) {
+                        //表示文件和封面上传成功
                         if (!TextUtils.isEmpty(fileUrl) && !TextUtils.isEmpty(coverUrl)) {
                             publish();
                         } else {
@@ -201,6 +203,7 @@ public class CommentDialog extends AppCompatDialogFragment implements View.OnCli
                 int remain = count.decrementAndGet();
                 fileUrl = FileUploadManager.upload(filePath);
                 if (remain <= 0) {
+                    //表示文件和封面上传成功
                     if (!TextUtils.isEmpty(fileUrl) || !TextUtils.isEmpty(coverPath) && !TextUtils.isEmpty(coverUrl)) {
                         publish();
                     } else {

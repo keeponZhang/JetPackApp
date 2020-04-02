@@ -413,6 +413,7 @@ public abstract class PagedList<T> extends AbstractList<T> {
     @Override
     @Nullable
     public T get(int index) {
+        Log.e("TAG", "PagedList get 从mStorage拿数据 mStorage.size:"+mStorage.size() );
         T item = mStorage.get(index);
         if (item != null) {
             mLastItem = item;

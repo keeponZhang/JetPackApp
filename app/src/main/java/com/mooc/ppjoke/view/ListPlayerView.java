@@ -113,13 +113,17 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
         int coverWidth;
         int coverHeight;
         if (widthPx >= heightPx) {
+            //宽度占满屏幕宽度，高度按比例
             coverWidth = maxWidth;
             layoutHeight = coverHeight = (int) (heightPx / (widthPx * 1.0f / maxWidth));
         } else {
+            //高度最高为屏幕宽度，宽度按比例
             layoutHeight = coverHeight = maxHeight;
             coverWidth = (int) (widthPx / (heightPx * 1.0f / maxHeight));
         }
 
+        //封面的LayoutParams跟Playerview的LayoutParams不一样
+        //控件的宽度是全屏的
         ViewGroup.LayoutParams params = getLayoutParams();
         params.width = layoutWidth;
         params.height = layoutHeight;
@@ -131,6 +135,7 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
         blur.setLayoutParams(blurParams);
 
         FrameLayout.LayoutParams coverParams = (LayoutParams) cover.getLayoutParams();
+        //这里所以要区分，因为有一种是封面高度大于封面宽度的，而正在播放视频的view跟封面的LayoutParam是一样的
         coverParams.width = coverWidth;
         coverParams.height = coverHeight;
         coverParams.gravity = Gravity.CENTER;
@@ -178,7 +183,9 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
 
             ViewGroup.LayoutParams coverParams = cover.getLayoutParams();
             //palyerview是真正能展示视频大小的，用-1暂定按钮会不见
-            this.addView(playerView, 1, coverParams);
+            //视屏和封面是一样的LayoutParams
+            //这个不去省掉coverParams
+            this.addView(playerView, 1,coverParams);
         }
 
         ViewParent ctrlParent = controlView.getParent();

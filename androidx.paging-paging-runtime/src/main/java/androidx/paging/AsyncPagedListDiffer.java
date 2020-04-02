@@ -16,6 +16,8 @@
 
 package androidx.paging;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.arch.core.executor.ArchTaskExecutor;
@@ -178,6 +180,7 @@ public class AsyncPagedListDiffer<T> {
     private PagedList.Callback mPagedListCallback = new PagedList.Callback() {
         @Override
         public void onInserted(int position, int count) {
+            Log.e("TAG", "AsyncPagedListDiffer onInserted:" );
             mUpdateCallback.onInserted(position, count);
         }
 
@@ -396,6 +399,7 @@ public class AsyncPagedListDiffer<T> {
             @Nullable PagedList<T> previousList,
             @Nullable PagedList<T> currentList,
             @Nullable Runnable commitCallback) {
+        Log.e("TAG", "AsyncPagedListDiffer onCurrentListChanged数据改变了:" );
         for (PagedListListener<T> listener : mListeners) {
             listener.onCurrentListChanged(previousList, currentList);
         }

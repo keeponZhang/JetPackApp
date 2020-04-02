@@ -53,6 +53,7 @@ public abstract class ViewHandler {
         };
         mRecyclerView.setAdapter(listAdapter);
 
+        //设置id,里面请求帖子时需要用到
         viewModel.setItemId(mFeed.itemId);
         viewModel.getLiveDataPageList().observe(mActivity, new Observer<PagedList<Comment>>() {
             @Override
@@ -75,6 +76,7 @@ public abstract class ViewHandler {
         }
         commentDialog.setCommentAddListener(comment -> {
             handleEmpty(true);
+            //pageListAdapter 没有add方法
             listAdapter.addAndRefreshList(comment);
         });
         commentDialog.show(mActivity.getSupportFragmentManager(), "comment_dialog");

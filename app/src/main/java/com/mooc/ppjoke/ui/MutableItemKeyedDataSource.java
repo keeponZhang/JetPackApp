@@ -1,5 +1,7 @@
 package com.mooc.ppjoke.ui;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.paging.ItemKeyedDataSource;
@@ -46,6 +48,8 @@ public abstract class MutableItemKeyedDataSource<Key, Value> extends ItemKeyedDa
 
     @Override
     public void loadAfter(@NonNull LoadParams<Key> params, @NonNull LoadCallback<Value> callback) {
+        Log.e("TAG", "MutableItemKeyedDataSource loadAfter:" );
+        //添加数据后会回调到这里
         if (mDataSource != null) {
             //一旦 和当前DataSource关联的PagedList被提交到PagedListAdapter。那么ViewModel中创建的DataSource 就不会再被调用了
             //我们需要在分页的时候 代理一下 原来的DataSource，迫使其继续工作

@@ -57,7 +57,7 @@ public class CaptureActivity extends AppCompatActivity {
     private ArrayList<String> deniedPermission = new ArrayList<>();
     private CameraX.LensFacing mLensFacing = CameraX.LensFacing.BACK;
     private int rotation = Surface.ROTATION_0;
-    private Size resolution = new Size(1280, 720);
+    private Size resolution = new Size(3000, 2000);
     private Rational rational = new Rational(9, 16);
     private Preview preview;
     private ImageCapture imageCapture;
@@ -237,6 +237,7 @@ public class CaptureActivity extends AppCompatActivity {
         imageCapture = new ImageCapture(new ImageCaptureConfig.Builder()
                 .setTargetAspectRatio(rational)
                 .setTargetResolution(resolution)
+                .setCaptureMode(ImageCapture.CaptureMode.MAX_QUALITY)
                 .setLensFacing(mLensFacing)
                 .setTargetRotation(rotation).build());
 
@@ -252,7 +253,7 @@ public class CaptureActivity extends AppCompatActivity {
         preview.setOnPreviewOutputUpdateListener(new Preview.OnPreviewOutputUpdateListener() {
             @Override
             public void onUpdated(Preview.PreviewOutput output) {
-
+                //这里需要remove再add
                 textureView = mBinding.textureView;
                 ViewGroup parent = (ViewGroup) textureView.getParent();
                 parent.removeView(textureView);

@@ -15,9 +15,10 @@ import com.mooc.ppjoke.view.FullScreenPlayerView;
 
 public class VideoViewHandler extends ViewHandler {
     private final CoordinatorLayout coordinator;
+    //这里是用了playerview与PageListPlay的exoPlayer一起组成无缝续播的功能
     private FullScreenPlayerView playerView;
     private LayoutFeedDetailTypeVideoBinding mVideoBinding;
-    private String category;
+    public String category;
     private boolean backPressed;
 
     public VideoViewHandler(FragmentActivity activity) {
@@ -42,17 +43,20 @@ public class VideoViewHandler extends ViewHandler {
         });
 
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) playerView.getLayoutParams();
-        ViewZoomBehavior behavior = (ViewZoomBehavior) layoutParams.getBehavior();
-        behavior.setViewZoomCallback(new ViewZoomBehavior.ViewZoomCallback() {
-            @Override
-            public void onDragZoom(int height) {
-                int bottom = playerView.getBottom();
-                boolean moveUp = height < bottom;
-                boolean fullscreen = moveUp ? height >= coordinator.getBottom() - mInateractionBinding.getRoot().getHeight()
-                        : height >= coordinator.getBottom();
-                setViewAppearance(fullscreen);
-            }
-        });
+        if(layoutParams.getBehavior()!=null){
+            ViewZoomBehavior behavior = (ViewZoomBehavior) layoutParams.getBehavior();
+            behavior.setViewZoomCallback(new ViewZoomBehavior.ViewZoomCallback() {
+                @Override
+                public void onDragZoom(int height) {
+                    int bottom = playerView.getBottom();
+                    boolean moveUp = height < bottom;
+                    boolean fullscreen = moveUp ? height >= coordinator.getBottom() - mInateractionBinding.getRoot().getHeight()
+                            : height >= coordinator.getBottom();
+                    setViewAppearance(fullscreen);
+                }
+            });
+
+        }
 
     }
 

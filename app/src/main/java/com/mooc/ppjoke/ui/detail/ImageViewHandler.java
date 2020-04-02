@@ -44,6 +44,7 @@ public class ImageViewHandler extends ViewHandler {
         super.bindInitData(feed);
         mImageBinding.setFeed(mFeed);
 
+        //header在这里
         mHeaderBinding = LayoutFeedDetailTypeImageHeaderBinding.inflate(LayoutInflater.from(mActivity), mTitleLayout, false);
         mHeaderBinding.setFeed(mFeed);
 

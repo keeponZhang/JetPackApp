@@ -27,7 +27,7 @@ public abstract class AbsViewModel<T> extends ViewModel {
                 .setInitialLoadSizeHint(10)
                 // .setMaxSize(100)；
                 // .setEnablePlaceholders(false)
-                .setPrefetchDistance(0)
+                .setPrefetchDistance(10)
                 .build();
 
         //只需要调用observe方法就可以出发加载数据

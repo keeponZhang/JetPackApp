@@ -7,7 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-
+import com.mooc.ppjoke.exoplayer.PageListPlayManager;
 import com.mooc.ppjoke.model.Feed;
 
 public class FeedDetailActivity extends AppCompatActivity {
@@ -73,5 +73,15 @@ public class FeedDetailActivity extends AppCompatActivity {
             viewHandler.onBackPressed();
         }
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        // if(viewHandler!=null&&viewHandler instanceof VideoViewHandler){
+        //     VideoViewHandler videoViewHandler = (VideoViewHandler) viewHandler;
+        //     PageListPlayManager.release(videoViewHandler.category);
+        // }
+
+        super.onDestroy();
     }
 }

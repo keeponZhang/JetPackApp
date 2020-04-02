@@ -38,6 +38,7 @@ public class FeedDetailViewModel extends AbsViewModel<Comment> {
 
         @Override
         public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Comment> callback) {
+            Log.e("FeedDetailViewModel TAG", "DataSource loadAfter:" +params.key);
             if (params.key > 0) {
                 loadData(params.key, params.requestedLoadSize, callback);
             }
@@ -55,6 +56,7 @@ public class FeedDetailViewModel extends AbsViewModel<Comment> {
 
             List<Comment> list = response.body == null ? Collections.emptyList() : response.body;
             Log.e("TAG", "DataSource loadData 从网络获取到了评论数据:" );
+            //注释掉会返回空
             callback.onResult(list);
         }
 

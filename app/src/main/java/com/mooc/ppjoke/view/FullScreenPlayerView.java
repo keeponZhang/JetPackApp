@@ -3,6 +3,7 @@ package com.mooc.ppjoke.view;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -55,13 +56,20 @@ public class FullScreenPlayerView extends ListPlayerView {
         int maxWidth = PixUtils.getScreenWidth();
         int maxHeight = PixUtils.getScreenHeight();
 
+        //本全屏控件的LayoutParams
         ViewGroup.LayoutParams params = getLayoutParams();
         params.width = maxWidth;
         params.height = maxHeight;
+        //这里调用的是本类的setLayoutParams方法,不能去掉
         setLayoutParams(params);
 
+        //高度拉伸到屏幕高度，屏幕等比拉伸
         FrameLayout.LayoutParams coverLayoutParams = (LayoutParams) cover.getLayoutParams();
         coverLayoutParams.width = (int) (widthPx / (heightPx * 1.0f / maxHeight));
+        Log.e("TAG",
+                "FullScreenPlayerView setSize coverLayoutParams.width:"+coverLayoutParams.width+
+                        "  maxWidth="+maxWidth );
+        // coverLayoutParams.width = maxWidth;
         coverLayoutParams.height = maxHeight;
         coverLayoutParams.gravity = Gravity.CENTER;
         cover.setLayoutParams(coverLayoutParams);
@@ -70,6 +78,7 @@ public class FullScreenPlayerView extends ListPlayerView {
     @Override
     public void setLayoutParams(ViewGroup.LayoutParams params) {
         if (mHeightPx > mWidthPx) {
+            //其实这里是屏幕宽高
             int layoutWidth = params.width;
             int layoutheight = params.height;
             ViewGroup.LayoutParams coverLayoutParams = cover.getLayoutParams();
@@ -80,10 +89,11 @@ public class FullScreenPlayerView extends ListPlayerView {
             if (exoPlayerView != null) {
                 ViewGroup.LayoutParams layoutParams = exoPlayerView.getLayoutParams();
                 if (layoutParams != null && layoutParams.width > 0 && layoutParams.height > 0) {
+                    Log.e("TAG", "FullScreenPlayerView setLayoutParams exoPlayerView!= null:" );
                     float scalex = coverLayoutParams.width * 1.0f / layoutParams.width;
                     float scaley = coverLayoutParams.height * 1.0f / layoutParams.height;
 
-                    exoPlayerView.setScaleX(scalex);
+                    exoPlayerView.setScaleX(0.5f);
                     exoPlayerView.setScaleY(scaley);
                 }
             }
@@ -111,6 +121,7 @@ public class FullScreenPlayerView extends ListPlayerView {
             }
 
             ViewGroup.LayoutParams coverParams = cover.getLayoutParams();
+            //不传coverParams也行
             this.addView(playerView, 1, coverParams);
         }
 

@@ -122,6 +122,7 @@ class ContiguousPagedList<K, V> extends PagedList<V> implements PagedStorage.Cal
                 }
 
                 if (mShouldTrim) {
+                    Log.e("TAG", "ContiguousPagedList onPageResult mShouldTrim:"+mShouldTrim );
                     if (trimFromFront) {
                         if (mPrependWorkerState != FETCHING) {
                             if (mStorage.trimFromFront(

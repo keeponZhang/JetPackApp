@@ -3,6 +3,7 @@ package com.mooc.ppjoke.ui.detail;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,7 @@ public class ViewAnchorBehavior extends CoordinatorLayout.Behavior<View> {
                                   int heightUsed) {
 
 
+        //这样形成一个接一个
         View anchorView = parent.findViewById(anchorId);
         if (anchorView == null) {
             return false;
@@ -54,9 +56,11 @@ public class ViewAnchorBehavior extends CoordinatorLayout.Behavior<View> {
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
         int topMargin = layoutParams.topMargin;
         int bottom = anchorView.getBottom();
+        Log.e("TAG", "ViewAnchorBehavior onMeasureChild bottom:" +bottom+" child="+child+" " +
+                "anchorView="+anchorView);
 
         //再测量子View时，需要告诉CoordinatorLayout。垂直方向上 已经有多少空间被占用了
-        //如果heightUsed给0，那么评论列表这个view它测量出来的高度 将会大于它实际的高度。以至于会被底部互动区域给遮挡
+        //如果heightUsed给0，那么评论列表这个view它测量出来的高度 将会大于它实际的高度。以至于会被底部互动区域给遮挡(就是recyclerview测量出来的的高度大了)
         heightUsed = bottom + topMargin + extraUsed;
         parent.onMeasureChild(child, parentWidthMeasureSpec, 0, parentHeightMeasureSpec, heightUsed);
         return true;
@@ -77,8 +81,11 @@ public class ViewAnchorBehavior extends CoordinatorLayout.Behavior<View> {
         int topMargin = params.topMargin;
         int bottom = anchorView.getBottom();
         parent.onLayoutChild(child, layoutDirection);
+        int offset = bottom + topMargin;
+        Log.e("TAG", "ViewAnchorBehavior onLayoutChild offset:" +offset+" child="+child);
+        //这个很重要，不然就是从上往下摆放,并且recyclerview不会移动
         //偏移量
-        child.offsetTopAndBottom(bottom + topMargin);
+        child.offsetTopAndBottom(offset);
 
 
         return true;

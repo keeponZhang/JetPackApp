@@ -29,10 +29,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior=".ui.detail.ViewZoomBehavior"
-            app:min_height="200dp"
+            app:min_height="250dp"
             app:scrolling_id="@+id/recycler_view"></com.mooc.ppjoke.view.FullScreenPlayerView>
 
-
+        <!--去掉bahavior定位不准，也会影响recyclerview的布局，之前准时代码里面设置了-->
+        <!-- app:layout_behavior=".ui.detail.ViewAnchorBehavior"-->
+        <!--这里的anchorview 是player_view-->
+        <!--include 这里不能设置behavior属性，在布局里面好像也不行-->
         <include
             android:id="@+id/author_info"
             layout="@layout/layout_feed_detail_author_info"
@@ -42,6 +45,8 @@
             app:layout_behavior=".ui.detail.ViewAnchorBehavior"
             app:leftMargin="@{PixUtils.dp2px(16)}"></include>
 
+        <!--去掉bahavior定位不准-->
+        <!--这里的anchorview是下面的 author_info-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
@@ -49,7 +54,8 @@
             android:layout_marginTop="@dimen/dimen_10"
             android:overScrollMode="never"
             app:anchorId="@+id/author_info"
-            app:layout_behavior=".ui.detail.ViewAnchorBehavior"></androidx.recyclerview.widget.RecyclerView>
+            app:layout_behavior=".ui.detail.ViewAnchorBehavior"
+            ></androidx.recyclerview.widget.RecyclerView>
 
         <include
             android:id="@+id/bottom_interaction"

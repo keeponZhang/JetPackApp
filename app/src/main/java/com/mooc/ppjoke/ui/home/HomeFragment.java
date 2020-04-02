@@ -1,5 +1,6 @@
 package com.mooc.ppjoke.ui.home;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -47,6 +48,8 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
         });
         playDetector = new PageListPlayDetector(this, mRecyclerView);
         mViewModel.setFeedType(feedType);
+        Configuration configuration = getResources().getConfiguration();
+        Log.e("TAG", "HomeFragment onViewCreated:"+configuration.orientation );
     }
 
     @Override
@@ -88,6 +91,7 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
     @Override
     public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
         final PagedList<Feed> currentList = adapter.getCurrentList();
+        Log.e("TAG", "HomeFragment onLoadMore:" );
         if (currentList == null || currentList.size() <= 0) {
             finishRefresh(false);
             return;
