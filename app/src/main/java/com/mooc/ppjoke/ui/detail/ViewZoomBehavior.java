@@ -3,6 +3,7 @@ package com.mooc.ppjoke.ui.detail;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,8 +86,8 @@ public class ViewZoomBehavior extends CoordinatorLayout.Behavior<FullScreenPlaye
         public int clampViewPositionVertical(@NonNull View child, int top, int dy) {
             if (refChild == null || dy == 0)
                 return 0;
-            //dy>0 代表手指从屏幕上放往屏幕下方滑动
-            //dy<0 代表手指从屏幕下方 往屏幕上方滑动
+            //dy>0 代表手指从屏幕上放往屏幕下方滑动（往下滑动）
+            //dy<0 代表手指从屏幕下方 往屏幕上方滑动（往上滑动）
 
             //手指从下往上滑动。dy<0 这意味着refchild的底部 会被向上移动。所以 它的底部的最小值 不能小于minheight
             if (dy < 0 && refChild.getBottom() < minHeight
@@ -95,6 +96,7 @@ public class ViewZoomBehavior extends CoordinatorLayout.Behavior<FullScreenPlaye
                     //手指 从屏幕上方 往下滑动。如果scrollinghview 还没有滑动到列表的最顶部，
                     // 也意味围着列表还可以向下滑动，此时咱们应该让列表自行滑动，不做拦截
                     || (dy > 0 && (scrollingView != null && scrollingView.canScrollVertically(-1)))) {
+                Log.e("TAG", "ViewZoomBehavior clampViewPositionVertical:" );
                 return 0;
             }
 

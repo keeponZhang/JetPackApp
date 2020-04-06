@@ -268,6 +268,7 @@ public class PublishActivity extends AppCompatActivity implements View.OnClickLi
         //这个content就是指 我们设置的setContentUriTriggers uri对应的内容
 //        constraints.setTriggerMaxContentDelay(0);
         OneTimeWorkRequest request = new OneTimeWorkRequest
+                //这里会创建一个worker的子类
                 .Builder(UploadFileWorker.class)
                 .setInputData(inputData)
 //                .setConstraints(constraints)

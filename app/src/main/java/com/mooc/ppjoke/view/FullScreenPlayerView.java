@@ -93,7 +93,7 @@ public class FullScreenPlayerView extends ListPlayerView {
                     float scalex = coverLayoutParams.width * 1.0f / layoutParams.width;
                     float scaley = coverLayoutParams.height * 1.0f / layoutParams.height;
 
-                    exoPlayerView.setScaleX(0.5f);
+                    exoPlayerView.setScaleX(scalex);
                     exoPlayerView.setScaleY(scaley);
                 }
             }

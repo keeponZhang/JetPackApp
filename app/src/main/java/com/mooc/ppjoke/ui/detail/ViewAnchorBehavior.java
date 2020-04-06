@@ -62,6 +62,7 @@ public class ViewAnchorBehavior extends CoordinatorLayout.Behavior<View> {
         //再测量子View时，需要告诉CoordinatorLayout。垂直方向上 已经有多少空间被占用了
         //如果heightUsed给0，那么评论列表这个view它测量出来的高度 将会大于它实际的高度。以至于会被底部互动区域给遮挡(就是recyclerview测量出来的的高度大了)
         heightUsed = bottom + topMargin + extraUsed;
+        //因为这里return了true，所以要手动调用
         parent.onMeasureChild(child, parentWidthMeasureSpec, 0, parentHeightMeasureSpec, heightUsed);
         return true;
     }

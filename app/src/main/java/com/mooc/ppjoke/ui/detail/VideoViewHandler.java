@@ -1,5 +1,6 @@
 package com.mooc.ppjoke.ui.detail;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -87,6 +88,7 @@ public class VideoViewHandler extends ViewHandler {
     }
 
     private void setViewAppearance(boolean fullscreen) {
+        Log.e("TAG", "VideoViewHandler setViewAppearance fullscreen:" +fullscreen);
         mVideoBinding.setFullscreen(fullscreen);
         mInateractionBinding.setFullscreen(fullscreen);
         mVideoBinding.fullscreenAuthorInfo.getRoot().setVisibility(fullscreen ? View.VISIBLE : View.GONE);
@@ -98,8 +100,13 @@ public class VideoViewHandler extends ViewHandler {
         //播放控制器的bottom值
         int bottom = playerView.getPlayController().getBottom();
         //全屏播放时，播放控制器需要处在底部互动区域的上面
-        playerView.getPlayController().setY(fullscreen ? bottom - inputHeight - ctrlViewHeight
-                : bottom - ctrlViewHeight);
+        int y = fullscreen ? bottom - inputHeight - ctrlViewHeight : bottom - ctrlViewHeight;
+        //setY和setTop主要影响的是前面一段fullscreen
+        playerView.getPlayController().setY(y);
+        Log.e("TAG",
+                "VideoViewHandler setViewAppearance bottom="+bottom+" ctrlViewHeight:"+ctrlViewHeight +
+                " y=" +y+" top="+playerView.getPlayController().getTop()+"  getTranslationY="+playerView.getPlayController().getTranslationY());
+        // playerView.getPlayController().setTranslationY(fullscreen ? bottom - inputHeight:0);
         mInateractionBinding.inputView.setBackgroundResource(fullscreen ? R.drawable.bg_edit_view2 : R.drawable.bg_edit_view);
     }
 

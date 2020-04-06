@@ -98,11 +98,11 @@ public class SofaFragment extends Fragment {
             }
         });
         mediator.attach();
-        SofaTab.Tabs newTab = new SofaTab.Tabs();
-        SofaTab.Tabs pictabs = this.tabs.get(0);
-        newTab.tag = pictabs.tag + "2";
-        newTab.title = pictabs.title + "2";
-        this.tabs.add(newTab);
+        // SofaTab.Tabs newTab = new SofaTab.Tabs();
+        // SofaTab.Tabs pictabs = this.tabs.get(0);
+        // newTab.tag = pictabs.tag + "2";
+        // newTab.title = pictabs.title + "2";
+        // this.tabs.add(newTab);
 
         viewPager2.registerOnPageChangeCallback(mPageChangeCallback);
         //切换到默认选择项,那当然要等待初始化完成之后才有效

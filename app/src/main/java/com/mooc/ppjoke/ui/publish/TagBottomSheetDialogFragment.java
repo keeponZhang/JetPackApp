@@ -53,7 +53,7 @@ public class TagBottomSheetDialogFragment extends BottomSheetDialogFragment {
 
 
         ViewGroup.LayoutParams layoutParams = parent.getLayoutParams();
-        layoutParams.height = PixUtils.getScreenHeight() / 3 * 2;
+        layoutParams.height = PixUtils.getScreenHeight() / 3 * 3;
         parent.setLayoutParams(layoutParams);
 
         queryTagList();
