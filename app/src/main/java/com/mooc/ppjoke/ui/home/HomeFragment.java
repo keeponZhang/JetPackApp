@@ -49,7 +49,6 @@ public class HomeFragment extends AbsListFragment<Feed, HomeViewModel> {
         playDetector = new PageListPlayDetector(this, mRecyclerView);
         mViewModel.setFeedType(feedType);
         Configuration configuration = getResources().getConfiguration();
-        Log.e("TAG", "HomeFragment onViewCreated:"+configuration.orientation );
     }
 
     @Override

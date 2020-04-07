@@ -55,8 +55,8 @@ final class FragmentManagerState implements Parcelable {
         dest.writeInt(mNextFragmentIndex);
     }
 
-    public static final Parcelable.Creator<FragmentManagerState> CREATOR
-            = new Parcelable.Creator<FragmentManagerState>() {
+    public static final Creator<FragmentManagerState> CREATOR
+            = new Creator<FragmentManagerState>() {
         @Override
         public FragmentManagerState createFromParcel(Parcel in) {
             return new FragmentManagerState(in);

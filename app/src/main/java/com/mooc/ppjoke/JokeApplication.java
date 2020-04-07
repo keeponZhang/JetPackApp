@@ -2,7 +2,6 @@ package com.mooc.ppjoke;
 
 import android.app.Application;
 
-import com.facebook.stetho.Stetho;
 import com.mooc.libnetwork.ApiService;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -21,6 +20,6 @@ public class JokeApplication extends Application {
         ApiService.init("http://123.56.232.18:8080/serverdemo", null);
 
         CrashReport.initCrashReport(getApplicationContext(), "eb455a94a3", true);
-        Stetho.initializeWithDefaults(this);
+        // Stetho.initializeWithDefaults(this);
     }
 }

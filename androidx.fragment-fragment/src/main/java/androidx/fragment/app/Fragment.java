@@ -225,15 +225,6 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
     // without Views.
     AnimationInfo mAnimationInfo;
 
-    // Runnable that is used to indicate if the Fragment has a postponed transition that is on a
-    // timeout.
-    Runnable mPostponedDurationRunnable = new Runnable() {
-        @Override
-        public void run() {
-            startPostponedEnterTransition();
-        }
-    };
-
     // True if the View was added, and its animation has yet to be run. This could
     // also indicate that the fragment view hasn't been made visible, even if there is no
     // animation for this fragment.
@@ -401,8 +392,8 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
         }
 
         @NonNull
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Parcelable.ClassLoaderCreator<SavedState>() {
+        public static final Creator<SavedState> CREATOR =
+                new ClassLoaderCreator<SavedState>() {
             @Override
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in, null);
@@ -863,7 +854,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
     /**
      * Return a localized formatted string from the application's package's
      * default string table, substituting the format arguments as defined in
-     * {@link java.util.Formatter} and {@link java.lang.String#format}.
+     * {@link java.util.Formatter} and {@link String#format}.
      *
      * @param resId Resource id for the format string
      * @param formatArgs The format arguments that will be used for substitution.
@@ -1271,7 +1262,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
      * </p>
      * <p>
      * When checking whether you have a permission you should use {@link
-     * android.content.Context#checkSelfPermission(String)}.
+     * Context#checkSelfPermission(String)}.
      * </p>
      * <p>
      * Calling this API for permissions already granted to your app would show UI
@@ -1308,7 +1299,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
      *    reported to {@link #onRequestPermissionsResult(int, String[], int[])}.
      *
      * @see #onRequestPermissionsResult(int, String[], int[])
-     * @see android.content.Context#checkSelfPermission(String)
+     * @see Context#checkSelfPermission(String)
      */
     public final void requestPermissions(@NonNull String[] permissions, int requestCode) {
         if (mHost == null) {
@@ -1983,7 +1974,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
      * the view (or item inside the view for {@link AdapterView} subclasses,
      * this can be found in the {@code menuInfo})).
      * <p>
-     * Use {@link #onContextItemSelected(android.view.MenuItem)} to know when an
+     * Use {@link #onContextItemSelected(MenuItem)} to know when an
      * item has been selected.
      * <p>
      * The default implementation calls up to
@@ -2413,8 +2404,12 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
         } else {
             handler = new Handler(Looper.getMainLooper());
         }
-        handler.removeCallbacks(mPostponedDurationRunnable);
-        handler.postDelayed(mPostponedDurationRunnable, timeUnit.toMillis(duration));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startPostponedEnterTransition();
+            }
+        }, timeUnit.toMillis(duration));
     }
 
     /**

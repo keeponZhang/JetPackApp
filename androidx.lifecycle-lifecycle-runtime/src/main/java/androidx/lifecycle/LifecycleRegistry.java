@@ -16,6 +16,8 @@
 
 package androidx.lifecycle;
 
+import android.util.Log;
+
 import static androidx.lifecycle.Lifecycle.Event.ON_CREATE;
 import static androidx.lifecycle.Lifecycle.Event.ON_DESTROY;
 import static androidx.lifecycle.Lifecycle.Event.ON_PAUSE;
@@ -185,8 +187,11 @@ public class LifecycleRegistry extends Lifecycle {
         while ((statefulObserver.mState.compareTo(targetState) < 0
                 && mObserverMap.contains(observer))) {
             pushParentState(statefulObserver.mState);
+            Event event = upEvent(statefulObserver.mState);
+            Log.d("TAG", "LifecycleRegistry addObserver 现在状态 mState:"+statefulObserver.mState +" " +
+                    " 返回状态="+event.name());
             //其实是一个装饰者模式ObserverWithState
-            statefulObserver.dispatchEvent(lifecycleOwner, upEvent(statefulObserver.mState));
+            statefulObserver.dispatchEvent(lifecycleOwner,event );
             popParentState();
             // mState / subling may have been changed recalculate
             targetState = calculateTargetState(observer);
@@ -292,6 +297,7 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     private void forwardPass(LifecycleOwner lifecycleOwner) {
+        Log.e("TAG", "LifecycleRegistry forwardPass:");
         Iterator<Entry<LifecycleObserver, ObserverWithState>> ascendingIterator =
                 mObserverMap.iteratorWithAdditions();
         while (ascendingIterator.hasNext() && !mNewEventOccurred) {
@@ -307,6 +313,7 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     private void backwardPass(LifecycleOwner lifecycleOwner) {
+        Log.e("TAG", "LifecycleRegistry backwardPass:");
         Iterator<Entry<LifecycleObserver, ObserverWithState>> descendingIterator =
                 mObserverMap.descendingIterator();
         while (descendingIterator.hasNext() && !mNewEventOccurred) {

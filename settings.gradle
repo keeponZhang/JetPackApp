@@ -1,4 +1,5 @@
-include ':app', ':libnavannotation', ':libnavcompiler', ':libnetwork', ':libcommon', ':androidx-collection', ':navigation-common', ':navigation-fragment', ':navigation-runtime', ':navigation-ui', ':navigationSample'
+include ':app', ':libnavannotation', ':libnavcompiler', ':libnetwork', ':libcommon', ':androidx-collection', ':navigation-common', ':navigation-fragment', ':navigation-runtime', ':navigation-ui'
+//include       ':navigationSample'
 include ':androidx.lifecycle-lifecycle-common'
 include ':androidx.lifecycle-lifecycle-livedata'
 include ':androidx.lifecycle-lifecycle-livedata-core'
@@ -26,5 +27,6 @@ include ':androidx.versionedparcelable-versionedparcelable'
 include ':androidx.savedstate-savedstate'
 include ':androidx.viewpager-viewpager'
 include ':androidx.customview-customview'
+include ':androidx.appcompat-appcompat'
 
 rootProject.name = 'JetPackApp'

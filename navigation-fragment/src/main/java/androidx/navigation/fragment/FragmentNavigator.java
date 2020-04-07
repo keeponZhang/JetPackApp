@@ -28,7 +28,6 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentFactory;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -128,8 +127,8 @@ public class FragmentNavigator extends Navigator<FragmentNavigator.Destination> 
     @Deprecated
     @NonNull
     public Fragment instantiateFragment(@NonNull Context context,
-            @NonNull FragmentManager fragmentManager,
-            @NonNull String className, @SuppressWarnings("unused") @Nullable Bundle args) {
+                                        @NonNull FragmentManager fragmentManager,
+                                        @NonNull String className, @SuppressWarnings("unused") @Nullable Bundle args) {
         return fragmentManager.getFragmentFactory().instantiate(
                 context.getClassLoader(), className);
     }

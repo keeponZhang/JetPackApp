@@ -196,7 +196,7 @@ public class FragmentActivity extends ComponentActivity implements
 
     /**
      * When {@link android.app.ActivityOptions#makeSceneTransitionAnimation(Activity,
-     * android.view.View, String)} was used to start an Activity, <var>callback</var>
+     * View, String)} was used to start an Activity, <var>callback</var>
      * will be called to handle shared elements on the <i>launched</i> Activity. This requires
      * {@link Window#FEATURE_CONTENT_TRANSITIONS}.
      *
@@ -208,7 +208,7 @@ public class FragmentActivity extends ComponentActivity implements
 
     /**
      * When {@link android.app.ActivityOptions#makeSceneTransitionAnimation(Activity,
-     * android.view.View, String)} was used to start an Activity, <var>listener</var>
+     * View, String)} was used to start an Activity, <var>listener</var>
      * will be called to handle shared elements on the <i>launching</i> Activity. Most
      * calls will only come when returning from the started Activity.
      * This requires {@link Window#FEATURE_CONTENT_TRANSITIONS}.
@@ -220,7 +220,7 @@ public class FragmentActivity extends ComponentActivity implements
     }
 
     /**
-     * Support library version of {@link android.app.Activity#postponeEnterTransition()} that works
+     * Support library version of {@link Activity#postponeEnterTransition()} that works
      * only on API 21 and later.
      */
     public void supportPostponeEnterTransition() {
@@ -228,7 +228,7 @@ public class FragmentActivity extends ComponentActivity implements
     }
 
     /**
-     * Support library version of {@link android.app.Activity#startPostponedEnterTransition()}
+     * Support library version of {@link Activity#startPostponedEnterTransition()}
      * that only works with API 21 and later.
      */
     public void supportStartPostponedEnterTransition() {

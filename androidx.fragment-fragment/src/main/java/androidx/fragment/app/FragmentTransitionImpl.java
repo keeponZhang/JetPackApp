@@ -186,7 +186,7 @@ public abstract class FragmentTransitionImpl {
      *
      * @param transitioningViews This View will be added to transitioningViews if it is VISIBLE and
      *                           a normal View or a ViewGroup with
-     *                           {@link android.view.ViewGroup#isTransitionGroup()} true.
+     *                           {@link ViewGroup#isTransitionGroup()} true.
      * @param view               The base of the view hierarchy to look in.
      */
     void captureTransitioningViews(ArrayList<View> transitioningViews, View view) {

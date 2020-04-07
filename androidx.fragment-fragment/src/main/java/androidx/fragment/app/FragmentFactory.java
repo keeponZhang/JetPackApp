@@ -113,7 +113,7 @@ public class FragmentFactory {
         try {
             Class<? extends Fragment> cls = loadFragmentClass(classLoader, className);
             return cls.getConstructor().newInstance();
-        } catch (java.lang.InstantiationException e) {
+        } catch (InstantiationException e) {
             throw new Fragment.InstantiationException("Unable to instantiate fragment " + className
                     + ": make sure class name exists, is public, and has an"
                     + " empty constructor that is public", e);

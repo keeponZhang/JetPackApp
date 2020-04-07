@@ -26,10 +26,46 @@ dependencies {
     implementation project(path: ':navigation-runtime')
     implementation "androidx.annotation:annotation:${rootProject.ext.annotationVersion}"
     implementation project(path: ':navigation-common')
-    implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",{
-        exclude group: 'androidx.collection', module: 'collection'
-    })
+
     implementation ("androidx.transition:transition:${rootProject.ext.androidxTransitionVersion}",{
         exclude group: 'androidx.collection', module: 'collection'
+        exclude group: 'androidx.core', module: 'core'
     })
+//    implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",{
+//        exclude group: 'androidx.collection', module: 'collection'
+//    })
+
+
+
+//    implementation  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
+//            {
+//                exclude group: 'androidx.lifecycle'
+//                exclude group: 'androidx.arch.core', module: 'core-common'
+//                exclude group: 'androidx.arch.core', module: 'core-runtime'
+//                exclude group: 'androidx.loader', module: 'loader'
+//                exclude group: 'androidx.activity', module: 'activity'
+//                exclude group: 'androidx.core', module: 'core'
+//            })
+    implementation "androidx.drawerlayout:drawerlayout:${rootProject.ext.drawerlayoutVersion}"
+    implementation project(path: ':androidx.appcompat-appcompat')
+    api project(path: ':androidx.fragment-fragment')
+
+
+
+
+    implementation project(path: ':androidx-collection')
+    implementation project(path: ':androidx.core-core')
+
+    //    //material组件
+    implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
+            {
+                exclude group: 'androidx.lifecycle'
+                exclude group: 'androidx.loader', module: 'loader'
+                exclude group: 'androidx.fragment', module: 'fragment'
+                exclude group: 'androidx.activity', module: 'activity'
+                exclude group: 'androidx.collection', module: 'collection'
+                exclude group: 'androidx.appcompat', module: 'appcompat'
+                exclude group: 'androidx.core', module: 'core'
+            })
+
 }

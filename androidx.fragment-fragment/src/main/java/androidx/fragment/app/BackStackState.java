@@ -167,8 +167,8 @@ final class BackStackState implements Parcelable {
         dest.writeInt(mReorderingAllowed ? 1 : 0);
     }
 
-    public static final Parcelable.Creator<BackStackState> CREATOR
-            = new Parcelable.Creator<BackStackState>() {
+    public static final Creator<BackStackState> CREATOR
+            = new Creator<BackStackState>() {
         @Override
         public BackStackState createFromParcel(Parcel in) {
             return new BackStackState(in);

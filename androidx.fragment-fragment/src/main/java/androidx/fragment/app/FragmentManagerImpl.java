@@ -1750,9 +1750,6 @@ final class FragmentManagerImpl extends FragmentManager implements LayoutInflate
             if (records != null && !listener.mIsBack) {
                 int index = records.indexOf(listener.mRecord);
                 if (index != -1 && isRecordPop.get(index)) {
-                    mPostponedTransactions.remove(i);
-                    i--;
-                    numPostponed--;
                     listener.cancelTransaction();
                     continue;
                 }
@@ -2252,7 +2249,7 @@ final class FragmentManagerImpl extends FragmentManager implements LayoutInflate
     }
 
     /**
-     * @deprecated Ideally, all {@link androidx.fragment.app.FragmentHostCallback} instances
+     * @deprecated Ideally, all {@link FragmentHostCallback} instances
      * implement ViewModelStoreOwner and we can remove this method entirely.
      */
     @Deprecated

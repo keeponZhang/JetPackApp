@@ -218,9 +218,6 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
         mFragments.set(position, null);
 
         mCurTransaction.remove(fragment);
-        if (fragment == mCurrentPrimaryItem) {
-            mCurrentPrimaryItem = null;
-        }
     }
 
     @Override

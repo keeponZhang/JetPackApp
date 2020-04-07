@@ -170,8 +170,8 @@ final class FragmentState implements Parcelable {
         dest.writeInt(mMaxLifecycleState);
     }
 
-    public static final Parcelable.Creator<FragmentState> CREATOR =
-            new Parcelable.Creator<FragmentState>() {
+    public static final Creator<FragmentState> CREATOR =
+            new Creator<FragmentState>() {
                 @Override
                 public FragmentState createFromParcel(Parcel in) {
                     return new FragmentState(in);

@@ -30,6 +30,7 @@ import androidx.annotation.NavigationRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.NavGraph;
 import androidx.navigation.NavHost;
@@ -208,7 +209,8 @@ public class NavHostFragment extends Fragment implements NavHost {
 
         mNavController = new NavHostController(context);
         mNavController.setLifecycleOwner(this);
-        mNavController.setOnBackPressedDispatcher(requireActivity().getOnBackPressedDispatcher());
+        FragmentActivity fragmentActivity = requireActivity();
+        mNavController.setOnBackPressedDispatcher(fragmentActivity.getOnBackPressedDispatcher());
         // Set the default state - this will be updated whenever
         // onPrimaryNavigationFragmentChanged() is called
         mNavController.enableOnBackPressed(

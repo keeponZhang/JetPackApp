@@ -53,7 +53,7 @@ public class FragmentTabHost extends TabHost
     private Context mContext;
     private FragmentManager mFragmentManager;
     private int mContainerId;
-    private TabHost.OnTabChangeListener mOnTabChangeListener;
+    private OnTabChangeListener mOnTabChangeListener;
     private TabInfo mLastTab;
     private boolean mAttached;
 
@@ -70,7 +70,7 @@ public class FragmentTabHost extends TabHost
         }
     }
 
-    static class DummyTabFactory implements TabHost.TabContentFactory {
+    static class DummyTabFactory implements TabContentFactory {
         private final Context mContext;
 
         public DummyTabFactory(Context context) {
@@ -111,8 +111,8 @@ public class FragmentTabHost extends TabHost
                     + " curTab=" + curTab + "}";
         }
 
-        public static final Parcelable.Creator<SavedState> CREATOR
-                = new Parcelable.Creator<SavedState>() {
+        public static final Creator<SavedState> CREATOR
+                = new Creator<SavedState>() {
             @Override
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in);
@@ -164,7 +164,7 @@ public class FragmentTabHost extends TabHost
         if (findViewById(android.R.id.tabs) == null) {
             LinearLayout ll = new LinearLayout(context);
             ll.setOrientation(LinearLayout.VERTICAL);
-            addView(ll, new FrameLayout.LayoutParams(
+            addView(ll, new LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT));
 
@@ -265,7 +265,7 @@ public class FragmentTabHost extends TabHost
      *  TabLayout and ViewPager</a> instead.
      */
     @Deprecated
-    public void addTab(@NonNull TabHost.TabSpec tabSpec, @NonNull Class<?> clss,
+    public void addTab(@NonNull TabSpec tabSpec, @NonNull Class<?> clss,
             @Nullable Bundle args) {
         tabSpec.setContent(new DummyTabFactory(mContext));
 
