@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 
 import java.util.concurrent.Executor;
 
+//Contiguous 相接的，相邻的
 abstract class ContiguousDataSource<Key, Value> extends DataSource<Key, Value> {
     @Override
     boolean isContiguous() {

@@ -113,6 +113,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * @param <T> The type of the entries in the list.
  */
+// PagedList是一个抽象类，实际上它的作用是 通过Builder实例化PagedList真正的对象：
 public abstract class PagedList<T> extends AbstractList<T> {
 
     // Notes on threading:
@@ -196,6 +197,8 @@ public abstract class PagedList<T> extends AbstractList<T> {
      *
      * @return Newly created PagedList, which will page in data from the DataSource as needed.
      */
+    // PagedList是一个抽象类，实际上它的作用是 通过Builder实例化PagedList真正的对象：
+    // 实际上，create方法的作用是，通过将不同的DataSource,作为依赖实例化对应的PagedList，除此之外，还有对DataSource的对应处理，或者Wrapper（再次包装，详情请参考源码的create方法，篇幅所限本文不再叙述）。
     @NonNull
     @SuppressWarnings("WeakerAccess") /* synthetic access */
     static <K, T> PagedList<T> create(@NonNull DataSource<K, T> dataSource,
@@ -413,7 +416,7 @@ public abstract class PagedList<T> extends AbstractList<T> {
     @Override
     @Nullable
     public T get(int index) {
-        Log.e("TAG", "PagedList get 从mStorage拿数据 mStorage.size:"+mStorage.size() );
+        Log.d("TAG", "PagedList get 从mStorage拿数据 mStorage.size:"+mStorage.size() );
         T item = mStorage.get(index);
         if (item != null) {
             mLastItem = item;
@@ -432,6 +435,7 @@ public abstract class PagedList<T> extends AbstractList<T> {
         }
 
         mLastLoad = index + getPositionOffset();
+        //这个具体子类去实现
         loadAroundInternal(index);
 
         mLowestIndexAccessed = Math.min(mLowestIndexAccessed, index);

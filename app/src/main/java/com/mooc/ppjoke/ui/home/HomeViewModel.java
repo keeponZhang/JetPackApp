@@ -56,8 +56,9 @@ public class HomeViewModel extends AbsViewModel<Feed> {
     //PageKeyedDataSource:适用于目标数据根据页信息请求数据
     //PositionalDataSource：适用于目标数据总数固定，通过特定的位置加载数据
 
+    //DataSource<Key, Value>Key是用来帮助开发者进行数据的组合以及请求的变化,会在请求开始和过程中传递给开发者,Key的类型和值由开发者决定
     class FeedDataSource extends ItemKeyedDataSource<Integer, Feed> {
-        //这里是创建dataSource,然后回到到loadInitial，发起数据请求
+        //这里是创建dataSource,然后回调到loadInitial，发起数据请求
         @Override
         public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull
                LoadInitialCallback<Feed> callback) {
@@ -101,6 +102,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
                 .addParam("pageCount", count)
                 .responseType(new TypeReference<ArrayList<Feed>>() {
                 }.getType());
+        witchCache = false;
         if (witchCache) {
             request.cacheStrategy(Request.CACHE_ONLY);
             request.execute(new JsonCallback<List<Feed>>() {

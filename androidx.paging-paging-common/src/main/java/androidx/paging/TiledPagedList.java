@@ -29,6 +29,7 @@ import java.util.concurrent.Executor;
 class TiledPagedList<T> extends PagedList<T>
         implements PagedStorage.Callback {
     @SuppressWarnings("WeakerAccess") /* synthetic access */
+    //请注意这行，TiledPagedList内部需要PositionalDataSource
     final PositionalDataSource<T> mDataSource;
 
     @SuppressWarnings("WeakerAccess") /* synthetic access */

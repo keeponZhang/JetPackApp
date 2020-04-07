@@ -154,6 +154,7 @@ public final class LivePagedListBuilder<Key, Value> {
      */
     @NonNull
     @SuppressLint("RestrictedApi")
+    //build里面实际调用的是create方法
     public LiveData<PagedList<Value>> build() {
         return create(mInitialLoadKey, mConfig, mBoundaryCallback, mDataSourceFactory,
                 ArchTaskExecutor.getMainThreadExecutor(), mFetchExecutor);
@@ -170,9 +171,11 @@ public final class LivePagedListBuilder<Key, Value> {
             @NonNull final Executor notifyExecutor,
             @NonNull final Executor fetchExecutor) {
         //创建LiveData，并且里面的数据是PageList
+        //ComputableLiveData构造函数里面会创建LiveData
         return new ComputableLiveData<PagedList<Value>>(fetchExecutor) {
             @Nullable
             private PagedList<Value> mList;
+            //这个是通过fatory创建的dataSource
             @Nullable
             private DataSource<Key, Value> mDataSource;
 
@@ -199,7 +202,7 @@ public final class LivePagedListBuilder<Key, Value> {
                     }
                     Log.w("TAG", "LivePagedListBuilder compute 创建mDataSource啦啦啦:" );
                     mDataSource = dataSourceFactory.create();
-                    //这里吧刷新callBack加入mOnInvalidatedCallbacks，调用mDataSource
+                    //这里把刷新callBack加入mOnInvalidatedCallbacks，调用mDataSource
                     // .invalidate会回调到mCallback.onInvalidated,调到LiveData的invalidate,
                     // 最终会重新创建dataSource,重新初始化数据
                     mDataSource.addInvalidatedCallback(mCallback);
@@ -214,6 +217,7 @@ public final class LivePagedListBuilder<Key, Value> {
                             .build();
                     Log.e("TAG",
                             "LivePagedListBuilder compute 通过PagedList.Builder<> 创建了mPageList:"+mList );
+                    //这里创建的pagelist会通过ComputableLiveData的liveData发送出去
                 } while (mList.isDetached());
                 Log.e("TAG", "LivePagedListBuilder compute 方法执行完毕:" );
                 return mList;

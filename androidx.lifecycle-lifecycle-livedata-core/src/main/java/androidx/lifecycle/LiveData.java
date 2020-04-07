@@ -404,7 +404,8 @@ public abstract class LiveData<T> {
         //宿主的生命周期改变 (这里可知destory才移除)
         @Override
         public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
-            Log.w("TAG", "LiveData LifecycleBoundObserver onStateChanged event:" +event);
+            Log.w("TAG",
+                    "------------LiveData LifecycleBoundObserver onStateChanged event:" +event);
             if (mOwner.getLifecycle().getCurrentState() == DESTROYED) {
                 removeObserver(mObserver);
                 return;

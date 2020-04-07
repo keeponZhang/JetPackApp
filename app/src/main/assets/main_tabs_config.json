@@ -12,14 +12,14 @@
     },
     {
       "size": 24,
-      "enable": true,
+      "enable": false,
       "index": 1,
       "pageUrl": "main/tabs/sofa",
       "title": "沙发"
     },
     {
       "size": 40,
-      "enable": true,
+      "enable": false,
       "index": 2,
       "tintColor": "#ff678f",
       "pageUrl": "main/tabs/publish",
@@ -27,14 +27,14 @@
     },
     {
       "size": 24,
-      "enable": true,
+      "enable": false,
       "index": 3,
       "pageUrl": "main/tabs/find",
       "title": "发现"
     },
     {
       "size": 24,
-      "enable": true,
+      "enable": false,
       "index": 4,
       "pageUrl": "main/tabs/my",
       "title": "我的"

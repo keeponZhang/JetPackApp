@@ -68,6 +68,7 @@ public abstract class ComputableLiveData<T> {
         mExecutor = executor;
         //ComputableLiveData并不是LiveData,这里才是真正创建了LiveData,ComputableLiveData的泛型与LiveData的泛型一致
         mLiveData = new LiveData<T>() {
+            //这个是通过观察者触发的
             @Override
             protected void onActive() {
                 Log.e("TAG", "ComputableLiveData 构造器 onActive !!!!!!!!!!!!!!!:" );

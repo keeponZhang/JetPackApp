@@ -149,6 +149,7 @@ public abstract class PagedListAdapter<T, VH extends RecyclerView.ViewHolder>
      * @param pagedList The new list to be displayed.
      */
     public void submitList(@Nullable PagedList<T> pagedList) {
+        //当数据源发生改变时，实际上会通知 AsyncPagedListDiffer 的 submitList() 方法通知其内部保存的PagedList 更新并反映在UI上
         mDiffer.submitList(pagedList);
     }
 

@@ -215,8 +215,8 @@ public class AsyncPagedListDiffer<T> {
                 return mSnapshot.get(index);
             }
         }
-
-        mPagedList.loadAround(index);
+        // 如果你认真思考，你应该能想到正确的答案，在 getItem() 方法中执行。
+        mPagedList.loadAround(index);//如果需要，请求更多数据
         return mPagedList.get(index);
     }
 

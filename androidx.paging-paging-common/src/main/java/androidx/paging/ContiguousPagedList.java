@@ -32,6 +32,7 @@ import java.util.concurrent.Executor;
 
 class ContiguousPagedList<K, V> extends PagedList<V> implements PagedStorage.Callback {
     @SuppressWarnings("WeakerAccess") /* synthetic access */
+    //请注意这行，ContiguousPagedList内部需要ContiguousDataSource
     final ContiguousDataSource<K, V> mDataSource;
 
     @Retention(SOURCE)
