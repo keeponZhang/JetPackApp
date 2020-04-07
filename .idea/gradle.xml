@@ -32,6 +32,7 @@
             <option value="$PROJECT_DIR$/androidx.loader-loader" />
             <option value="$PROJECT_DIR$/androidx.paging-paging-common" />
             <option value="$PROJECT_DIR$/androidx.paging-paging-runtime" />
+            <option value="$PROJECT_DIR$/androidx.recyclerview-recyclerview" />
             <option value="$PROJECT_DIR$/androidx.room-room-common" />
             <option value="$PROJECT_DIR$/androidx.room-room-runtime" />
             <option value="$PROJECT_DIR$/androidx.savedstate-savedstate" />

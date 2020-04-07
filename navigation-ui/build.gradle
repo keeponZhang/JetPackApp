@@ -49,6 +49,7 @@ dependencies {
     implementation "androidx.drawerlayout:drawerlayout:${rootProject.ext.drawerlayoutVersion}"
     implementation project(path: ':androidx.appcompat-appcompat')
     api project(path: ':androidx.fragment-fragment')
+    implementation project(path: ':androidx.activity-activity')
 
 
 

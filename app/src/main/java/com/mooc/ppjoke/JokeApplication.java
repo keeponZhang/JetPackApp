@@ -1,9 +1,12 @@
 package com.mooc.ppjoke;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.mooc.libnetwork.ApiService;
 import com.tencent.bugly.crashreport.CrashReport;
+
+import androidx.multidex.MultiDex;
 
 /**
  * 咱们的服务器已经部署到公网了.
@@ -14,6 +17,11 @@ import com.tencent.bugly.crashreport.CrashReport;
  * 来搭建本地服务器
  */
 public class JokeApplication extends Application {
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
     @Override
     public void onCreate() {
         super.onCreate();

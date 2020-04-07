@@ -28,5 +28,6 @@ include ':androidx.savedstate-savedstate'
 include ':androidx.viewpager-viewpager'
 include ':androidx.customview-customview'
 include ':androidx.appcompat-appcompat'
+include ':androidx.recyclerview-recyclerview'
 
 rootProject.name = 'JetPackApp'

@@ -55,16 +55,16 @@ dependencies {
             })
 
     //约束布局
-    api ('androidx.constraintlayout:constraintlayout:1.1.3',
+    implementation ('androidx.constraintlayout:constraintlayout:1.1.3',
             {
                 exclude group: 'androidx.lifecycle'
             })
 
     //navigation导航
     implementation project(path: ':navigation-ui')
-    api project(path: ':navigation-fragment')
-    api project(path: ':navigation-runtime')
-    api project(path: ':navigation-common')
+    implementation project(path: ':navigation-fragment')
+    implementation project(path: ':navigation-runtime')
+    implementation project(path: ':navigation-common')
 
     //包含了 viewmodel 和 livedata
 //    api 'androidx.lifecycle:lifecycle-extensions:2.1.0'
@@ -87,32 +87,34 @@ dependencies {
 
     //paging分页组件
 
-    api project(path: ':androidx.paging-paging-common')
-    api project(path: ':androidx.paging-paging-runtime')
+    implementation project(path: ':androidx.paging-paging-common')
+    implementation project(path: ':androidx.paging-paging-runtime')
 
     //页面刷新组件
-    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
-    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
-
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
+    implementation project(path: ':androidx.arch.core-core-runtime')
+    implementation project(path: ':androidx.arch.core-core-common')
     //viewpager2 可以禁止预加载
-    api ("androidx.viewpager2:viewpager2:1.0.0-beta04",
+    implementation ("androidx.viewpager2:viewpager2:1.0.0-beta04",
             {
                 exclude group: 'androidx.lifecycle'
                 exclude group: 'androidx.core', module: 'core'
                 exclude group: 'androidx.fragment', module: 'fragment'
+                exclude group: 'androidx.recyclerview', module: 'recyclerview'
             })
 
     //视频播放组件
-    api ('com.google.android.exoplayer:exoplayer-core:2.10.4',
+    implementation ('com.google.android.exoplayer:exoplayer-core:2.10.4',
             {
                 exclude group: 'androidx.lifecycle'
                 exclude group: 'androidx.core', module: 'core'
             })
-    api ('com.google.android.exoplayer:exoplayer-dash:2.10.4',
+    implementation ('com.google.android.exoplayer:exoplayer-dash:2.10.4',
             {
                 exclude group: 'androidx.lifecycle'
             })
-    api ('com.google.android.exoplayer:exoplayer-ui:2.10.4',
+    implementation ('com.google.android.exoplayer:exoplayer-ui:2.10.4',
             {
                 exclude group: 'androidx.lifecycle'
                 exclude group: 'androidx.core', module: 'core'
@@ -168,7 +170,7 @@ dependencies {
                 exclude group: 'androidx.core', module: 'core'
                 exclude group: 'androidx.lifecycle'
             })
-    api ('androidx.camera:camera-view:1.0.0-alpha01',
+    implementation ('androidx.camera:camera-view:1.0.0-alpha01',
             {
                 exclude group: 'androidx.lifecycle'
                 exclude group: 'androidx.core', module: 'core'
@@ -180,26 +182,28 @@ dependencies {
             })
 
     //workmanager
-    api ('androidx.work:work-runtime:2.2.0',
+    implementation ('androidx.work:work-runtime:2.2.0',
             {
                 exclude group: 'androidx.lifecycle'
                 exclude group: 'androidx.core', module: 'core'
+                exclude group: 'androidx.room', module: 'room-runtime'
             })
 
     //gesture imageview
-    api 'com.github.chrisbanes:PhotoView:2.3.0@aar'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0@aar'
 
     //aliyun oss
-    api ('com.aliyun.dpa:oss-android-sdk:+',
+    implementation ('com.aliyun.dpa:oss-android-sdk:+',
             {
                 exclude group: 'androidx.lifecycle'
             })
 
     //fastjson解析
-    api 'com.alibaba:fastjson:1.2.59'
+    implementation 'com.alibaba:fastjson:1.2.59'
     implementation ('androidx.databinding:databinding-runtime:3.5.3',{
         exclude group: 'androidx.lifecycle'
     })
     implementation project(path: ':androidx.fragment-fragment')
     implementation project(path: ':androidx.savedstate-savedstate')
+    implementation project(path: ':androidx.recyclerview-recyclerview')
 }

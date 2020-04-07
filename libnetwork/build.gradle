@@ -45,19 +45,14 @@ dependencies {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
             })
     implementation project(":libcommon")
-
+    implementation 'com.alibaba:fastjson:1.2.59'
     implementation ('android.arch.persistence.room:runtime:1.1.1',
             {
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
                 exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
             })
-//    implementation ("android.arch.lifecycle:extensions:1.1.1",
-////            {
-////                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-////                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-////                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-////            })
+
     implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
 
     annotationProcessor ('android.arch.persistence.room:compiler:1.1.1',
