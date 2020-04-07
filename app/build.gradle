@@ -62,18 +62,18 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     //兼容包
-//    implementation  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
-//            {
-//                exclude group: 'androidx.lifecycle'
-//                exclude group: 'androidx.arch.core', module: 'core-common'
-//                exclude group: 'androidx.arch.core', module: 'core-runtime'
-//                exclude group: 'androidx.loader', module: 'loader'
-//                exclude group: 'androidx.activity', module: 'activity'
-//                exclude group: 'androidx.fragment', module: 'fragment'
-//                exclude group: 'androidx.core', module: 'core'
-//            })
-    implementation project(path: ':androidx.appcompat-appcompat')
-    implementation "androidx.drawerlayout:drawerlayout:${rootProject.ext.drawerlayoutVersion}"
+    implementation  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
+            {
+                exclude group: 'androidx.lifecycle'
+                exclude group: 'androidx.arch.core', module: 'core-common'
+                exclude group: 'androidx.arch.core', module: 'core-runtime'
+                exclude group: 'androidx.loader', module: 'loader'
+                exclude group: 'androidx.activity', module: 'activity'
+                exclude group: 'androidx.fragment', module: 'fragment'
+                exclude group: 'androidx.core', module: 'core'
+            })
+//    implementation project(path: ':androidx.appcompat-appcompat')
+//    implementation "androidx.drawerlayout:drawerlayout:${rootProject.ext.drawerlayoutVersion}"
 
     //material组件
     implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
@@ -135,33 +135,7 @@ dependencies {
     implementation project(path: ':androidx.activity-activity')
     implementation project(path: ':androidx.savedstate-savedstate')
     implementation project(path: ':androidx.viewpager-viewpager')
-//    implementation ("androidx.lifecycle:lifecycle-extensions:${rootProject.ext.androidxLifeCycle}",
-//            {
-//                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-//                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-//            })
 
-//    implementation "androidx.databinding:databinding-common:${rootProject.ext.databindingVersion}"
-//    implementation ("androidx.databinding:databinding-runtime:${rootProject.ext.databindingVersion}",
-//            {
-//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata'
-//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata-core'
-//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-//            })
-//    implementation "androidx.databinding:databinding-adapters:${rootProject.ext.databindingVersion}"
-//    implementation ("androidx.databinding:databinding-compiler-common:${rootProject.ext.databindingVersion}",
-//            {
-//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata'
-//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata-core'
-//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-//            })
-//    implementation ("androidx.databinding:databinding-compiler:${rootProject.ext.databindingVersion}",
-//            {
-//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata'
-//                exclude group: 'androidx.lifecycle', module: 'androidx.lifecycle-lifecycle-livedata-core'
-//                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-//            })
     //图片加载
     implementation ('com.github.bumptech.glide:glide:4.9.0',
             {
