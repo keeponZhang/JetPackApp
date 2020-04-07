@@ -31,17 +31,17 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //兼容包
-    implementation  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
-            {
-                exclude group: 'androidx.lifecycle'
-                exclude group: 'androidx.arch.core', module: 'core-common'
-                exclude group: 'androidx.arch.core', module: 'core-runtime'
-                exclude group: 'androidx.loader', module: 'loader'
-                exclude group: 'androidx.activity', module: 'activity'
-                exclude group: 'androidx.fragment', module: 'fragment'
-                exclude group: 'androidx.core', module: 'core'
-            })
-//    implementation project(path: ':androidx.appcompat-appcompat')
+//    implementation  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
+//            {
+//                exclude group: 'androidx.lifecycle'
+//                exclude group: 'androidx.arch.core', module: 'core-common'
+//                exclude group: 'androidx.arch.core', module: 'core-runtime'
+//                exclude group: 'androidx.loader', module: 'loader'
+//                exclude group: 'androidx.activity', module: 'activity'
+//                exclude group: 'androidx.fragment', module: 'fragment'
+//                exclude group: 'androidx.core', module: 'core'
+//            })
+    implementation project(path: ':androidx.appcompat-appcompat')
     //material组件
     implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
             {

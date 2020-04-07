@@ -37,34 +37,24 @@ dependencies {
 
 
 
-    implementation  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
-            {
-                exclude group: 'androidx.lifecycle'
-                exclude group: 'androidx.arch.core', module: 'core-common'
-                exclude group: 'androidx.arch.core', module: 'core-runtime'
-                exclude group: 'androidx.loader', module: 'loader'
-                exclude group: 'androidx.activity', module: 'activity'
-                exclude group: 'androidx.core', module: 'core'
-            })
-    implementation project(path: ':androidx.lifecycle-lifecycle-common')
-    implementation project(path: ':androidx.lifecycle-lifecycle-livedata')
-    implementation project(path: ':androidx.lifecycle-lifecycle-livedata-core')
-    implementation project(path: ':androidx.lifecycle-lifecycle-viewmodel')
-    implementation project(path: ':androidx.lifecycle-lifecycle-runtime')
-    implementation project(path: ':androidx.lifecycle-lifecycle-service')
-    implementation project(path: ':androidx.lifecycle-lifecycle-process')
-    implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
-    implementation project(path: ':androidx.activity-activity')
-    implementation project(path: ':androidx.savedstate-savedstate')
-//    implementation "androidx.drawerlayout:drawerlayout:${rootProject.ext.drawerlayoutVersion}"
-//    implementation project(path: ':androidx.appcompat-appcompat')
-//    api project(path: ':androidx.fragment-fragment')
+//    implementation  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
+//            {
+//                exclude group: 'androidx.lifecycle'
+//                exclude group: 'androidx.arch.core', module: 'core-common'
+//                exclude group: 'androidx.arch.core', module: 'core-runtime'
+//                exclude group: 'androidx.loader', module: 'loader'
+//                exclude group: 'androidx.activity', module: 'activity'
+//                exclude group: 'androidx.core', module: 'core'
+//            })
+    implementation "androidx.drawerlayout:drawerlayout:${rootProject.ext.drawerlayoutVersion}"
+    implementation project(path: ':androidx.appcompat-appcompat')
+    api project(path: ':androidx.fragment-fragment')
+
+
+
 
     implementation project(path: ':androidx-collection')
     implementation project(path: ':androidx.core-core')
-
-
-
 
     //    //material组件
     implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
