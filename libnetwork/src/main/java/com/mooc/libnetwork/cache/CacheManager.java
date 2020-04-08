@@ -72,7 +72,9 @@ public class CacheManager {
         cache.key = key;
         cache.data = toByteArray(body);
         cache.date = new Date();
-
+        if(true){
+            return;
+        }
         CacheDatabase.get().getCache().save(cache);
     }
 

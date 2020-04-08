@@ -82,6 +82,7 @@ public abstract class AbsViewModel<T> extends ViewModel {
         @Override
         public DataSource create() {
             if (dataSource == null || dataSource.isInvalid()) {
+                Log.e("TAG", "AbsViewModel create createDataSource:" );
                 dataSource = createDataSource();
             }
             return dataSource;

@@ -32,9 +32,6 @@ dependencies {
     api project(path: ':androidx.lifecycle-lifecycle-livedata-core')
     api project(path: ':androidx.core-core')
 //    implementation project(path: ':androidx.activity-activity')
-    implementation ('androidx.activity:activity:1.0.0',
-            {
-            })
     implementation project(path: ':androidx.activity-activity')
     api project(path: ':androidx.loader-loader')
     api project(path: ':androidx.savedstate-savedstate')
