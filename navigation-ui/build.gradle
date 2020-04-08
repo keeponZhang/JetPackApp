@@ -46,7 +46,7 @@ dependencies {
 //                exclude group: 'androidx.core', module: 'core'
 //            })
     implementation project(path: ':androidx.appcompat-appcompat')
-    api project(path: ':androidx.fragment-fragment')
+    implementation project(path: ':androidx.fragment-fragment')
     implementation project(path: ':androidx.activity-activity')
 
 
