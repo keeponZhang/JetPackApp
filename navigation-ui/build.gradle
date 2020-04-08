@@ -26,6 +26,7 @@ dependencies {
     implementation project(path: ':navigation-runtime')
     implementation "androidx.annotation:annotation:${rootProject.ext.annotationVersion}"
     implementation project(path: ':navigation-common')
+    implementation project(path: ':androidx.drawerlayout-drawerlayout')
 
     implementation ("androidx.transition:transition:${rootProject.ext.androidxTransitionVersion}",{
         exclude group: 'androidx.collection', module: 'collection'
@@ -46,7 +47,6 @@ dependencies {
 //                exclude group: 'androidx.activity', module: 'activity'
 //                exclude group: 'androidx.core', module: 'core'
 //            })
-    implementation "androidx.drawerlayout:drawerlayout:${rootProject.ext.drawerlayoutVersion}"
     implementation project(path: ':androidx.appcompat-appcompat')
     api project(path: ':androidx.fragment-fragment')
     implementation project(path: ':androidx.activity-activity')
@@ -57,6 +57,7 @@ dependencies {
     implementation project(path: ':androidx-collection')
     implementation project(path: ':androidx.core-core')
 
+    implementation project(path: ':androidx.coordinatorlayout-coordinatorlayout')
     //    //material组件
     implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
             {
@@ -67,6 +68,8 @@ dependencies {
                 exclude group: 'androidx.collection', module: 'collection'
                 exclude group: 'androidx.appcompat', module: 'appcompat'
                 exclude group: 'androidx.core', module: 'core'
+                exclude group: 'androidx.coordinatorlayout', module: 'coordinatorlayout'
+
             })
 
 }

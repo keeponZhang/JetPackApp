@@ -16,10 +16,13 @@
             <option value="$PROJECT_DIR$/androidx-collection" />
             <option value="$PROJECT_DIR$/androidx.activity-activity" />
             <option value="$PROJECT_DIR$/androidx.appcompat-appcompat" />
+            <option value="$PROJECT_DIR$/androidx.appcompat-appcompat-resources" />
             <option value="$PROJECT_DIR$/androidx.arch.core-core-common" />
             <option value="$PROJECT_DIR$/androidx.arch.core-core-runtime" />
+            <option value="$PROJECT_DIR$/androidx.coordinatorlayout-coordinatorlayout" />
             <option value="$PROJECT_DIR$/androidx.core-core" />
             <option value="$PROJECT_DIR$/androidx.customview-customview" />
+            <option value="$PROJECT_DIR$/androidx.drawerlayout-drawerlayout" />
             <option value="$PROJECT_DIR$/androidx.fragment-fragment" />
             <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-common" />
             <option value="$PROJECT_DIR$/androidx.lifecycle-lifecycle-extensions" />

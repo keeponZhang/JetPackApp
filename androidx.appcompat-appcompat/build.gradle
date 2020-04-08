@@ -24,9 +24,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.annotation:annotation:${rootProject.ext.annotationVersion}"
-    implementation "androidx.appcompat:appcompat-resources:${rootProject.ext.appCompatVersion}"
-    implementation "androidx.drawerlayout:drawerlayout:${rootProject.ext.drawerlayoutVersion}"
     implementation "androidx.cursoradapter:cursoradapter:${rootProject.ext.drawerlayoutVersion}"
+    implementation project(path: ':androidx.drawerlayout-drawerlayout')
+    implementation project(path: ':androidx.customview-customview')
     implementation project(path: ':androidx.fragment-fragment')
     implementation project(path: ':androidx.activity-activity')
     implementation project(path: ':androidx.savedstate-savedstate')
@@ -39,4 +39,5 @@ dependencies {
     implementation project(path: ':androidx.lifecycle-lifecycle-process')
     implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
     implementation project(path: ':androidx.core-core')
+    implementation project(path: ':androidx.appcompat-appcompat-resources')
 }

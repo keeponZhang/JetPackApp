@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion  rootProject.minSdkVersion
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -42,6 +42,7 @@ dependencies {
 //                exclude group: 'androidx.core', module: 'core'
 //            })
     implementation project(path: ':androidx.appcompat-appcompat')
+    implementation project(path: ':androidx.coordinatorlayout-coordinatorlayout')
     //material组件
     implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
             {
@@ -52,6 +53,7 @@ dependencies {
                 exclude group: 'androidx.collection', module: 'collection'
                 exclude group: 'androidx.appcompat', module: 'appcompat'
                 exclude group: 'androidx.core', module: 'core'
+                exclude group: 'androidx.coordinatorlayout', module: 'coordinatorlayout'
             })
 
     //约束布局
@@ -122,12 +124,14 @@ dependencies {
 
 
     //room数据库
-    implementation ('android.arch.persistence.room:runtime:1.1.1',
-            {
-                exclude group: 'androidx.lifecycle'
-                exclude group: 'androidx.arch.core', module: 'core-common'
-                exclude group: 'androidx.arch.core', module: 'core-runtime'
-            })
+//    implementation ('android.arch.persistence.room:runtime:1.1.1',
+//            {
+//                exclude group: 'androidx.lifecycle'
+//                exclude group: 'androidx.arch.core', module: 'core-common'
+//                exclude group: 'androidx.arch.core', module: 'core-runtime'
+//            })
+    implementation project(path: ':android.arch.persistence.room-common')
+    implementation project(path: ':android.arch.persistence.room-runtime')
     implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
 
 
@@ -180,14 +184,14 @@ dependencies {
                 exclude group: 'androidx.lifecycle'
                 exclude group: 'androidx.core', module: 'core'
             })
-
+    implementation project(path: ':androidx.work-work-runtime')
     //workmanager
-    implementation ('androidx.work:work-runtime:2.2.0',
-            {
-                exclude group: 'androidx.lifecycle'
-                exclude group: 'androidx.core', module: 'core'
-                exclude group: 'androidx.room', module: 'room-runtime'
-            })
+//    implementation ('androidx.work:work-runtime:2.2.0',
+//            {
+//                exclude group: 'androidx.lifecycle'
+//                exclude group: 'androidx.core', module: 'core'
+//                exclude group: 'androidx.room', module: 'room-runtime'
+//            })
 
     //gesture imageview
     implementation 'com.github.chrisbanes:PhotoView:2.3.0@aar'

@@ -29,5 +29,8 @@ include ':androidx.viewpager-viewpager'
 include ':androidx.customview-customview'
 include ':androidx.appcompat-appcompat'
 include ':androidx.recyclerview-recyclerview'
+include ':androidx.appcompat-appcompat-resources'
+include ':androidx.coordinatorlayout-coordinatorlayout'
+include ':androidx.drawerlayout-drawerlayout'
 
 rootProject.name = 'JetPackApp'

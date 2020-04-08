@@ -60,15 +60,31 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
 
-    implementation "com.google.android.material:material:$rootProject.materialVersion"
-    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
-    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    implementation project(path: ':androidx.coordinatorlayout-coordinatorlayout')
+    //    //material组件
+    implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
+            {
+                exclude group: 'androidx.lifecycle'
+                exclude group: 'androidx.loader', module: 'loader'
+                exclude group: 'androidx.fragment', module: 'fragment'
+                exclude group: 'androidx.activity', module: 'activity'
+                exclude group: 'androidx.collection', module: 'collection'
+                exclude group: 'androidx.appcompat', module: 'appcompat'
+                exclude group: 'androidx.core', module: 'core'
+                exclude group: 'androidx.coordinatorlayout', module: 'coordinatorlayout'
 
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.CONTRANT_LAYOUT_VERSION"
+            })
+
+//    implementation "com.google.android.material:material:$rootProject.materialVersion"
+//    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+//    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    implementation project(path: ':androidx.appcompat-appcompat')
+
+
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

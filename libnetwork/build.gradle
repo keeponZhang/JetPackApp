@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion rootProject.minSdkVersion
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -34,37 +34,36 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation ('com.squareup.okhttp3:okhttp:4.2.0',
             {
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.lifecycle'
             })
     implementation ('com.squareup.okhttp3:logging-interceptor:3.5.0',
             {
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
+                exclude group: 'androidx.lifecycle'
             })
     implementation project(":libcommon")
     implementation 'com.alibaba:fastjson:1.2.59'
-    implementation ('android.arch.persistence.room:runtime:1.1.1',
-            {
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-            })
+
 
     implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
 
-    annotationProcessor ('android.arch.persistence.room:compiler:1.1.1',
-            {
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-            })
-    annotationProcessor ("android.arch.lifecycle:compiler:1.1.1",
-            {
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
-                exclude group: 'androidx.lifecycle', module: 'lifecycle-common'
-            })
+//    annotationProcessor ('android.arch.persistence.room:compiler:1.1.1',
+//            {
+//                exclude group: 'androidx.lifecycle'
+//                exclude group: 'androidx.room'
+//            })
+//    annotationProcessor ("android.arch.lifecycle:compiler:1.1.1",
+//            {
+//                exclude group: 'androidx.lifecycle'
+//            })
+    implementation project(path: ':androidx.room-room-runtime')
+    implementation project(path: ':androidx.room-room-common')
+    implementation project(path: ':android.arch.persistence.room-common')
+    implementation project(path: ':android.arch.persistence.room-runtime')
+    implementation project(path: ':androidx.arch.core-core-runtime')
+    implementation project(path: ':androidx.arch.core-core-common')
+//    implementation ('android.arch.persistence.room:runtime:1.1.1',
+//            {
+//                exclude group: 'androidx.lifecycle'
+//                exclude group: 'androidx.room'
+//            })
 }
