@@ -26,6 +26,16 @@ android {
     }
 
 }
+configurations.all {
+//    exclude group: 'androidx.lifecycle'
+//    exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata'
+//    exclude group: 'androidx.lifecycle', module: 'lifecycle-livedata-core'
+    exclude group: 'androidx.core', module: 'core'
+    exclude group: 'androidx.fragment', module: 'fragment'
+    exclude group: 'androidx.paging'
+    exclude group: 'androidx.lifecycle'
+//    exclude group: 'androidx.lifecycle', module: 'lifecycle-service'
+}
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
