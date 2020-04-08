@@ -32,10 +32,10 @@ public class UserManager {
     }
 
     private UserManager() {
-        // User cache = (User) CacheManager.getCache(KEY_CACHE_USER);
-        // if (cache != null && cache.expires_time > System.currentTimeMillis()) {
-        //     mUser = cache;
-        // }
+        User cache = (User) CacheManager.getCache(KEY_CACHE_USER);
+        if (cache != null && cache.expires_time > System.currentTimeMillis()) {
+            mUser = cache;
+        }
     }
 
     public void save(User user) {

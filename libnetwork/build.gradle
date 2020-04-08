@@ -46,24 +46,20 @@ dependencies {
 
     implementation project(path: ':androidx.lifecycle-lifecycle-extensions')
 
-//    annotationProcessor ('android.arch.persistence.room:compiler:1.1.1',
-//            {
-//                exclude group: 'androidx.lifecycle'
-//                exclude group: 'androidx.room'
-//            })
-//    annotationProcessor ("android.arch.lifecycle:compiler:1.1.1",
-//            {
-//                exclude group: 'androidx.lifecycle'
-//            })
+
     implementation project(path: ':androidx.room-room-runtime')
     implementation project(path: ':androidx.room-room-common')
     implementation project(path: ':android.arch.persistence.room-common')
     implementation project(path: ':android.arch.persistence.room-runtime')
     implementation project(path: ':androidx.arch.core-core-runtime')
     implementation project(path: ':androidx.arch.core-core-common')
-//    implementation ('android.arch.persistence.room:runtime:1.1.1',
+    implementation project(path: ':androidx.sqlite-sqlite-framework')
+    implementation project(path: ':androidx.sqlite-sqlite')
+    annotationProcessor ('android.arch.persistence.room:compiler:1.1.1',
+            {
+            })
+//    annotationProcessor ("android.arch.lifecycle:compiler:1.1.1",
 //            {
 //                exclude group: 'androidx.lifecycle'
-//                exclude group: 'androidx.room'
 //            })
 }
