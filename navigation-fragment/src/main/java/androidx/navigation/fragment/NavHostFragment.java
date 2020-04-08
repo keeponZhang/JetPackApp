@@ -210,7 +210,11 @@ public class NavHostFragment extends Fragment implements NavHost {
         mNavController = new NavHostController(context);
         mNavController.setLifecycleOwner(this);
         FragmentActivity fragmentActivity = requireActivity();
-        mNavController.setOnBackPressedDispatcher(fragmentActivity.getOnBackPressedDispatcher());
+        try {
+            mNavController.setOnBackPressedDispatcher(fragmentActivity.getOnBackPressedDispatcher());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         // Set the default state - this will be updated whenever
         // onPrimaryNavigationFragmentChanged() is called
         mNavController.enableOnBackPressed(

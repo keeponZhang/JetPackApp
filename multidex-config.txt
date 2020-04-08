@@ -1,0 +1,5 @@
+
+-keep class androidx.** { *; }
+# keep everything in this package from being renamed only
+-keepnames class androidx.** { *; }
+

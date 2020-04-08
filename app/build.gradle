@@ -26,7 +26,7 @@ android {
             }
         }
         multiDexEnabled true
-//        multiDexKeepFile file('multidex-config.txt')
+        multiDexKeepFile file('multidex-config.txt')
 
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
 //        renderscriptSupportModeEnabled = false
@@ -44,7 +44,7 @@ android {
         }
     }
     dexOptions {
-//        jumboMode = true
+        jumboMode = true
         additionalParameters = ['--multi-dex',
                                 '--set-max-idx-number=60000',
                                 '--main-dex-list='+projectDir+'/multidex-config.txt',

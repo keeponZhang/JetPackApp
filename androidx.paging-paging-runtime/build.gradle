@@ -28,5 +28,6 @@ dependencies {
     implementation project(path: ':androidx.lifecycle-lifecycle-livedata')
     implementation project(path: ':androidx.arch.core-core-runtime')
     implementation project(path: ':androidx.paging-paging-common')
-    implementation "androidx.recyclerview:recyclerview:${rootProject.ext.recyclerViewVersion}"
+    implementation project(path: ':androidx.recyclerview-recyclerview')
+    implementation project(path: ':androidx.core-core')
 }
