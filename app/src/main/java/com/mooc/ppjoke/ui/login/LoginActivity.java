@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     };
 
-    private void getUserInfo(QQToken qqToken, long expires_time, String openid) {
+    private void getUserInfo(QQToken qqToken, final long expires_time, final String openid) {
         UserInfo userInfo = new UserInfo(getApplicationContext(), qqToken);
         userInfo.getUserInfo(new IUiListener() {
             @Override
@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
 
                     @Override
-                    public void onError(ApiResponse<User> response) {
+                    public void onError(final ApiResponse<User> response) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {

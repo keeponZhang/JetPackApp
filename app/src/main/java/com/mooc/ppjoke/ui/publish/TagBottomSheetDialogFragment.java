@@ -81,7 +81,7 @@ public class TagBottomSheetDialogFragment extends BottomSheetDialogFragment {
             }
 
             @Override
-            public void onError(ApiResponse<List<TagList>> response) {
+            public void onError(final ApiResponse<List<TagList>> response) {
                 ArchTaskExecutor.getMainThreadExecutor().execute(new Runnable() {
                     @Override
                     public void run() {
@@ -116,7 +116,7 @@ public class TagBottomSheetDialogFragment extends BottomSheetDialogFragment {
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             TextView textView = (TextView) holder.itemView;
-            TagList tagList = mTagLists.get(position);
+            final TagList tagList = mTagLists.get(position);
             textView.setText(tagList.title);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

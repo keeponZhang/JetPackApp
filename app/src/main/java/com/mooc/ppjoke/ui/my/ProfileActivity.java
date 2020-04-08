@@ -3,6 +3,7 @@ package com.mooc.ppjoke.ui.my;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,13 +46,17 @@ public class ProfileActivity extends AppCompatActivity {
 
         User user = UserManager.get().getUser();
         mBinding.setUser(user);
-        mBinding.actionBack.setOnClickListener(v -> {
-            finish();
+        mBinding.actionBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
 
 
-        String[] tabs = getResources().getStringArray(R.array.profile_tabs);
-        ViewPager2 viewPager = mBinding.viewPager;
+
+        final String[] tabs = getResources().getStringArray(R.array.profile_tabs);
+        final ViewPager2 viewPager = mBinding.viewPager;
         TabLayout tabLayout = mBinding.tabLayout;
         viewPager.setAdapter(new FragmentStateAdapter(this) {
             @NonNull
@@ -87,10 +92,13 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }).attach();
 
-        int initTabPosition = getInitTabPosition();
+        final int initTabPosition = getInitTabPosition();
         if (initTabPosition != 0) {
-            viewPager.post(() -> {
-                viewPager.setCurrentItem(initTabPosition,false);
+            viewPager.post(new Runnable() {
+                @Override
+                public void run() {
+                    viewPager.setCurrentItem(initTabPosition, false);
+                }
             });
         }
 

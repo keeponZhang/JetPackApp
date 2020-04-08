@@ -9,6 +9,7 @@ import androidx.paging.ItemKeyedDataSource;
 import com.alibaba.fastjson.TypeReference;
 import com.mooc.libnetwork.ApiResponse;
 import com.mooc.libnetwork.ApiService;
+import com.mooc.ppjoke.model.Feed;
 import com.mooc.ppjoke.model.TagList;
 import com.mooc.ppjoke.ui.AbsViewModel;
 import com.mooc.ppjoke.ui.login.UserManager;
@@ -39,7 +40,7 @@ public class TagListViewModel extends AbsViewModel<TagList> {
 
     private class DataSource extends ItemKeyedDataSource<Long, TagList> {
 
-
+        List<TagList> emtpy = Collections.emptyList();
         @Override
         public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull LoadInitialCallback<TagList> callback) {
             loadData(0L, callback);
@@ -52,7 +53,7 @@ public class TagListViewModel extends AbsViewModel<TagList> {
 
         @Override
         public void loadBefore(@NonNull LoadParams<Long> params, @NonNull LoadCallback<TagList> callback) {
-            callback.onResult(Collections.emptyList());
+            callback.onResult(emtpy);
         }
 
         private void loadData(Long requestKey, LoadCallback<TagList> callback) {
@@ -69,7 +70,7 @@ public class TagListViewModel extends AbsViewModel<TagList> {
                     }.getType())
                     .execute();
 
-            List<TagList> result = response.body == null ? Collections.emptyList() : response.body;
+            List<TagList> result = response.body == null ?emtpy : response.body;
             callback.onResult(result);
             if (requestKey > 0) {
                 loadAfter.set(false);
@@ -87,7 +88,7 @@ public class TagListViewModel extends AbsViewModel<TagList> {
         }
     }
 
-    public void loadData(long tagId, ItemKeyedDataSource.LoadCallback callback) {
+    public void loadData(final long tagId, final ItemKeyedDataSource.LoadCallback callback) {
         if (tagId <= 0 || loadAfter.get()) {
             callback.onResult(Collections.emptyList());
             return;

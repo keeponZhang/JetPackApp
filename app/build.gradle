@@ -29,20 +29,22 @@ android {
 //        multiDexKeepFile file('multidex-config.txt')
 
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
-
+//        renderscriptSupportModeEnabled = false
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.joke
         }
         debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.joke
         }
     }
     dexOptions {
-        jumboMode = true
+//        jumboMode = true
         additionalParameters = ['--multi-dex',
                                 '--set-max-idx-number=60000',
                                 '--main-dex-list='+projectDir+'/multidex-config.txt',

@@ -16,6 +16,7 @@ import com.mooc.libnetwork.ApiResponse;
 import com.mooc.libnetwork.ApiService;
 import com.mooc.libnetwork.JsonCallback;
 import com.mooc.libnetwork.Request;
+import com.mooc.ppjoke.model.TagList;
 import com.mooc.ppjoke.ui.AbsViewModel;
 import com.mooc.ppjoke.model.Feed;
 import com.mooc.ppjoke.ui.MutablePageKeyedDataSource;
@@ -58,6 +59,8 @@ public class HomeViewModel extends AbsViewModel<Feed> {
 
     //DataSource<Key, Value>Key是用来帮助开发者进行数据的组合以及请求的变化,会在请求开始和过程中传递给开发者,Key的类型和值由开发者决定
     class FeedDataSource extends ItemKeyedDataSource<Integer, Feed> {
+        List<Feed> emtpy = Collections.emptyList();
+
         //这里是创建dataSource,然后回调到loadInitial，发起数据请求
         @Override
         public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull
@@ -78,7 +81,7 @@ public class HomeViewModel extends AbsViewModel<Feed> {
 
         @Override
         public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Feed> callback) {
-            callback.onResult(Collections.emptyList());
+            callback.onResult(emtpy);
             //能够向前加载数据的
         }
 
@@ -141,7 +144,8 @@ public class HomeViewModel extends AbsViewModel<Feed> {
             netRequest.cacheStrategy(key == 0 ? Request.NET_CACHE : Request.NET_ONLY);
             //首页的数据才缓存
             ApiResponse<List<Feed>> response = netRequest.execute();
-            List<Feed> data = response.body == null ? Collections.emptyList() : response.body;
+            List<Feed> emtpy = Collections.emptyList();
+            List<Feed> data = response.body == null ?emtpy : response.body;
             Log.e("TAG",
                     "HomeViewModel loadData 同步获取数据成功"+"  key="+key + " data.size:"+data.size());
             //call返回的是普通List
@@ -159,9 +163,10 @@ public class HomeViewModel extends AbsViewModel<Feed> {
 
     }
 
-    public void loadAfter(int id, ItemKeyedDataSource.LoadCallback<Feed> callback) {
+    public void loadAfter(final int id, final ItemKeyedDataSource.LoadCallback<Feed> callback) {
+        List<Feed> emtpy = Collections.emptyList();
         if (loadAfter.get()) {
-            callback.onResult(Collections.emptyList());
+            callback.onResult(emtpy);
             return;
         }
         ArchTaskExecutor.getIOThreadExecutor().execute(new Runnable() {

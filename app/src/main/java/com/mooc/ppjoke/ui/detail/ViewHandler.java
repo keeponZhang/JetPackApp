@@ -74,11 +74,15 @@ public abstract class ViewHandler {
         if (commentDialog == null) {
             commentDialog = CommentDialog.newInstance(mFeed.itemId);
         }
-        commentDialog.setCommentAddListener(comment -> {
-            handleEmpty(true);
-            //pageListAdapter 没有add方法
-            listAdapter.addAndRefreshList(comment);
+        commentDialog.setCommentAddListener(new CommentDialog.commentAddListener() {
+            @Override
+            public void onAddComment(Comment comment) {
+                handleEmpty(true);
+                //pageListAdapter 没有add方法
+                listAdapter.addAndRefreshList(comment);
+            }
         });
+
         commentDialog.show(mActivity.getSupportFragmentManager(), "comment_dialog");
     }
 

@@ -73,7 +73,7 @@ public class UserManager {
         if (!isLogin()) {
             return login(AppGlobals.getApplication());
         }
-        MutableLiveData<User> liveData = new MutableLiveData<>();
+        final MutableLiveData<User> liveData = new MutableLiveData<>();
         ApiService.get("/user/query")
                 .addParam("userId", getUserId())
                 .execute(new JsonCallback<User>() {
@@ -85,7 +85,7 @@ public class UserManager {
                     }
 
                     @Override
-                    public void onError(ApiResponse<User> response) {
+                    public void onError(final ApiResponse<User> response) {
                         ArchTaskExecutor.getMainThreadExecutor().execute(new Runnable() {
                             @Override
                             public void run() {

@@ -122,11 +122,17 @@ public class CaptureActivity extends AppCompatActivity {
         });
     }
 
-    private void showErrorToast(@NonNull String message) {
+    private void showErrorToast(@NonNull final String message) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             Toast.makeText(CaptureActivity.this, message, Toast.LENGTH_SHORT).show();
         } else {
-            runOnUiThread(() -> Toast.makeText(CaptureActivity.this, message, Toast.LENGTH_SHORT).show());
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(CaptureActivity.this, message,
+                            Toast.LENGTH_SHORT).show();
+                }
+            } );
         }
     }
 

@@ -1,5 +1,7 @@
 package com.mooc.ppjoke.ui;
 
+import com.mooc.ppjoke.model.Feed;
+
 import androidx.annotation.NonNull;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.paging.PageKeyedDataSource;
@@ -34,11 +36,13 @@ public class MutablePageKeyedDataSource<Value> extends PageKeyedDataSource<Integ
 
     @Override
     public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Value> callback) {
-        callback.onResult(Collections.emptyList(), null);
+        List<Value> emtpy = Collections.emptyList();
+        callback.onResult(emtpy, null);
     }
 
     @Override
     public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Value> callback) {
-        callback.onResult(Collections.emptyList(), null);
+        List<Value> emtpy = Collections.emptyList();
+        callback.onResult(emtpy, null);
     }
 }

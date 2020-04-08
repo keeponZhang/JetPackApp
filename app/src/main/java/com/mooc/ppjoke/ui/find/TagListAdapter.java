@@ -45,8 +45,18 @@ public class TagListAdapter extends AbsPagedListAdapter<TagList, TagListAdapter.
     protected void onBindViewHolder2(ViewHolder holder, int position) {
         final TagList item = getItem(position);
         holder.bindData(item);
-        holder.mItemBinding.actionFollow.setOnClickListener(v -> InteractionPresenter.toggleTagLike(((LifecycleOwner) mContext), item));
-        holder.itemView.setOnClickListener(v -> TagFeedListActivity.startActivity(mContext, item));
+        holder.mItemBinding.actionFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InteractionPresenter.toggleTagLike(((LifecycleOwner) mContext), item);
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TagFeedListActivity.startActivity(mContext, item);
+            }
+        });
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

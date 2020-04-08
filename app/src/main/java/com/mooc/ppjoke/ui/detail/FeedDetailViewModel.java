@@ -53,8 +53,8 @@ public class FeedDetailViewModel extends AbsViewModel<Comment> {
                     .responseType(new TypeReference<ArrayList<Comment>>() {
                     }.getType())
                     .execute();
-
-            List<Comment> list = response.body == null ? Collections.emptyList() : response.body;
+            List<Comment> empty = Collections.emptyList();
+            List<Comment> list = response.body == null ? empty : response.body;
             Log.e("TAG", "DataSource loadData 从网络获取到了评论数据:" );
             //注释掉会返回空
             callback.onResult(list);
@@ -62,7 +62,8 @@ public class FeedDetailViewModel extends AbsViewModel<Comment> {
 
         @Override
         public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Comment> callback) {
-            callback.onResult(Collections.emptyList());
+            List<Comment> empty = Collections.emptyList();
+            callback.onResult(empty);
         }
 
         @NonNull

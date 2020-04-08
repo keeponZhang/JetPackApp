@@ -114,11 +114,16 @@ public class AppBottomBar extends BottomNavigationView {
         if (config.selectTab != 0) {
             BottomBar.Tab selectTab = config.tabs.get(config.selectTab);
             if (selectTab.enable) {
-                int itemId = getItemId(selectTab.pageUrl);
+                final int itemId = getItemId(selectTab.pageUrl);
                 //这里需要延迟一下 再定位到默认选中的tab
                 //因为 咱们需要等待内容区域,也就NavGraphBuilder解析数据并初始化完成，
                 //否则会出现 底部按钮切换过去了，但内容区域还没切换过去
-                post(() -> setSelectedItemId(itemId));
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        setSelectedItemId(itemId);
+                    }
+                });
             }
         }
     }

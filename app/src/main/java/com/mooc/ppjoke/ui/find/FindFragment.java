@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.mooc.libnavannotation.FragmentDestination;
@@ -30,7 +31,13 @@ public class FindFragment extends SofaFragment {
         if (TextUtils.equals(tagType, "onlyFollow")) {
             ViewModelProviders.of(childFragment).get(TagListViewModel.class)
                     .getSwitchTabLiveData().observe(this,
-                    object -> viewPager2.setCurrentItem(1));
+                    new Observer() {
+                        @Override
+                        public void onChanged(Object o) {
+                            viewPager2.setCurrentItem(1);
+                        }
+                    }
+                    );
         }
     }
 

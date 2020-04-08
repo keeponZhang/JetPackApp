@@ -119,7 +119,7 @@ public class PPImageView extends AppCompatImageView {
     }
 
     @BindingAdapter(value = {"blur_url", "radius"})
-    public static void setBlurImageUrl(ImageView imageView, String blurUrl, int radius) {
+    public static void setBlurImageUrl(final ImageView imageView, String blurUrl, int radius) {
         Glide.with(imageView).load(blurUrl).override(radius)
                 .transform(new BlurTransformation())
                 .dontAnimate()

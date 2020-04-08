@@ -45,25 +45,35 @@ public class ProfileListAdapter extends FeedAdapter {
         View deleteView = holder.itemView.findViewById(R.id.feed_delete);
         TextView createTime = holder.itemView.findViewById(R.id.create_time);
 
-        Feed feed = getItem(position);
+        final Feed feed = getItem(position);
         createTime.setVisibility(View.VISIBLE);
         createTime.setText(TimeUtils.calculate(feed.createTime));
 
-        boolean isCommentTab = TextUtils.equals(mCategory, ProfileActivity.TAB_TYPE_COMMENT);
+        final boolean isCommentTab = TextUtils.equals(mCategory, ProfileActivity.TAB_TYPE_COMMENT);
         deleteView.setVisibility(View.VISIBLE);
-        deleteView.setOnClickListener(v -> {
+        deleteView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
             //如果是个人主页的评论tab，删除的时候，实际上是删除帖子的评论。
             if (isCommentTab) {
                 InteractionPresenter.deleteFeedComment(mContext, feed.itemId, feed.topComment.commentId)
-                        .observe((LifecycleOwner) mContext, success -> {
-                            refreshList(feed);
-                        });
+                        .observe((LifecycleOwner) mContext,
+                                new Observer<Boolean>() {
+                                    @Override
+                                    public void onChanged(Boolean success) {
+                                        refreshList(feed);
+                                    }
+                                });
             } else {
                 InteractionPresenter.deleteFeed(mContext, feed.itemId)
-                        .observe((LifecycleOwner) mContext, success -> {
-                            refreshList(feed);
+                        .observe((LifecycleOwner) mContext, new Observer<Boolean>() {
+                            @Override
+                            public void onChanged(Boolean aBoolean) {
+                                refreshList(feed);
+                            }
                         });
             }
+        }
         });
     }
 

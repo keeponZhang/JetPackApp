@@ -71,9 +71,12 @@ public class VideoViewHandler extends ViewHandler {
 
         //这里需要延迟一帧 等待布局完成，再来拿playerView的bottom值 和 coordinator的bottom值
         //做个比较。来校验是否进入详情页时时视频在全屏播放
-        playerView.post(() -> {
-            boolean fullscreen = playerView.getBottom() >= coordinator.getBottom();
-            setViewAppearance(fullscreen);
+        playerView.post(new Runnable() {
+            @Override
+            public void run() {
+                boolean fullscreen = playerView.getBottom() >= coordinator.getBottom();
+                setViewAppearance(fullscreen);
+            }
         });
 
         //给headerView、 绑定数据并添加到列表之上

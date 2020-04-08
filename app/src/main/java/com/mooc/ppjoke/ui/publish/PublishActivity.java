@@ -102,7 +102,7 @@ public class PublishActivity extends AppCompatActivity implements View.OnClickLi
 
     private void publish() {
         showLoading();
-        List<OneTimeWorkRequest> workRequests = new ArrayList<>();
+        final List<OneTimeWorkRequest> workRequests = new ArrayList<>();
         if (!TextUtils.isEmpty(filePath)) {
             if (isVideo) {
                 //生成视频封面文件
@@ -218,15 +218,18 @@ public class PublishActivity extends AppCompatActivity implements View.OnClickLi
                 mLoadingDialog.dismiss();
             }
         } else {
-            runOnUiThread(() -> {
-                if (mLoadingDialog != null) {
-                    mLoadingDialog.dismiss();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (mLoadingDialog != null) {
+                        mLoadingDialog.dismiss();
+                    }
                 }
             });
         }
     }
 
-    private void showToast(String message) {
+    private void showToast(final String message) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         } else {

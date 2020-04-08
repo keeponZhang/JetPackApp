@@ -117,7 +117,7 @@ public class ShareDialog extends AlertDialog {
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-            ResolveInfo resolveInfo = shareitems.get(position);
+            final ResolveInfo resolveInfo = shareitems.get(position);
             PPImageView imageView = holder.itemView.findViewById(R.id.share_icon);
             Drawable drawable = resolveInfo.loadIcon(packageManager);
             imageView.setImageDrawable(drawable);

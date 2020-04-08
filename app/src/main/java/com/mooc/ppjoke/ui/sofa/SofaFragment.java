@@ -101,7 +101,12 @@ public class SofaFragment extends Fragment {
 
         viewPager2.registerOnPageChangeCallback(mPageChangeCallback);
         //切换到默认选择项,那当然要等待初始化完成之后才有效
-        viewPager2.post(() -> viewPager2.setCurrentItem(tabConfig.select, false));
+        viewPager2.post(new Runnable() {
+            @Override
+            public void run() {
+                viewPager2.setCurrentItem(tabConfig.select, false);
+            }
+        } );
         viewPager2.getAdapter().notifyDataSetChanged();
     }
 

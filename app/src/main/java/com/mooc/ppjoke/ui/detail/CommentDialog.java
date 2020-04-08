@@ -83,21 +83,29 @@ public class CommentDialog extends AppCompatDialogFragment implements View.OnCli
 
         ViewHelper.setViewOutline(mBinding.getRoot(), PixUtils.dp2px(10), ViewHelper.RADIUS_TOP);
 
-        mBinding.getRoot().post(() -> showSoftInputMethod());
+        mBinding.getRoot().post(new Runnable() {
+            @Override
+            public void run() {
+                showSoftInputMethod();
+            }
+        });
 
         dismissWhenPressBack();
         return mBinding.getRoot();
     }
 
     private void dismissWhenPressBack() {
-        mBinding.inputView.setOnBackKeyEventListener(() -> {
-            mBinding.inputView.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    dismiss();
-                }
-            }, 200);
-            return true;
+        mBinding.inputView.setOnBackKeyEventListener(new PPEditTextView.onBackKeyEvent() {
+            @Override
+            public boolean onKeyEvent() {
+                mBinding.inputView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dismiss();
+                    }
+                },200);
+                return true;
+            }
         });
     }
 
@@ -173,10 +181,10 @@ public class CommentDialog extends AppCompatDialogFragment implements View.OnCli
         }
     }
 
-    private void uploadFile(String coverPath, String filePath) {
+    private void uploadFile(final String coverPath, final String filePath) {
         //AtomicInteger, CountDownLatch, CyclicBarrier
         showLoadingDialog();
-        AtomicInteger count = new AtomicInteger(1);
+        final AtomicInteger count = new AtomicInteger(1);
         if (!TextUtils.isEmpty(coverPath)) {
             count.set(2);
             ArchTaskExecutor.getIOThreadExecutor().execute(new Runnable() {
@@ -257,25 +265,33 @@ public class CommentDialog extends AppCompatDialogFragment implements View.OnCli
         if (loadingDialog != null) {
             //dismissLoadingDialog  的调用可能会出现在异步线程调用
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                ArchTaskExecutor.getMainThreadExecutor().execute(() -> {
-                    if (loadingDialog != null && loadingDialog.isShowing()) {
-                        loadingDialog.dismiss();
+                ArchTaskExecutor.getMainThreadExecutor().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (loadingDialog != null && loadingDialog.isShowing()) {
+                            loadingDialog.dismiss();
+                        }
                     }
                 });
+
             } else if (loadingDialog.isShowing()) {
                 loadingDialog.dismiss();
             }
         }
     }
 
-    private void onCommentSuccess(Comment body) {
+    private void onCommentSuccess(final Comment body) {
         showToast("评论发布成功");
-        ArchTaskExecutor.getMainThreadExecutor().execute(() -> {
-            if (mListener != null) {
-                mListener.onAddComment(body);
+        ArchTaskExecutor.getMainThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                if (mListener != null) {
+                    mListener.onAddComment(body);
+                }
+                dismiss();
             }
-            dismiss();
         });
+
     }
 
     @Override
@@ -290,12 +306,17 @@ public class CommentDialog extends AppCompatDialogFragment implements View.OnCli
         height = 0;
     }
 
-    private void showToast(String s) {
+    private void showToast(final String s) {
         //showToast几个可能会出现在异步线程调用
         if (Looper.myLooper() == Looper.getMainLooper()) {
             Toast.makeText(AppGlobals.getApplication(), s, Toast.LENGTH_SHORT).show();
         } else {
-            ArchTaskExecutor.getMainThreadExecutor().execute(() -> Toast.makeText(AppGlobals.getApplication(), s, Toast.LENGTH_SHORT).show());
+            ArchTaskExecutor.getMainThreadExecutor().execute(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(AppGlobals.getApplication(), s, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 

@@ -32,7 +32,7 @@ public class PageListPlayDetector {
         mTargets.remove(target);
     }
 
-    public PageListPlayDetector(LifecycleOwner owner, RecyclerView recyclerView) {
+    public PageListPlayDetector(final LifecycleOwner owner, final RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
 
         owner.getLifecycle().addObserver(new LifecycleEventObserver() {

@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     //选中下面的tab时回调
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+    public boolean onNavigationItemSelected(@NonNull final MenuItem menuItem) {
         HashMap<String, Destination> destConfig = AppConfig.getDestConfig();
         Iterator<Map.Entry<String, Destination>> iterator = destConfig.entrySet().iterator();
         //防止循环调用

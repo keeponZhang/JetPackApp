@@ -65,11 +65,14 @@ public class ListPlayerView extends FrameLayout implements IPlayTarget, PlayerCo
         //播放盒暂停的按钮
         playBtn = findViewById(R.id.play_btn);
 
-        playBtn.setOnClickListener(v -> {
-            if (isPlaying()) {
-                inActive();
-            } else {
-                onActive();
+        playBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPlaying()) {
+                    inActive();
+                } else {
+                    onActive();
+                }
             }
         });
 

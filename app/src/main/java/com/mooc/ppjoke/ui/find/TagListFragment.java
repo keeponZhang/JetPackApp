@@ -61,7 +61,7 @@ public class TagListFragment extends AbsListFragment<TagList, TagListViewModel> 
 
     @Override
     public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-        PagedList<TagList> currentList = getAdapter().getCurrentList();
+        final PagedList<TagList> currentList = getAdapter().getCurrentList();
         long tagId = currentList == null ? 0 : currentList.get(currentList.size() - 1).tagId;
         mViewModel.loadData(tagId, new ItemKeyedDataSource.LoadCallback() {
 

@@ -66,7 +66,7 @@ public class RecordView extends View implements View.OnLongClickListener, View.O
         progressPaint.setStyle(Paint.Style.STROKE);
         progressPaint.setStrokeWidth(progressWidth);
 
-        Handler handler = new Handler(Looper.getMainLooper()) {
+        final Handler handler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);

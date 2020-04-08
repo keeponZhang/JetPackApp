@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.paging.PagedList;
 import androidx.paging.PagedListAdapter;
@@ -85,8 +86,19 @@ public class TagFeedListActivity extends AppCompatActivity implements View.OnCli
 
         tagFeedListViewModel = ViewModelProviders.of(this).get(TagFeedListViewModel.class);
         tagFeedListViewModel.setFeedType(tagList.title);
-        tagFeedListViewModel.getLiveDataPageList().observe(this, feeds -> submitList(feeds));
-        tagFeedListViewModel.getBoundaryPageData().observe(this, hasData -> finishRefresh(hasData));
+        tagFeedListViewModel.getLiveDataPageList().observe(this, new Observer<PagedList<Feed>>() {
+            @Override
+            public void onChanged(PagedList<Feed> feeds) {
+                submitList(feeds);
+            }
+        } );
+        tagFeedListViewModel.getBoundaryPageData().observe(this,
+                new Observer<Boolean>() {
+                    @Override
+                    public void onChanged(Boolean hasData) {
+                        finishRefresh(hasData);
+                    }
+                } );
 
         playDetector = new PageListPlayDetector(this, recyclerView);
 

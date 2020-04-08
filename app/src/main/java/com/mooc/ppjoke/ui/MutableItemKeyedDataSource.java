@@ -59,7 +59,7 @@ public abstract class MutableItemKeyedDataSource<Key, Value> extends ItemKeyedDa
 
     @Override
     public void loadBefore(@NonNull LoadParams<Key> params, @NonNull LoadCallback<Value> callback) {
-        callback.onResult(Collections.emptyList());
+        callback.onResult((List<Value>) Collections.emptyList());
     }
 
     @NonNull

@@ -44,8 +44,8 @@ public class ProfileViewModel extends AbsViewModel<Feed> {
                     .responseType(new TypeReference<ArrayList<Feed>>() {
                     }.getType())
                     .execute();
-
-            List<Feed> result = response.body == null ? Collections.emptyList() : response.body;
+            List<Feed> emtpy = Collections.emptyList();
+            List<Feed> result = response.body == null ?emtpy : response.body;
             callback.onResult(result);
 
             if (key > 0) {
@@ -62,7 +62,8 @@ public class ProfileViewModel extends AbsViewModel<Feed> {
 
         @Override
         public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Feed> callback) {
-            callback.onResult(Collections.emptyList());
+            List<Feed> emtpy = Collections.emptyList();
+            callback.onResult(emtpy);
         }
 
         @NonNull
