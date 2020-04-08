@@ -28,6 +28,7 @@ android {
         multiDexEnabled true
 //        multiDexKeepFile file('multidex-config.txt')
 
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
 
     }
     buildTypes {
@@ -73,6 +74,9 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(path: ':androidx.fragment-fragment')
     implementation project(path: ':androidx.activity-activity')
+    implementation project(path: ':androidx.recyclerview-recyclerview')
+    implementation project(path: ':androidx.viewpager2-viewpager2')
+    implementation project(path: ':androidx.cardview-cardview')
     //兼容包
 //    implementation  ("androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}",
 //            {
@@ -88,19 +92,8 @@ dependencies {
     implementation project(path: ':androidx.drawerlayout-drawerlayout')
 
     implementation project(path: ':androidx.coordinatorlayout-coordinatorlayout')
-    //    //material组件
-    implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
-            {
-                exclude group: 'androidx.lifecycle'
-                exclude group: 'androidx.loader', module: 'loader'
-                exclude group: 'androidx.fragment', module: 'fragment'
-                exclude group: 'androidx.activity', module: 'activity'
-                exclude group: 'androidx.collection', module: 'collection'
-                exclude group: 'androidx.appcompat', module: 'appcompat'
-                exclude group: 'androidx.core', module: 'core'
-                exclude group: 'androidx.coordinatorlayout', module: 'coordinatorlayout'
+    implementation project(path: ':com.google.android.material-material')
 
-            })
 
 
 

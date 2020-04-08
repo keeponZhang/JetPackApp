@@ -32,9 +32,7 @@ dependencies {
         exclude group: 'androidx.collection', module: 'collection'
         exclude group: 'androidx.core', module: 'core'
     })
-//    implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",{
-//        exclude group: 'androidx.collection', module: 'collection'
-//    })
+
 
 
 
@@ -58,18 +56,7 @@ dependencies {
     implementation project(path: ':androidx.core-core')
 
     implementation project(path: ':androidx.coordinatorlayout-coordinatorlayout')
-    //    //material组件
-    implementation ("com.google.android.material:material:${rootProject.ext.materialVersion}",
-            {
-                exclude group: 'androidx.lifecycle'
-                exclude group: 'androidx.loader', module: 'loader'
-                exclude group: 'androidx.fragment', module: 'fragment'
-                exclude group: 'androidx.activity', module: 'activity'
-                exclude group: 'androidx.collection', module: 'collection'
-                exclude group: 'androidx.appcompat', module: 'appcompat'
-                exclude group: 'androidx.core', module: 'core'
-                exclude group: 'androidx.coordinatorlayout', module: 'coordinatorlayout'
+    implementation project(path: ':com.google.android.material-material')
 
-            })
 
 }

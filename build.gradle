@@ -31,6 +31,7 @@ buildscript {
         recyclerViewVersion = "1.1.0-beta04"
         materialVersion = "1.1.0-alpha10"
         drawerlayoutVersion = "1.0.0"
+        interceptorVersion = "1.0.0"
 
     }
     repositories {

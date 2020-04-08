@@ -26,7 +26,7 @@ dependencies {
     implementation "androidx.annotation:annotation:${rootProject.ext.annotationVersion}"
     implementation project(path: ':androidx.core-core')
     implementation project(path: ':androidx-collection')
-    implementation "androidx.vectordrawable:vectordrawable:${rootProject.ext.appCompatVersion}"
-    implementation "androidx.vectordrawable:vectordrawable-animated:${rootProject.ext.appCompatVersion}"
+    implementation project(path: ':androidx.vectordrawable-vectordrawable')
+    implementation project(path: ':androidx.vectordrawable-vectordrawable-animated')
 
 }
